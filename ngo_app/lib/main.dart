@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'environment_page.dart'; // Import the EnvironmentPage
+import 'environment_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Avali',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const LoginPage(), // Start with the LoginPage
+      home: const LoginPage(),
     );
   }
 }
@@ -60,57 +60,21 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Validate and log in the user
                 String username = _usernameController.text;
                 String password = _passwordController.text;
 
                 if (username.isNotEmpty && password.isNotEmpty) {
-                  // Navigate to the HomePage after login
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    MaterialPageRoute(builder: (context) => const EnvironmentPage()),
                   );
                 } else {
-                  // Show an error message if username or password is empty
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Please enter both username and password')),
                   );
                 }
               },
               child: const Text('Login'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Avali Dashboard')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Welcome to Avali!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate to the EnvironmentPage
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const EnvironmentPage()),
-                );
-              },
-              child: const Text('Go to Environment Page'),
             ),
           ],
         ),
