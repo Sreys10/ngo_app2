@@ -19,37 +19,41 @@ class EnvironmentPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const EnvironmentalResourcesPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const EnvironmentalResourcesPage()),
                 );
               },
-              child: const Text('4.1 Environmental Resources'),
+              child: const Text('Environmental Resources'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ManagementPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const ManagementPage()),
                 );
               },
-              child: const Text('4.2 Management'),
+              child: const Text('Management'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RecyclingPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const RecyclingPage()),
                 );
               },
-              child: const Text('4.3 Recycling'),
+              child: const Text('Recycling'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const WasteDisposalPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const WasteDisposalPage()),
                 );
               },
-              child: const Text('4.4 Waste Disposal'),
+              child: const Text('Waste Disposal'),
             ),
           ],
         ),
