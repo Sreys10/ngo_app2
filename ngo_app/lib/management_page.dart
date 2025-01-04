@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'carbon_footprint.dart'; // Import the carbon footprint calculation file
 
 class ManagementPage extends StatelessWidget {
   const ManagementPage({super.key});
@@ -229,26 +230,31 @@ class ManagementPage extends StatelessWidget {
                       '• Zero waste initiatives'
                 },
               ],
-            ),
+            ), // Add more sections here...
 
             const SizedBox(height: 20),
 
-            // Call to Action
+            // Calculate Carbon Footprint Button
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // Add navigation to detailed resources or activities
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CarbonFootprintPage(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2E7D32),
+                  backgroundColor: Colors.teal,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 32,
                     vertical: 16,
                   ),
                 ),
                 child: const Text(
-                  'Start Management Activity',
+                  'Calculate Carbon Footprint',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
