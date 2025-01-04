@@ -64,6 +64,8 @@ flutter:
     - assets/frm.jpg
     - assets/aqm.gif
     - assets/wm.gif
+    - assets/env.gif
+    - assets/pf.png
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

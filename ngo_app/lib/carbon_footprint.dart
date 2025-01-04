@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'organize_challenge_page.dart';
 
 class CarbonFootprintPage extends StatelessWidget {
   const CarbonFootprintPage({super.key});
@@ -37,6 +38,7 @@ class CarbonFootprintPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Input Fields and Dropdowns
             const Text(
               'Travel Distance (in km):',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -135,6 +137,7 @@ class CarbonFootprintPage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                // Carbon Footprint Calculation Logic
                 final double distance =
                     double.tryParse(distanceController.text) ?? 0.0;
                 final double electricity =
@@ -191,6 +194,28 @@ class CarbonFootprintPage extends StatelessWidget {
               ),
               child: const Text(
                 'Calculate',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OrganizeChallengePage(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orange,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 16,
+                ),
+              ),
+              child: const Text(
+                'Organize Challenge',
                 style: TextStyle(fontSize: 16),
               ),
             ),
