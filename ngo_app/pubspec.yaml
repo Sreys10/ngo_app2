@@ -68,6 +68,9 @@ flutter:
     - assets/env.gif
     - assets/pf.png
     - assets/wm1.webp
+    - assets/diy1.jpg
+    - assets/diy2.jpg
+    - assets/diy3.webp
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
