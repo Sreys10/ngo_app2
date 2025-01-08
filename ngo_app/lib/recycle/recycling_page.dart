@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'diy_videos.dart'; // Import the new file for DIY video functionality
+import 'diy_videos.dart'; // Import the DIY videos file
+import 'gamification.dart'; // Import the gamification file
 
 class RecyclingPage extends StatelessWidget {
   const RecyclingPage({super.key});
@@ -124,6 +125,37 @@ class RecyclingPage extends StatelessWidget {
                   ),
                   child: const Text(
                     'Explore DIY Videos',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LeaderboardPage(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text(
+                    'View Leaderboard',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
