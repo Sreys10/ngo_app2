@@ -139,6 +139,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      sha256: "4820fbfdb9478b1ebae27888254d445073732dae3d6ea81f0b7e06d5dedc3f02"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.8"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -192,6 +200,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.3"
+  url_launcher:
+    dependency: "direct main"
+    description:
+      name: url_launcher
+      sha256: eeddbb79831da4f84e54847be871dae8fb6fbe114ba036927b4e10e141b155a2
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.0-nullsafety.6"
+  url_launcher_linux:
+    dependency: transitive
+    description:
+      name: url_launcher_linux
+      sha256: ea2ec6f00327da16f53bd0f8e27b6460e83601cf608f177a59a220a13fe70c8d
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0-nullsafety.3"
+  url_launcher_macos:
+    dependency: transitive
+    description:
+      name: url_launcher_macos
+      sha256: c5967a3587f519e948d69065f2f05a61df49d55d8a69fb9c61a6c252bb91ead9
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0-nullsafety.2"
+  url_launcher_platform_interface:
+    dependency: transitive
+    description:
+      name: url_launcher_platform_interface
+      sha256: "552f8a1e663569be95a8190206a38187b531910283c3e982193e4f2733f01029"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.2"
+  url_launcher_windows:
+    dependency: transitive
+    description:
+      name: url_launcher_windows
+      sha256: efac05e9f8aab0a2da4acc3cdd7c4b6d71fd4feaaf9a8e11c5836418bbade02a
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0-nullsafety.2"
   vector_math:
     dependency: transitive
     description:

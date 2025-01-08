@@ -59,7 +59,6 @@ class WasteDisposalPage extends StatelessWidget {
                     const SnackBar(content: Text('AR Game coming soon!')),
                   );
                 },
-                child: const Text('Launch AR Waste Disposal Game'),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(
                       vertical: height * 0.02, horizontal: width * 0.1),
@@ -69,6 +68,7 @@ class WasteDisposalPage extends StatelessWidget {
                   ),
                   elevation: 5,
                 ),
+                child: const Text('Launch AR Waste Disposal Game'),
               ),
               SizedBox(height: height * 0.02),
               Text(

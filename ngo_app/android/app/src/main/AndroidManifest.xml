@@ -1,18 +1,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ngo_app">
 
+    <!-- Internet permission for web access -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <!-- Permissions required for camera and AR functionality -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    
+
     <application
         android:label="ngo_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/LaunchTheme"
         android:hardwareAccelerated="true">
-        
+
         <!-- Meta-data required for ARCore -->
         <meta-data
             android:name="com.google.ar.core"
@@ -27,12 +30,12 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
-            
+
             <!-- Normal Flutter theme applied until Flutter UI loads -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
-            
+
             <!-- Intent filter for launching the app -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,10 +51,15 @@
 
     <!-- Required to query activities that can process text, useful for Flutter engine -->
     <queries>
+        <!-- For opening YouTube links -->
         <intent>
-            <action android:name="android.intent.action.PROCESS_TEXT"/>
-            <data android:mimeType="text/plain"/>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" android:host="www.youtube.com" />
+        </intent>
+        <!-- For opening generic web links -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
         </intent>
     </queries>
-
 </manifest>

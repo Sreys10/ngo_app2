@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'environmental_resources_page.dart';
-import 'management_page.dart';
-import 'recycling_page.dart';
-import 'waste_disposal_page.dart';
+import '../environment_resource_page/environmental_resources_page.dart';
+import '../management/management_page.dart';
+import '../recycle/recycling_page.dart';
+import '../waste_disposal/waste_disposal_page.dart';
 import 'dashboard.dart'; // Import the dashboard.dart file
 
 class EnvironmentPage extends StatelessWidget {

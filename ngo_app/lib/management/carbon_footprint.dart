@@ -1,33 +1,38 @@
 import 'package:flutter/material.dart';
 import 'organize_challenge_page.dart';
 
-class CarbonFootprintPage extends StatelessWidget {
+class CarbonFootprintPage extends StatefulWidget {
   const CarbonFootprintPage({super.key});
 
   @override
+  _CarbonFootprintPageState createState() => _CarbonFootprintPageState();
+}
+
+class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
+  final TextEditingController distanceController = TextEditingController();
+  final TextEditingController electricityController = TextEditingController();
+  final TextEditingController wasteController = TextEditingController();
+  final TextEditingController waterController = TextEditingController();
+
+  String selectedTransport = 'Car'; // Default transport mode
+  String selectedDiet = 'Omnivore'; // Default diet
+
+  final transportEmissions = {
+    'Car': 0.21,
+    'Bus': 0.05,
+    'Bike': 0.00,
+    'Train': 0.06,
+    'Airplane': 0.25,
+  };
+
+  final dietEmissions = {
+    'Vegan': 2.0,
+    'Vegetarian': 3.0,
+    'Omnivore': 5.0,
+  };
+
+  @override
   Widget build(BuildContext context) {
-    final TextEditingController distanceController = TextEditingController();
-    final TextEditingController electricityController = TextEditingController();
-    final TextEditingController wasteController = TextEditingController();
-    final TextEditingController waterController = TextEditingController();
-
-    String selectedTransport = 'Car'; // Default transport mode
-    String selectedDiet = 'Omnivore'; // Default diet
-
-    final transportEmissions = {
-      'Car': 0.21,
-      'Bus': 0.05,
-      'Bike': 0.00,
-      'Train': 0.06,
-      'Airplane': 0.25,
-    };
-
-    final dietEmissions = {
-      'Vegan': 2.0,
-      'Vegetarian': 3.0,
-      'Omnivore': 5.0,
-    };
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Carbon Footprint Calculator'),
@@ -62,7 +67,9 @@ class CarbonFootprintPage extends StatelessWidget {
               value: selectedTransport,
               onChanged: (String? newValue) {
                 if (newValue != null) {
-                  selectedTransport = newValue;
+                  setState(() {
+                    selectedTransport = newValue;
+                  });
                 }
               },
               items: transportEmissions.keys.map((String key) {
@@ -110,7 +117,9 @@ class CarbonFootprintPage extends StatelessWidget {
               value: selectedDiet,
               onChanged: (String? newValue) {
                 if (newValue != null) {
-                  selectedDiet = newValue;
+                  setState(() {
+                    selectedDiet = newValue;
+                  });
                 }
               },
               items: dietEmissions.keys.map((String key) {

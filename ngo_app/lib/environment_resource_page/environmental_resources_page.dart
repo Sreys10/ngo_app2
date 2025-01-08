@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'er_game.dart';
+import 'vr.dart';
 
 class EnvironmentalResourcesPage extends StatelessWidget {
   const EnvironmentalResourcesPage({super.key});
@@ -200,6 +201,36 @@ Digital Engagement:
 • Follow environmental news''',
                   ),
                   const SizedBox(height: 24),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const VirtualFieldPage(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2E7D32),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 40,
+                          vertical: 20,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text(
+                        'Virtual Field',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
