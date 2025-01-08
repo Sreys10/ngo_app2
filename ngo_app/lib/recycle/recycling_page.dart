@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'diy_videos.dart'; // Import the new file for DIY video functionality
 
 class RecyclingPage extends StatelessWidget {
   const RecyclingPage({super.key});
@@ -7,8 +8,9 @@ class RecyclingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recycling'),
+        title: const Text('Recycling Guide'),
         backgroundColor: Colors.green,
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -99,6 +101,38 @@ class RecyclingPage extends StatelessWidget {
                     '• Flatten cardboard boxes\n'
                     '• Keep materials separated',
               ),
+              const SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DIYVideosPage(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text(
+                    'Explore DIY Videos',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -138,6 +172,10 @@ class RecyclingPage extends StatelessWidget {
   ) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
@@ -174,6 +212,10 @@ class RecyclingPage extends StatelessWidget {
   Widget _buildUpcyclingProject(String title, String description) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: ListTile(
         leading: const Icon(Icons.recycling, color: Colors.green),
         title: Text(title),
@@ -185,6 +227,10 @@ class RecyclingPage extends StatelessWidget {
   Widget _buildImpactCard(String action, String impact) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: ListTile(
         leading: const Icon(Icons.eco, color: Colors.green),
         title: Text(action),
