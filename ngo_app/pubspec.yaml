@@ -71,6 +71,7 @@ flutter:
     - assets/diy1.jpg
     - assets/diy2.jpg
     - assets/diy3.webp
+    - assets/recycle.gif
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

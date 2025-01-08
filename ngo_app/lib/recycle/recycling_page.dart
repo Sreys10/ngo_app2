@@ -22,8 +22,8 @@ class RecyclingPage extends StatelessWidget {
               height: 200,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(
-                      'assets/recycling_hero.jpg'), // Add your image asset
+                  image:
+                      AssetImage('assets/recycle.gif'), // Add your image asset
                   fit: BoxFit.cover,
                 ),
               ),
