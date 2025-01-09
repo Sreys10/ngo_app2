@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "139775098819",
+    "project_id": "avaliapp-ea1ff",
+    "storage_bucket": "avaliapp-ea1ff.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139775098819:android:7992a1eeed3a32936dc776",
+        "android_client_info": {
+          "package_name": "com.example.ngo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD-Atvz-5NKJ9uLswi9V5crH7FESLvLGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -72,6 +72,7 @@ class EnvironmentalResourcesPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Environmental Resources'),
         backgroundColor: const Color(0xFF2E7D32),
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -81,10 +82,10 @@ class EnvironmentalResourcesPage extends StatelessWidget {
               height: 300,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/hero_environment.jpg'),
+                  image: const AssetImage('assets/ev.gif'),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.3),
+                    Colors.white.withOpacity(0.3),
                     BlendMode.darken,
                   ),
                 ),

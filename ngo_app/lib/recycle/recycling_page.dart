@@ -31,9 +31,9 @@ class RecyclingPage extends StatelessWidget {
                 child: Text(
                   'Recycle Today, Protect Tomorrow',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 34,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.blue,
                     shadows: [
                       Shadow(
                         blurRadius: 10,

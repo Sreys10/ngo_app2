@@ -11,7 +11,7 @@ class WasteDisposalPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('4.4 Waste Disposal'),
+        title: const Text('Waste Disposal'),
         backgroundColor: Colors.green,
         elevation: 0, // Remove app bar shadow
       ),

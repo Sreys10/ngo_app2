@@ -99,10 +99,10 @@ class ManagementPage extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/hero_management.jpg'),
+                  image: const AssetImage('assets/rm.gif'),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.5),
+                    Colors.white.withOpacity(0.5),
                     BlendMode.darken,
                   ),
                 ),

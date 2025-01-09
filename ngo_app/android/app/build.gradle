@@ -3,11 +3,12 @@ plugins {
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
+    //id 'com.google.gms.google-services'
 }
 
 android {
     namespace = "com.example.ngo_app"
-    compileSdk = flutter.compileSdkVersion
+    compileSdkVersion 34 // This sets the compileSdkVersion directly
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -16,20 +17,25 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8" // Corrected
+        jvmTarget = "1.8"
     }
 
     defaultConfig {
         applicationId = "com.example.ngo_app"
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdkVersion flutter.minSdkVersion // Dynamically linked to Flutter's minSdkVersion
+        targetSdkVersion 34 // This is required for compatibility with Android 12+
+        minSdkVersion 21 // or higher, depending on your requirements
+
+        versionCode flutter.versionCode
+        versionName flutter.versionName
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug // TODO: Replace with release signing config for production
+            signingConfig = signingConfigs.debug // TODO: Replace with proper release signing config for production
+            minifyEnabled true // Optional: Adjust if using ProGuard or R8
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
@@ -37,3 +43,6 @@ android {
 flutter {
     source = "../.."
 }
+//dependencies{
+   // implementation platform('com.google.firebase:firebase-bom:33.7.0')
+//}
