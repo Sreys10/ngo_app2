@@ -35,7 +35,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   url_launcher: ^6.0.0-nullsafety.6
-  firebase_core: ^3.10.0
+  firebase_core: ^2.15.0 # Use the latest version
+  firebase_auth: ^4.9.0
+  audioplayers: ^5.0.1
+  lottie: ^2.5.0
 
 dependency_overrides:
   collection: ^1.18.0
@@ -78,6 +81,30 @@ flutter:
     - assets/recycle.gif
     - assets/ev.gif
     - assets/rm.gif
+    - assets/wt.webp
+    - assets/boy.gif
+    - assets/sounds/wrong.mp3
+    - assets/sounds/correct.mp3
+    - assets/gif/lights.gif
+    - assets/gif/faucelet.gif
+    - assets/gif/comp.gif
+    - assets/gif/bottle.gif
+    - assets/gif/paper.gif
+    - assets/gif/leaves.gif
+    - assets/gif/shopping.gif
+    - assets/clothes.webp
+    - assets/gif/straw.gif
+    - assets/gif/print.gif
+    - assets/waste.jpeg
+    - assets/gif/tree.gif
+    - assets/plastic_bottle.jpg
+    - assets/gif/bird.gif
+    - assets/gif/forest_fire.gif
+    - assets/waste_electricity.jpeg
+    - assets/gif/factory.gif
+    - assets/gif/bee.gif
+    - assets/plastic_bag.jpg
+
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

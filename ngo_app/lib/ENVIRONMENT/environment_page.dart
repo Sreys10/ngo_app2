@@ -4,6 +4,7 @@ import '../management/management_page.dart';
 import '../recycle/recycling_page.dart';
 import '../waste_disposal/waste_disposal_page.dart';
 import 'dashboard.dart'; // Import the dashboard.dart file
+import '../game/game_zone_page.dart'; // Import the game.dart file
 
 class EnvironmentPage extends StatelessWidget {
   const EnvironmentPage({super.key});
@@ -72,6 +73,13 @@ class EnvironmentPage extends StatelessWidget {
               'Waste Disposal',
               Icons.delete_forever,
               const WasteDisposalPage(),
+            ),
+            const SizedBox(height: 16), // Add spacing before the new button
+            _buildCustomButton(
+              context,
+              'Game Zone',
+              Icons.videogame_asset, // Use an appropriate icon
+              const GameZonePage(),
             ),
             const SizedBox(height: 32), // Add some spacing before the GIF
             _buildGif(), // Add GIF here
