@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'carbon_footprint.dart'; // Import the carbon footprint calculation file
+import 'carbon_footprint.dart';
 
 class ManagementPage extends StatelessWidget {
   const ManagementPage({super.key});
@@ -18,7 +18,6 @@ class ManagementPage extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Section Image
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
             child: Image.asset(
@@ -28,7 +27,6 @@ class ManagementPage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          // Expandable Content
           ExpansionTile(
             title: Text(
               title,
@@ -87,13 +85,12 @@ class ManagementPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Environmental Management'),
+        title: const Text('पर्यावरण व्यवस्थापन'),
         backgroundColor: const Color(0xFF2E7D32),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Hero Section with Background Image
             Container(
               height: 250,
               width: double.infinity,
@@ -114,7 +111,7 @@ class ManagementPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Resource Management Guide',
+                        'संसाधन व्यवस्थापन मार्गदर्शक',
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
@@ -123,7 +120,7 @@ class ManagementPage extends StatelessWidget {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Learn about managing different environmental resources',
+                        'विविध पर्यावरणीय संसाधनांचे व्यवस्थापन जाणून घ्या',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -135,106 +132,97 @@ class ManagementPage extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 16),
-
-            // Content Sections with Images
             _buildExpandableSection(
-              title: 'Water Resource Management',
+              title: 'जल संसाधन व्यवस्थापन',
               imagePath: 'assets/wrm2.gif',
               cardColor: Colors.blue,
               content: [
                 {
-                  'subtitle': 'Current Global Status',
+                  'subtitle': 'वर्तमान जागतिक स्थिती',
                   'content':
-                      '• Global freshwater demand increasing by 1% annually\n'
-                          '• 785 million people lack basic drinking water access\n'
-                          '• Agriculture consumes 70% of available freshwater\n'
-                          '• Industrial use accounts for 19% of consumption'
+                      '• वार्षिक १% ने वाढणारी जागतिक गोड्या पाण्याची मागणी\n'
+                          '• ७८५ दशलक्ष लोकांना पिण्याच्या पाण्याची मूलभूत सुविधा नाही\n'
+                          '• शेती ७०% उपलब्ध गोडे पाणी वापरते\n'
+                          '• औद्योगिक वापर १९% आहे'
                 },
                 {
-                  'subtitle': 'Management Strategies',
-                  'content': '• Install water-efficient fixtures\n'
-                      '• Implement drip irrigation\n'
-                      '• Harvest rainwater\n'
-                      '• Treat and reuse greywater\n'
-                      '• Monitor water quality'
+                  'subtitle': 'व्यवस्थापन धोरणे',
+                  'content': '• पाणी-कार्यक्षम साधने स्थापित करा\n'
+                      '• ठिबक सिंचन राबवा\n'
+                      '• पावसाचे पाणी साठवा\n'
+                      '• ग्रे वॉटर प्रक्रिया आणि पुनर्वापर\n'
+                      '• पाण्याची गुणवत्ता तपासा'
                 },
               ],
             ),
-
             _buildExpandableSection(
-              title: 'Forest Resource Management',
+              title: 'वन संसाधन व्यवस्थापन',
               imagePath: 'assets/frm.jpg',
               cardColor: Colors.green,
               content: [
                 {
-                  'subtitle': 'Current Challenges',
-                  'content': '• 15 billion trees cut annually\n'
-                      '• 46% of forests degraded globally\n'
-                      '• 137 species lost daily due to deforestation\n'
-                      '• Forest fires increasing by 14% yearly'
+                  'subtitle': 'सध्याची आव्हाने',
+                  'content': '• वार्षिक १५ अब्ज झाडे तोडली जातात\n'
+                      '• जागतिक स्तरावर ४६% जंगले नष्ट झाली\n'
+                      '• जंगलतोडीमुळे दररोज १३७ प्रजाती नष्ट होतात\n'
+                      '• जंगलातील आग वार्षिक १४% ने वाढत आहे'
                 },
                 {
-                  'subtitle': 'Management Approaches',
-                  'content': '• Selective harvesting\n'
-                      '• Reforestation programs\n'
-                      '• Forest certification\n'
-                      '• Protected areas establishment\n'
-                      '• Indigenous knowledge integration'
+                  'subtitle': 'व्यवस्थापन दृष्टिकोन',
+                  'content': '• निवडक वृक्षतोड\n'
+                      '• वनीकरण कार्यक्रम\n'
+                      '• वन प्रमाणीकरण\n'
+                      '• संरक्षित क्षेत्रांची स्थापना\n'
+                      '• स्थानिक ज्ञानाचे एकत्रीकरण'
                 },
               ],
             ),
-
             _buildExpandableSection(
-              title: 'Air Quality Management',
+              title: 'वायू गुणवत्ता व्यवस्थापन',
               imagePath: 'assets/aqm.gif',
               cardColor: Colors.purple,
               content: [
                 {
-                  'subtitle': 'Key Issues',
-                  'content': '• 90% of people breathe polluted air\n'
-                      '• 7 million premature deaths annually\n'
-                      '• Transportation contributes 29% of emissions\n'
-                      '• Indoor air pollution affects 3 billion people'
+                  'subtitle': 'प्रमुख समस्या',
+                  'content': '• ९०% लोक प्रदूषित हवा श्वास घेतात\n'
+                      '• वार्षिक ७ दशलक्ष अकाली मृत्यू\n'
+                      '• वाहतूक २९% उत्सर्जनास कारणीभूत\n'
+                      '• घरातील हवा प्रदूषण ३ अब्ज लोकांना प्रभावित करते'
                 },
                 {
-                  'subtitle': 'Management Solutions',
-                  'content': '• Vehicle inspection programs\n'
-                      '• Industrial filtration systems\n'
-                      '• Clean fuel standards\n'
-                      '• Zero-emission zones\n'
-                      '• Air quality monitoring networks'
+                  'subtitle': 'व्यवस्थापन उपाय',
+                  'content': '• वाहन तपासणी कार्यक्रम\n'
+                      '• औद्योगिक फिल्टर प्रणाली\n'
+                      '• स्वच्छ इंधन मानके\n'
+                      '• शून्य-उत्सर्जन क्षेत्रे\n'
+                      '• हवा गुणवत्ता निरीक्षण नेटवर्क'
                 },
               ],
             ),
-
             _buildExpandableSection(
-              title: 'Waste Management',
+              title: 'कचरा व्यवस्थापन',
               imagePath: 'assets/wm.gif',
               cardColor: Colors.orange,
               content: [
                 {
-                  'subtitle': 'Current Statistics',
-                  'content': '• 2.01 billion tons of waste generated annually\n'
-                      '• Only 13.5% globally recycled\n'
-                      '• Plastic waste increases by 3% yearly\n'
-                      '• E-waste growing by 21% since 2014'
+                  'subtitle': 'सध्याची आकडेवारी',
+                  'content': '• वार्षिक २.०१ अब्ज टन कचरा निर्माण होतो\n'
+                      '• जागतिक स्तरावर केवळ १३.५% पुनर्चक्रीकरण\n'
+                      '• प्लास्टिक कचरा वार्षिक ३% ने वाढतो\n'
+                      '• २०१४ पासून ई-कचरा २१% वाढला'
                 },
                 {
-                  'subtitle': 'Management Systems',
-                  'content': '• Source separation\n'
-                      '• Composting programs\n'
-                      '• Recycling facilities\n'
-                      '• Extended producer responsibility\n'
-                      '• Zero waste initiatives'
+                  'subtitle': 'व्यवस्थापन प्रणाली',
+                  'content': '• स्रोतावर वर्गीकरण\n'
+                      '• कंपोस्टिंग कार्यक्रम\n'
+                      '• पुनर्चक्रीकरण सुविधा\n'
+                      '• विस्तारित उत्पादक जबाबदारी\n'
+                      '• शून्य कचरा उपक्रम'
                 },
               ],
-            ), // Add more sections here...
-
+            ),
             const SizedBox(height: 20),
-
-            // Calculate Carbon Footprint Button
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
@@ -254,7 +242,7 @@ class ManagementPage extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Calculate Carbon Footprint',
+                  'कार्बन फूटप्रिंट मोजा',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

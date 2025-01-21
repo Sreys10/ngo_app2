@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'workshop.dart'; // Import the workshop page
+import 'workshop.dart'; // कार्यशाळेचा पृष्ठ आयात करा
 
 class WasteDisposalPage extends StatelessWidget {
   const WasteDisposalPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width; // Get screen width
-    double height = MediaQuery.of(context).size.height; // Get screen height
+    double width = MediaQuery.of(context).size.width; // स्क्रीनची रुंदी मिळवा
+    double height = MediaQuery.of(context).size.height; // स्क्रीनची उंची मिळवा
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Waste Disposal'),
+        title: const Text('कचरा व्यवस्थापन'),
         backgroundColor: Colors.green,
-        elevation: 0, // Remove app bar shadow
+        elevation: 0, // AppBar ची सावली काढा
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -29,10 +29,10 @@ class WasteDisposalPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Hero Section
+                // हिरो विभाग
                 Center(
                   child: Image.asset(
-                    'assets/wm1.webp', // Add your image asset
+                    'assets/wm1.webp', // तुमचा इमेज ऍसेट जोडा
                     width: width * 0.8,
                     height: height * 0.3,
                     fit: BoxFit.contain,
@@ -40,7 +40,7 @@ class WasteDisposalPage extends StatelessWidget {
                 ),
                 SizedBox(height: height * 0.02),
                 Text(
-                  'Why Waste Management Matters:',
+                  'कचरा व्यवस्थापन का महत्त्वाचे आहे:',
                   style: TextStyle(
                     fontSize: width * 0.06,
                     fontWeight: FontWeight.bold,
@@ -48,7 +48,7 @@ class WasteDisposalPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Proper waste disposal is crucial for protecting the environment and human health. Here’s why:',
+                  'योग्य कचरा व्यवस्थापन पर्यावरण व मानवी आरोग्याचे संरक्षण करण्यासाठी महत्त्वपूर्ण आहे. यासाठी:',
                   style: TextStyle(
                     fontSize: width * 0.04,
                     color: Colors.white70,
@@ -58,21 +58,21 @@ class WasteDisposalPage extends StatelessWidget {
                 _buildFactCard(
                   context,
                   icon: Icons.eco,
-                  title: 'Did You Know?',
+                  title: 'तुम्हाला माहीत आहे का?',
                   description:
-                      'Over 2 billion tons of waste are generated globally each year. Only 16% of it is recycled.',
+                      'दरवर्षी जागतिक स्तरावर २ अब्ज टन कचरा निर्माण होतो. त्यातील फक्त १६% पुनर्वापर केला जातो.',
                 ),
                 SizedBox(height: height * 0.02),
                 _buildFactCard(
                   context,
                   icon: Icons.warning,
-                  title: 'Environmental Impact',
+                  title: 'पर्यावरणावर परिणाम',
                   description:
-                      'Improper waste disposal leads to pollution, habitat destruction, and climate change.',
+                      'योग्य कचरा व्यवस्थापनाअभावी प्रदूषण, नैसर्गिक संसाधनांची नासाडी आणि हवामान बदल होतो.',
                 ),
                 SizedBox(height: height * 0.02),
                 Text(
-                  'What You Can Do:',
+                  'तुम्ही काय करू शकता:',
                   style: TextStyle(
                     fontSize: width * 0.06,
                     fontWeight: FontWeight.bold,
@@ -83,23 +83,24 @@ class WasteDisposalPage extends StatelessWidget {
                 _buildActionCard(
                   context,
                   icon: Icons.gamepad,
-                  title: 'Play the AR Waste Disposal Game',
+                  title: 'AR कचरा व्यवस्थापन गेम खेळा',
                   description:
-                      'Learn how to segregate waste in a fun and interactive way using augmented reality.',
+                      'वास्तविकता आधारित इंटरएक्टिव गेमद्वारे कचरा वर्गीकरण शिकणे.',
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('AR Game coming soon!')),
+                      const SnackBar(
+                          content: Text('AR गेम लवकरच उपलब्ध होईल!')),
                     );
                   },
-                  buttonText: 'Launch Game',
+                  buttonText: 'गेम सुरू करा',
                 ),
                 SizedBox(height: height * 0.02),
                 _buildActionCard(
                   context,
                   icon: Icons.school,
-                  title: 'Attend Online Workshops',
+                  title: 'ऑनलाइन कार्यशाळा अटेंड करा',
                   description:
-                      'Join workshops on composting, e-waste management, and sustainable living.',
+                      'कंपोस्टिंग, ई-कचरा व्यवस्थापन आणि टिकाऊ जीवनशैलीबद्दल कार्यशाळांमध्ये सामील व्हा.',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -108,11 +109,11 @@ class WasteDisposalPage extends StatelessWidget {
                       ),
                     );
                   },
-                  buttonText: 'Explore Workshops',
+                  buttonText: 'कार्यशाळा एक्सप्लोर करा',
                 ),
                 SizedBox(height: height * 0.02),
                 Text(
-                  'Additional Resources:',
+                  'अधिक संसाधने:',
                   style: TextStyle(
                     fontSize: width * 0.06,
                     fontWeight: FontWeight.bold,
@@ -133,27 +134,29 @@ class WasteDisposalPage extends StatelessWidget {
                         _buildResourceItem(
                           context,
                           icon: Icons.compost,
-                          text: '1. Guide on composting at home',
+                          text:
+                              '१. घरी कंपोस्टिंग कसे करावे याबद्दल मार्गदर्शिका',
                         ),
                         _buildResourceItem(
                           context,
                           icon: Icons.electrical_services,
-                          text: '2. E-waste management and recycling',
+                          text: '२. ई-कचरा व्यवस्थापन व पुनर्वापर',
                         ),
                         _buildResourceItem(
                           context,
                           icon: Icons.warning,
-                          text: '3. How to properly dispose of hazardous waste',
+                          text: '३. धोकादायक कचरा कसा योग्यरीत्या टाकावा',
                         ),
                         _buildResourceItem(
                           context,
                           icon: Icons.recycling,
-                          text: '4. Local recycling centers and their rules',
+                          text:
+                              '४. स्थानिक पुनर्वापर केंद्रे व त्यांच्या नियमांबद्दल माहिती',
                         ),
                         _buildResourceItem(
                           context,
                           icon: Icons.eco,
-                          text: '5. Sustainable alternatives to reduce waste',
+                          text: '५. कचरा कमी करण्यासाठी टिकाऊ पर्याय',
                         ),
                       ],
                     ),
@@ -162,7 +165,7 @@ class WasteDisposalPage extends StatelessWidget {
                 SizedBox(height: height * 0.02),
                 Center(
                   child: Text(
-                    'Together, we can make a difference!',
+                    'एकत्रित प्रयत्नांनी बदल घडवून आणूया!',
                     style: TextStyle(
                       fontSize: width * 0.05,
                       fontWeight: FontWeight.bold,
@@ -179,7 +182,7 @@ class WasteDisposalPage extends StatelessWidget {
     );
   }
 
-  // Helper function to build a fact card
+  // तथ्य कार्ड तयार करण्यासाठी सहाय्यक फंक्शन
   Widget _buildFactCard(BuildContext context,
       {required IconData icon,
       required String title,
@@ -224,7 +227,7 @@ class WasteDisposalPage extends StatelessWidget {
     );
   }
 
-  // Helper function to build an action card
+  // क्रिया कार्ड तयार करण्यासाठी सहाय्यक फंक्शन
   Widget _buildActionCard(BuildContext context,
       {required IconData icon,
       required String title,
@@ -246,13 +249,11 @@ class WasteDisposalPage extends StatelessWidget {
               children: [
                 Icon(icon, size: width * 0.08, color: Colors.green),
                 SizedBox(width: width * 0.03),
-                Expanded(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: width * 0.05,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: width * 0.05,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
@@ -270,15 +271,11 @@ class WasteDisposalPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: onPressed,
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
                   padding: EdgeInsets.symmetric(
-                    vertical: width * 0.02,
                     horizontal: width * 0.1,
+                    vertical: width * 0.03,
                   ),
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  elevation: 5,
                 ),
                 child: Text(
                   buttonText,
@@ -295,7 +292,7 @@ class WasteDisposalPage extends StatelessWidget {
     );
   }
 
-  // Helper function to build a resource item with an icon
+  // संसाधन आयटम तयार करण्यासाठी सहाय्यक फंक्शन
   Widget _buildResourceItem(BuildContext context,
       {required IconData icon, required String text}) {
     double width = MediaQuery.of(context).size.width;

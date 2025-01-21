@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import the package
+import 'package:url_launcher/url_launcher.dart';
 
 class VirtualFieldPage extends StatelessWidget {
   const VirtualFieldPage({super.key});
@@ -8,7 +8,7 @@ class VirtualFieldPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Virtual Field'),
+        title: const Text('व्हर्च्युअल फील्ड'),
         backgroundColor: const Color(0xFF2E7D32),
       ),
       body: ListView(
@@ -16,22 +16,22 @@ class VirtualFieldPage extends StatelessWidget {
         children: [
           _buildVideoCard(
             context,
-            title: 'Understanding Climate Change',
+            title: 'हवामान बदल समजून घेणे',
             ytLink: 'https://www.youtube.com/watch?v=IJoAcD0oUww',
           ),
           _buildVideoCard(
             context,
-            title: 'Water Conservation Techniques',
+            title: 'पाणी संवर्धन तंत्रे',
             ytLink: 'https://www.youtube.com/watch?v=nTcFXJT0Fsc',
           ),
           _buildVideoCard(
             context,
-            title: 'Waste Management Strategies',
+            title: 'कचरा व्यवस्थापन धोरणे',
             ytLink: 'https://www.youtube.com/watch?v=6jQ7y_qQYUA',
           ),
           _buildVideoCard(
             context,
-            title: 'Biodiversity Protection',
+            title: 'जैवविविधता संरक्षण',
             ytLink: 'https://www.youtube.com/watch?v=rclOz8Fsbmg',
           ),
         ],
@@ -58,7 +58,7 @@ class VirtualFieldPage extends StatelessWidget {
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('Could not launch $ytLink'),
+                content: Text('$ytLink उघडू शकलो नाही'),
               ),
             );
           }

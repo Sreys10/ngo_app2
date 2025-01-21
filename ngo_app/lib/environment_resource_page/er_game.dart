@@ -16,7 +16,7 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
   int wildlifePopulation = 30;
   int pollutionLevel = 0;
   int daysSurvived = 0;
-  String gameStatus = "Game In Progress";
+  String gameStatus = "खेळ सुरू आहे";
   String eventMessage = "";
 
   late AnimationController _controller;
@@ -38,7 +38,6 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
     super.dispose();
   }
 
-  // Simulate a day passing
   void simulateDay() {
     setState(() {
       daysSurvived++;
@@ -49,31 +48,30 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
 
       // Random events
       if (daysSurvived % 5 == 0) {
-        eventMessage = "A drought occurred! Water levels decreased. 🌵";
+        eventMessage = "दुष्काळ पडला! पाणी पातळी कमी झाली. 🌵";
         waterLevel = (waterLevel - 10).clamp(0, 100);
       } else if (daysSurvived % 7 == 0) {
-        eventMessage = "A wildfire broke out! Trees and wildlife affected. 🔥";
+        eventMessage = "जंगलात आग लागली! झाडे आणि वन्यजीव प्रभावित झाले. 🔥";
         treeCount = (treeCount - 10).clamp(0, 100);
         wildlifePopulation = (wildlifePopulation - 5).clamp(0, 100);
       } else {
-        eventMessage = "Another day passes... 🌞";
+        eventMessage = "आणखी एक दिवस संपला... 🌞";
       }
 
       checkGameOver();
     });
   }
 
-  // Player Actions
   void plantTrees() {
     if (waterLevel >= 10) {
       setState(() {
         treeCount = (treeCount + 10).clamp(0, 100);
         waterLevel = (waterLevel - 10).clamp(0, 100);
-        eventMessage = "You planted trees! 🌳";
+        eventMessage = "तुम्ही झाडे लावली! 🌳";
       });
     } else {
       setState(() {
-        eventMessage = "Not enough water to plant trees! 💧";
+        eventMessage = "झाडे लावण्यासाठी पुरेसे पाणी नाही! 💧";
       });
     }
   }
@@ -83,11 +81,11 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
       setState(() {
         pollutionLevel = (pollutionLevel - 20).clamp(0, 100);
         treeCount = (treeCount - 5).clamp(0, 100);
-        eventMessage = "You cleaned pollution! ♻️";
+        eventMessage = "तुम्ही प्रदूषण स्वच्छ केले! ♻️";
       });
     } else {
       setState(() {
-        eventMessage = "Not enough trees to clean pollution! 🌳";
+        eventMessage = "प्रदूषण स्वच्छ करण्यासाठी पुरेशी झाडे नाहीत! 🌳";
       });
     }
   }
@@ -95,32 +93,30 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
   void conserveWater() {
     setState(() {
       waterLevel = (waterLevel + 15).clamp(0, 100);
-      eventMessage = "You conserved water! 💧";
+      eventMessage = "तुम्ही पाणी वाचवले! 💧";
     });
   }
 
-  // Check if the game should end
   void checkGameOver() {
     if (waterLevel == 0) {
       setState(() {
-        gameStatus = "Game Over! The ecosystem ran out of water. 💀";
+        gameStatus = "खेळ संपला! परिसंस्थेतील पाणी संपले. 💀";
       });
     } else if (treeCount == 0) {
       setState(() {
-        gameStatus = "Game Over! All trees were destroyed. 🪦";
+        gameStatus = "खेळ संपला! सर्व झाडे नष्ट झाली. 🪦";
       });
     } else if (wildlifePopulation == 0) {
       setState(() {
-        gameStatus = "Game Over! Wildlife went extinct. 🐾";
+        gameStatus = "खेळ संपला! वन्यजीव नामशेष झाले. 🐾";
       });
     } else if (pollutionLevel == 100) {
       setState(() {
-        gameStatus = "Game Over! Pollution reached critical levels. 🌫️";
+        gameStatus = "खेळ संपला! प्रदूषण गंभीर पातळीवर पोहोचले. 🌫️";
       });
     }
   }
 
-  // Reset the game
   void resetGame() {
     setState(() {
       waterLevel = 100;
@@ -128,7 +124,7 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
       wildlifePopulation = 30;
       pollutionLevel = 0;
       daysSurvived = 0;
-      gameStatus = "Game In Progress";
+      gameStatus = "खेळ सुरू आहे";
       eventMessage = "";
     });
   }
@@ -137,7 +133,7 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Eco Balance Simulator 🌍'),
+        title: const Text('पर्यावरण संतुलन सिम्युलेटर 🌍'),
         backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
@@ -146,9 +142,8 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Game Status
               Text(
-                'Game Status: $gameStatus',
+                'खेळाची स्थिती: $gameStatus',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -156,10 +151,8 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Days Survived
               Text(
-                'Days Survived: $daysSurvived 🌞',
+                'जगलेले दिवस: $daysSurvived 🌞',
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -167,18 +160,14 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Resource Indicators
+              _buildResourceIndicator('पाणी पातळी 💧', waterLevel, Colors.blue),
               _buildResourceIndicator(
-                  'Water Level 💧', waterLevel, Colors.blue),
-              _buildResourceIndicator('Tree Count 🌳', treeCount, Colors.green),
+                  'झाडांची संख्या 🌳', treeCount, Colors.green),
               _buildResourceIndicator(
-                  'Wildlife Population 🐾', wildlifePopulation, Colors.orange),
+                  'वन्यजीव संख्या 🐾', wildlifePopulation, Colors.orange),
               _buildResourceIndicator(
-                  'Pollution Level 🌫️', pollutionLevel, Colors.red),
+                  'प्रदूषण पातळी 🌫️', pollutionLevel, Colors.red),
               const SizedBox(height: 20),
-
-              // Event Message
               Text(
                 eventMessage,
                 style: const TextStyle(
@@ -188,29 +177,24 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Action Buttons
               Wrap(
                 spacing: 10,
                 runSpacing: 10,
                 children: [
                   _buildActionButton(
-                      'Simulate Day 🌞', simulateDay, Colors.amber),
+                      'दिवस सिम्युलेट करा 🌞', simulateDay, Colors.amber),
+                  _buildActionButton('झाडे लावा 🌳', plantTrees, Colors.green),
                   _buildActionButton(
-                      'Plant Trees 🌳', plantTrees, Colors.green),
+                      'प्रदूषण स्वच्छ करा ♻️', cleanPollution, Colors.blue),
                   _buildActionButton(
-                      'Clean Pollution ♻️', cleanPollution, Colors.blue),
-                  _buildActionButton(
-                      'Conserve Water 💧', conserveWater, Colors.lightBlue),
-                  _buildActionButton('Reset Game 🔄', resetGame, Colors.red),
+                      'पाणी वाचवा 💧', conserveWater, Colors.lightBlue),
+                  _buildActionButton('खेळ रीसेट करा 🔄', resetGame, Colors.red),
                 ],
               ),
               const SizedBox(height: 20),
-
-              // Animated Earth GIF
               Center(
                 child: Image.asset(
-                  'assets/ani1.gif', // Replace with your animated Earth GIF
+                  'assets/ani1.gif',
                   height: 150,
                   width: 150,
                   fit: BoxFit.cover,
@@ -223,7 +207,6 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
     );
   }
 
-  // Helper function to create resource indicators
   Widget _buildResourceIndicator(String title, int value, Color color) {
     return Card(
       color: color.withOpacity(0.1),
@@ -260,7 +243,6 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
     );
   }
 
-  // Helper function to create action buttons
   Widget _buildActionButton(String text, VoidCallback onPressed, Color color) {
     return ElevatedButton(
       onPressed: onPressed,

@@ -14,28 +14,28 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
   final TextEditingController wasteController = TextEditingController();
   final TextEditingController waterController = TextEditingController();
 
-  String selectedTransport = 'Car'; // Default transport mode
-  String selectedDiet = 'Omnivore'; // Default diet
+  String selectedTransport = 'कार'; // Default transport mode
+  String selectedDiet = 'सर्वभक्षी'; // Default diet
 
   final transportEmissions = {
-    'Car': 0.21,
-    'Bus': 0.05,
-    'Bike': 0.00,
-    'Train': 0.06,
-    'Airplane': 0.25,
+    'कार': 0.21,
+    'बस': 0.05,
+    'सायकल': 0.00,
+    'रेल्वे': 0.06,
+    'विमान': 0.25,
   };
 
   final dietEmissions = {
-    'Vegan': 2.0,
-    'Vegetarian': 3.0,
-    'Omnivore': 5.0,
+    'शाकाहारी': 2.0,
+    'वनस्पती आहार': 3.0,
+    'सर्वभक्षी': 5.0,
   };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Carbon Footprint Calculator'),
+        title: const Text('कार्बन फूटप्रिंट कॅल्क्युलेटर'),
         backgroundColor: Colors.teal,
       ),
       body: SingleChildScrollView(
@@ -43,9 +43,8 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Input Fields and Dropdowns
             const Text(
-              'Travel Distance (in km):',
+              'प्रवास अंतर (किमी मध्ये):',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
@@ -54,12 +53,12 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: 'E.g., 100',
+                hintText: 'उदा., 100',
               ),
             ),
             const SizedBox(height: 20),
             const Text(
-              'Mode of Transport:',
+              'वाहतुकीचे साधन:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
@@ -81,7 +80,7 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Electricity Usage (in kWh):',
+              'वीज वापर (किलोवॅट तास मध्ये):',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
@@ -90,12 +89,12 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: 'E.g., 200',
+                hintText: 'उदा., 200',
               ),
             ),
             const SizedBox(height: 20),
             const Text(
-              'Waste Generated (in kg per week):',
+              'कचरा निर्मिती (आठवड्यातील किलो मध्ये):',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
@@ -104,12 +103,12 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: 'E.g., 5',
+                hintText: 'उदा., 5',
               ),
             ),
             const SizedBox(height: 20),
             const Text(
-              'Dietary Habits:',
+              'आहार पद्धती:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
@@ -131,7 +130,7 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Water Usage (in liters per day):',
+              'पाणी वापर (लीटर प्रति दिवस):',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
@@ -140,13 +139,12 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: 'E.g., 100',
+                hintText: 'उदा., 100',
               ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Carbon Footprint Calculation Logic
                 final double distance =
                     double.tryParse(distanceController.text) ?? 0.0;
                 final double electricity =
@@ -158,11 +156,10 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
 
                 final double transportFootprint =
                     distance * transportEmissions[selectedTransport]!;
-                final double electricityFootprint =
-                    electricity * 0.5; // Example
-                final double wasteFootprint = waste * 2.0; // Example
+                final double electricityFootprint = electricity * 0.5;
+                final double wasteFootprint = waste * 2.0;
                 final double dietFootprint = dietEmissions[selectedDiet]!;
-                final double waterFootprint = water * 0.01; // Example
+                final double waterFootprint = water * 0.01;
 
                 final double totalFootprint = transportFootprint +
                     electricityFootprint +
@@ -173,22 +170,22 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: const Text('Carbon Footprint'),
+                    title: const Text('कार्बन फूटप्रिंट'),
                     content: Text(
-                      'Your estimated total carbon footprint is ${totalFootprint.toStringAsFixed(2)} kg CO2.\n\n'
-                      'Details:\n'
-                      'Transport: ${transportFootprint.toStringAsFixed(2)} kg CO2\n'
-                      'Electricity: ${electricityFootprint.toStringAsFixed(2)} kg CO2\n'
-                      'Waste: ${wasteFootprint.toStringAsFixed(2)} kg CO2\n'
-                      'Diet: ${dietFootprint.toStringAsFixed(2)} kg CO2\n'
-                      'Water: ${waterFootprint.toStringAsFixed(2)} kg CO2',
+                      'तुमचा अंदाजे एकूण कार्बन फूटप्रिंट ${totalFootprint.toStringAsFixed(2)} किलो CO2 आहे.\n\n'
+                      'तपशील:\n'
+                      'वाहतूक: ${transportFootprint.toStringAsFixed(2)} किलो CO2\n'
+                      'वीज: ${electricityFootprint.toStringAsFixed(2)} किलो CO2\n'
+                      'कचरा: ${wasteFootprint.toStringAsFixed(2)} किलो CO2\n'
+                      'आहार: ${dietFootprint.toStringAsFixed(2)} किलो CO2\n'
+                      'पाणी: ${waterFootprint.toStringAsFixed(2)} किलो CO2',
                     ),
                     actions: [
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text('OK'),
+                        child: const Text('ठीक आहे'),
                       ),
                     ],
                   ),
@@ -202,7 +199,7 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
                 ),
               ),
               child: const Text(
-                'Calculate',
+                'गणना करा',
                 style: TextStyle(fontSize: 16),
               ),
             ),
@@ -224,7 +221,7 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
                 ),
               ),
               child: const Text(
-                'Organize Challenge',
+                'आव्हान आयोजित करा',
                 style: TextStyle(fontSize: 16),
               ),
             ),

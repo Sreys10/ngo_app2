@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'diy_videos.dart'; // Import the DIY videos file
-import 'gamification.dart'; // Import the gamification file
+import 'diy_videos.dart'; // DIY व्हिडिओ फाइल आयात करा
+import 'gamification.dart'; // गेमिफिकेशन फाइल आयात करा
 
 class RecyclingPage extends StatelessWidget {
   const RecyclingPage({super.key});
@@ -9,7 +9,7 @@ class RecyclingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recycling Guide'),
+        title: const Text('पुनर्वापर मार्गदर्शिका'),
         backgroundColor: Colors.green,
         elevation: 0,
       ),
@@ -17,19 +17,19 @@ class RecyclingPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Hero Section
+            // हिरो सेक्शन
             Container(
               height: 200,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image:
-                      AssetImage('assets/recycle.gif'), // Add your image asset
+                      AssetImage('assets/recycle.gif'), // आपले इमेज ऍसेट जोडा
                   fit: BoxFit.cover,
                 ),
               ),
               child: Center(
                 child: Text(
-                  'Recycle Today, Protect Tomorrow',
+                  'आज पुनर्वापर करा, उद्या वाचवा',
                   style: TextStyle(
                     fontSize: 34,
                     fontWeight: FontWeight.bold,
@@ -51,98 +51,120 @@ class RecyclingPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildSection(
-                    'Why Recycling Matters',
-                    'Recycling is crucial for environmental conservation and sustainable living. It helps reduce waste in landfills, conserves natural resources, and decreases greenhouse gas emissions.',
+                  Text(
+                    'पुनर्वापर का महत्वाचे आहे?',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'पुनर्वापर पर्यावरण संवर्धनासाठी आणि टिकाऊ जीवनासाठी अत्यावश्यक आहे. हे लँडफिल्समधील कचरा कमी करते, नैसर्गिक संसाधने वाचवते, आणि हरितगृह वायू उत्सर्जन कमी करते.',
+                    style: TextStyle(fontSize: 18),
                   ),
                   const SizedBox(height: 20),
-                  _buildSection(
-                    'Key Recycling Categories',
-                    null,
-                    children: [
-                      _buildRecyclingCategory(
-                        'Paper & Cardboard',
-                        'Newspapers, magazines, cardboard boxes, office paper',
-                        'Saves 17 trees and 7,000 gallons of water per ton recycled',
-                        Icons.description,
-                        Colors.blue,
-                      ),
-                      _buildRecyclingCategory(
-                        'Plastics',
-                        'PET bottles, containers, packaging materials',
-                        'Reduces oil consumption and CO2 emissions',
-                        Icons.local_drink,
-                        Colors.orange,
-                      ),
-                      _buildRecyclingCategory(
-                        'Glass',
-                        'Bottles, jars, containers',
-                        'Can be recycled endlessly without quality loss',
-                        Icons.wine_bar,
-                        Colors.red,
-                      ),
-                      _buildRecyclingCategory(
-                        'Metal',
-                        'Aluminum cans, steel containers, foil',
-                        'Saves 95% of energy compared to new production',
-                        Icons.menu_open,
-                        Colors.green,
-                      ),
-                    ],
+                  Text(
+                    'महत्त्वाच्या पुनर्वापर श्रेणी',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  _buildRecyclingCategory(
+                    'कागद व कार्डबोर्ड',
+                    'न्यूजपेपर, मासिके, कार्डबोर्ड बॉक्स, ऑफिस पेपर',
+                    'प्रत्येक टन पुनर्वापरित कागदामुळे १७ झाडे आणि ७,००० गॅलन पाणी वाचते',
+                    Icons.description,
+                    Colors.blue,
+                  ),
+                  _buildRecyclingCategory(
+                    'प्लास्टिक',
+                    'PET बाटल्या, कंटेनर्स, पॅकेजिंग साहित्य',
+                    'तेलाचा वापर आणि CO2 उत्सर्जन कमी करते',
+                    Icons.local_drink,
+                    Colors.orange,
+                  ),
+                  _buildRecyclingCategory(
+                    'काच',
+                    'बाटल्या, जार, कंटेनर्स',
+                    'गुणवत्ता न घालवता सतत पुनर्वापर होऊ शकते',
+                    Icons.wine_bar,
+                    Colors.red,
+                  ),
+                  _buildRecyclingCategory(
+                    'धातू',
+                    'अॅल्युमिनियम कॅन, स्टील कंटेनर्स, फॉइल',
+                    'नवीन उत्पादनाच्या तुलनेत ९५% ऊर्जा वाचवते',
+                    Icons.menu_open,
+                    Colors.green,
                   ),
                   const SizedBox(height: 20),
-                  _buildSection(
-                    'DIY Upcycling Projects',
-                    'Transform waste into valuable items:',
-                    children: [
-                      _buildUpcyclingProject(
-                        'Clothes to Bags',
-                        'Convert old t-shirts into reusable shopping bags',
-                        'assets/diy1.jpg', // Add your image asset
-                      ),
-                      _buildUpcyclingProject(
-                        'Plastic Bottle Planters',
-                        'Create vertical gardens using plastic bottles',
-                        'assets/diy2.jpg', // Add your image asset
-                      ),
-                      _buildUpcyclingProject(
-                        'Glass Jar Organizers',
-                        'Transform jars into storage solutions',
-                        'assets/diy3.webp', // Add your image asset
-                      ),
-                    ],
+                  Text(
+                    'DIY अपसायकलिंग प्रकल्प',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  _buildUpcyclingProject(
+                    'कपडे बॅग्समध्ये',
+                    'जुने टी-शर्ट्स पुन्हा वापरण्यायोग्य खरेदी बॅग्समध्ये बदला',
+                    'assets/diy1.jpg',
+                  ),
+                  _buildUpcyclingProject(
+                    'प्लास्टिक बाटल्या प्लांटर्स',
+                    'प्लास्टिक बाटल्यांचा वापर करून उभे बगीचे तयार करा',
+                    'assets/diy2.jpg',
+                  ),
+                  _buildUpcyclingProject(
+                    'काचेचे जार आयोजक',
+                    'जारचे साठवण उपायांमध्ये रूपांतर करा',
+                    'assets/diy3.webp',
                   ),
                   const SizedBox(height: 20),
-                  _buildSection(
-                    'Environmental Impact',
-                    'Every small action counts:',
-                    children: [
-                      _buildImpactCard(
-                        'Recycling one aluminum can',
-                        'Saves enough energy to power a TV for 3 hours',
-                        Icons.tv,
-                      ),
-                      _buildImpactCard(
-                        'Recycling one glass bottle',
-                        'Saves enough energy to power a computer for 30 minutes',
-                        Icons.computer,
-                      ),
-                      _buildImpactCard(
-                        'Recycling one ton of paper',
-                        'Saves 17 trees and 7,000 gallons of water',
-                        Icons.forest,
-                      ),
-                    ],
+                  Text(
+                    'पर्यावरणीय प्रभाव',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  _buildImpactCard(
+                    'एक अॅल्युमिनियम कॅन पुनर्वापर करणे',
+                    '३ तासांसाठी टीव्ही चालवण्यासाठी पुरेशी ऊर्जा वाचवते',
+                    Icons.tv,
+                  ),
+                  _buildImpactCard(
+                    'एक काचेची बाटली पुनर्वापर करणे',
+                    '३० मिनिटांसाठी संगणक चालवण्यासाठी पुरेशी ऊर्जा वाचवते',
+                    Icons.computer,
+                  ),
+                  _buildImpactCard(
+                    'एक टन कागद पुनर्वापर करणे',
+                    '१७ झाडे आणि ७,००० गॅलन पाणी वाचवते',
+                    Icons.forest,
                   ),
                   const SizedBox(height: 20),
-                  _buildSection(
-                    'Tips for Better Recycling',
-                    '• Clean containers before recycling\n'
-                        '• Remove non-recyclable parts\n'
-                        '• Check local recycling guidelines\n'
-                        '• Avoid contamination with food waste\n'
-                        '• Flatten cardboard boxes\n'
-                        '• Keep materials separated',
+                  Text(
+                    'पुनर्वापरासाठी उपयुक्त टिपा',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    '• पुनर्वापर करण्यापूर्वी कंटेनर्स स्वच्छ करा\n• न पुनर्वापर होणारे भाग काढा\n• स्थानिक पुनर्वापर मार्गदर्शक तपासा\n• अन्न कचऱ्याने दूषित होणे टाळा\n• कार्डबोर्ड बॉक्स सपाट करा\n• साहित्य वेगळे ठेवा',
+                    style: TextStyle(fontSize: 18),
                   ),
                   const SizedBox(height: 20),
                   Center(
@@ -166,7 +188,7 @@ class RecyclingPage extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        'Explore DIY Videos',
+                        'DIY व्हिडिओ शोधा',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -197,7 +219,7 @@ class RecyclingPage extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        'View Leaderboard',
+                        'लीडरबोर्ड पहा',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -216,127 +238,38 @@ class RecyclingPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSection(String title, String? content,
-      {List<Widget>? children}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.green,
-          ),
-        ),
-        const SizedBox(height: 8),
-        if (content != null)
-          Text(
-            content,
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
-          ),
-        if (children != null) ...children,
-      ],
-    );
-  }
-
   Widget _buildRecyclingCategory(
-    String title,
-    String items,
-    String impact,
-    IconData icon,
-    Color color,
-  ) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [color.withOpacity(0.2), color.withOpacity(0.4)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(icon, color: color),
-                  const SizedBox(width: 8),
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: color,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Text('Items: $items'),
-              Text(
-                'Impact: $impact',
-                style: TextStyle(
-                  color: color,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      String title, String items, String benefit, IconData icon, Color color) {
+    return ListTile(
+      leading: Icon(icon, color: color, size: 40),
+      title: Text(title,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+      subtitle: Text('$items\n\u2022 $benefit', style: TextStyle(fontSize: 16)),
     );
   }
 
   Widget _buildUpcyclingProject(
-      String title, String description, String image) {
+      String title, String description, String imagePath) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-            child: Image.asset(
-              image,
-              width: double.infinity,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.recycling, color: Colors.green),
-            title: Text(title),
-            subtitle: Text(description),
-          ),
-        ],
+      child: ListTile(
+        leading:
+            Image.asset(imagePath, width: 50, height: 50, fit: BoxFit.cover),
+        title: Text(title,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        subtitle: Text(description, style: TextStyle(fontSize: 16)),
       ),
     );
   }
 
-  Widget _buildImpactCard(String action, String impact, IconData icon) {
+  Widget _buildImpactCard(String title, String description, IconData icon) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
       child: ListTile(
-        leading: Icon(icon, color: Colors.green),
-        title: Text(action),
-        subtitle: Text(impact),
+        leading: Icon(icon, color: Colors.green, size: 40),
+        title: Text(title,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        subtitle: Text(description, style: TextStyle(fontSize: 16)),
       ),
     );
   }
