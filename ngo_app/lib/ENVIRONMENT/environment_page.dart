@@ -5,6 +5,7 @@ import '../recycle/recycling_page.dart';
 import '../waste_disposal/waste_disposal_page.dart';
 import 'dashboard.dart';
 import '../game/game_zone_page.dart';
+import './waste_detect.dart'; // Import the new Waste Detection page
 
 class EnvironmentPage extends StatelessWidget {
   const EnvironmentPage({super.key});
@@ -45,6 +46,13 @@ class EnvironmentPage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [
+            _buildCustomButton(
+              context,
+              'कचरा शोध', // Waste Detection in Marathi
+              Icons.search,
+              const WasteDetectionPage(), // Navigate to WasteDetectionPage
+            ),
+            const SizedBox(height: 16),
             _buildCustomButton(
               context,
               'पर्यावरणीय संसाधने', // Environmental Resources in Marathi
