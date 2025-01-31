@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "app-mergeDebugResources-34:/values-cs/values-cs.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d024d3599045d422048f46b94a173044\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-cs\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "138",
+                        "endOffsets": "333"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "786",
+                        "endColumns": "142",
+                        "endOffsets": "924"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d862ca1deedad20712161a9697ceef00\\transformed\\core-1.13.1\\res\\values-cs\\values-cs.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,255,356,455,560,667,786",
+                        "endColumns": "97,101,100,98,104,106,118,100",
+                        "endOffsets": "148,250,351,450,555,662,781,882"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,14",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,255,356,455,560,667,1349",
+                        "endColumns": "97,101,100,98,104,106,118,100",
+                        "endOffsets": "148,250,351,450,555,662,781,1445"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\52b8542b73a0171c6231e3af3ae90a9d\\transformed\\browser-1.8.0\\res\\values-cs\\values-cs.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,157,260,374",
+                        "endColumns": "101,102,113,100",
+                        "endOffsets": "152,255,369,470"
+                    },
+                    "to": {
+                        "startLines": "10,11,12,13",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "929,1031,1134,1248",
+                        "endColumns": "101,102,113,100",
+                        "endOffsets": "1026,1129,1243,1344"
+                    }
+                }
+            ]
+        }
+    ]
+}

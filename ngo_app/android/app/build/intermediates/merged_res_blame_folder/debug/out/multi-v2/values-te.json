@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "app-mergeDebugResources-34:/values-te/values-te.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d024d3599045d422048f46b94a173044\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-te\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "135",
+                        "endOffsets": "330"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "805",
+                        "endColumns": "139",
+                        "endOffsets": "940"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d862ca1deedad20712161a9697ceef00\\transformed\\core-1.13.1\\res\\values-te\\values-te.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,157,265,367,468,574,681,805",
+                        "endColumns": "101,107,101,100,105,106,123,100",
+                        "endOffsets": "152,260,362,463,569,676,800,901"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,14",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,157,265,367,468,574,681,1382",
+                        "endColumns": "101,107,101,100,105,106,123,100",
+                        "endOffsets": "152,260,362,463,569,676,800,1478"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\52b8542b73a0171c6231e3af3ae90a9d\\transformed\\browser-1.8.0\\res\\values-te\\values-te.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,166,274,385",
+                        "endColumns": "110,107,110,106",
+                        "endOffsets": "161,269,380,487"
+                    },
+                    "to": {
+                        "startLines": "10,11,12,13",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "945,1056,1164,1275",
+                        "endColumns": "110,107,110,106",
+                        "endOffsets": "1051,1159,1270,1377"
+                    }
+                }
+            ]
+        }
+    ]
+}

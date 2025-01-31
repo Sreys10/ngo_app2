@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "app-mergeDebugResources-34:/values-ml/values-ml.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\52b8542b73a0171c6231e3af3ae90a9d\\transformed\\browser-1.8.0\\res\\values-ml\\values-ml.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,164,267,378",
+                        "endColumns": "108,102,110,103",
+                        "endOffsets": "159,262,373,477"
+                    },
+                    "to": {
+                        "startLines": "10,11,12,13",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "952,1061,1164,1275",
+                        "endColumns": "108,102,110,103",
+                        "endOffsets": "1056,1159,1270,1374"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d862ca1deedad20712161a9697ceef00\\transformed\\core-1.13.1\\res\\values-ml\\values-ml.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,157,260,362,466,569,670,792",
+                        "endColumns": "101,102,101,103,102,100,121,100",
+                        "endOffsets": "152,255,357,461,564,665,787,888"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,14",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,157,260,362,466,569,670,1379",
+                        "endColumns": "101,102,101,103,102,100,121,100",
+                        "endOffsets": "152,255,357,461,564,665,787,1475"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d024d3599045d422048f46b94a173044\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-ml\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "155",
+                        "endOffsets": "350"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "792",
+                        "endColumns": "159",
+                        "endOffsets": "947"
+                    }
+                }
+            ]
+        }
+    ]
+}

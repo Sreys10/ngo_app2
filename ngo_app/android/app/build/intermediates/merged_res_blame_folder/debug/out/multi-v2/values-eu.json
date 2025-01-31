@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "app-mergeDebugResources-34:/values-eu/values-eu.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d862ca1deedad20712161a9697ceef00\\transformed\\core-1.13.1\\res\\values-eu\\values-eu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,256,356,459,564,667,786",
+                        "endColumns": "97,102,99,102,104,102,118,100",
+                        "endOffsets": "148,251,351,454,559,662,781,882"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,14",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,256,356,459,564,667,1349",
+                        "endColumns": "97,102,99,102,104,102,118,100",
+                        "endOffsets": "148,251,351,454,559,662,781,1445"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\d024d3599045d422048f46b94a173044\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-eu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "138",
+                        "endOffsets": "333"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "786",
+                        "endColumns": "142",
+                        "endOffsets": "924"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SHREYAS\\.gradle\\caches\\transforms-3\\52b8542b73a0171c6231e3af3ae90a9d\\transformed\\browser-1.8.0\\res\\values-eu\\values-eu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,155,257,370",
+                        "endColumns": "99,101,112,104",
+                        "endOffsets": "150,252,365,470"
+                    },
+                    "to": {
+                        "startLines": "10,11,12,13",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "929,1029,1131,1244",
+                        "endColumns": "99,101,112,104",
+                        "endOffsets": "1024,1126,1239,1344"
+                    }
+                }
+            ]
+        }
+    ]
+}

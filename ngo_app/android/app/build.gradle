@@ -3,77 +3,53 @@ plugins {
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
-    id 'com.google.gms.google-services' // For Firebase integration
+    id 'com.google.gms.google-services'
 }
 
 android {
     namespace = "com.example.ngo_app"
-    compileSdkVersion 34 // Use the latest compileSdkVersion
+    compileSdkVersion 34 // This sets the compileSdkVersion directly
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17 // Update to Java 17 for better compatibility
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = "17" // Update to match Java version
+        jvmTarget = "1.8"
     }
 
     defaultConfig {
         applicationId = "com.example.ngo_app"
         minSdkVersion flutter.minSdkVersion // Dynamically linked to Flutter's minSdkVersion
-        targetSdkVersion 34 // Use the latest targetSdkVersion
-        versionCode flutter.versionCode.toInteger() // Ensure versionCode is an integer
+        targetSdkVersion 34 // This is required for compatibility with Android 12+
+        minSdkVersion 23 // or higher, depending on your requirements
+
+        versionCode flutter.versionCode
         versionName flutter.versionName
     }
 
     buildTypes {
         release {
             signingConfig = signingConfigs.debug // TODO: Replace with proper release signing config for production
-            minifyEnabled true // Enable code shrinking and obfuscation
-            shrinkResources true // Enable resource shrinking
+            minifyEnabled true // Optional: Adjust if using ProGuard or R8
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            minifyEnabled false // Disable minification for debug builds
-            shrinkResources false // Disable resource shrinking for debug builds
-        }
-    }
-
-    // Enable view binding (optional)
-    viewBinding {
-        enabled = true
-    }
-
-    // Enable data binding (optional)
-    dataBinding {
-        enabled = true
     }
 }
 
 flutter {
     source = "../.."
 }
+dependencies{
+   implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
 
-dependencies {
-    implementation(platform("com.google.firebase:firebase-bom:33.7.0")) // Firebase BoM
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth")
 
-    // Firebase dependencies
-    implementation("com.google.firebase:firebase-auth") // Firebase Authentication
-    implementation("com.google.firebase:firebase-analytics") // Firebase Analytics (optional)
-    implementation("com.google.firebase:firebase-firestore") // Firestore (optional)
-    implementation("com.google.firebase:firebase-storage") // Firebase Storage (optional)
-
-    // Google Play services
-    implementation("com.google.android.gms:play-services-auth:21.3.0") // Google Play services Auth
-
-    // TensorFlow Lite (if using waste detection model)
-    implementation("org.tensorflow:tensorflow-lite:2.14.0") // Use the latest version
-    implementation("org.tensorflow:tensorflow-lite-support:0.4.4") // Optional: For support libraries
-
-    // Kotlin standard library
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
-
-    // Flutter dependencies (automatically added by Flutter)
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
 }

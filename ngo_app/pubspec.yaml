@@ -39,13 +39,6 @@ dependencies:
   firebase_auth: ^4.9.0
   audioplayers: ^5.0.1
   lottie: ^2.5.0
-  #tflite: ^1.1.2 # TensorFlow Lite Flutter plugin
-  camera: ^0.10.0+1 # For accessing the camera
-  image_picker: ^0.8.5+3
-  tflite:
-    git:
-      url: https://github.com/shaqian/flutter_tflite.git
-      ref: master
 
 dependency_overrides:
   collection: ^1.18.0
@@ -111,7 +104,6 @@ flutter:
     - assets/gif/factory.gif
     - assets/gif/bee.gif
     - assets/plastic_bag.jpg
-    - assets/model/waste.tflite
 
   uses-material-design: true
 
