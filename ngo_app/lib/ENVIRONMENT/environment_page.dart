@@ -5,6 +5,8 @@ import '../recycle/recycling_page.dart';
 import '../waste_disposal/waste_disposal_page.dart';
 import 'dashboard.dart';
 import '../game/game_zone_page.dart';
+import '../survey/pre.dart'; // Import the Pre-test page
+import '../survey/post.dart'; // Import the Post-test page
 
 class EnvironmentPage extends StatelessWidget {
   const EnvironmentPage({super.key});
@@ -17,6 +19,15 @@ class EnvironmentPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.green,
         elevation: 5,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            'assets/Arise_Logo.png', // Path to your logo image
+            width: 40,
+            height: 40,
+            fit: BoxFit.contain,
+          ),
+        ),
         actions: [
           GestureDetector(
             onTap: () {
@@ -79,6 +90,13 @@ class EnvironmentPage extends StatelessWidget {
               Icons.videogame_asset,
               const GameZonePage(),
             ),
+            const SizedBox(height: 16),
+            _buildCustomButton(
+              context,
+              'सर्वेक्षण', // Survey in Marathi
+              Icons.assignment,
+              _buildSurveyOptions(context),
+            ),
             const SizedBox(height: 32),
             _buildGif(),
           ],
@@ -113,6 +131,40 @@ class EnvironmentPage extends StatelessWidget {
         backgroundColor: Colors.green,
         shadowColor: Colors.greenAccent,
         elevation: 8,
+      ),
+    );
+  }
+
+  Widget _buildSurveyOptions(BuildContext context) {
+    return AlertDialog(
+      title: const Text('सर्वेक्षण निवडा'), // Choose Survey in Marathi
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            leading:
+                const Icon(Icons.assignment_turned_in, color: Colors.green),
+            title: const Text('प्री-टेस्ट'), // Pre-test in Marathi
+            onTap: () {
+              Navigator.pop(context); // Close the dialog
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PreTestPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.assignment_outlined, color: Colors.green),
+            title: const Text('पोस्ट-टेस्ट'), // Post-test in Marathi
+            onTap: () {
+              Navigator.pop(context); // Close the dialog
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PostTestPage()),
+              );
+            },
+          ),
+        ],
       ),
     );
   }

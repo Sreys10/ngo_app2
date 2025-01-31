@@ -10,7 +10,10 @@ class CarbonFootprintPage extends StatefulWidget {
 
 class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
   final TextEditingController distanceController = TextEditingController();
-  final TextEditingController electricityController = TextEditingController();
+  final TextEditingController bulbsController = TextEditingController();
+  final TextEditingController tvController = TextEditingController();
+  final TextEditingController acController = TextEditingController();
+  final TextEditingController fridgeController = TextEditingController();
   final TextEditingController wasteController = TextEditingController();
   final TextEditingController waterController = TextEditingController();
 
@@ -30,6 +33,12 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
     'वनस्पती आहार': 3.0,
     'सर्वभक्षी': 5.0,
   };
+
+  // Power consumption in watts for common appliances
+  final double bulbPower = 10; // 10 watts per bulb
+  final double tvPower = 100; // 100 watts for TV
+  final double acPower = 1500; // 1500 watts for AC
+  final double fridgePower = 200; // 200 watts for fridge
 
   @override
   Widget build(BuildContext context) {
@@ -80,16 +89,59 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'वीज वापर (किलोवॅट तास मध्ये):',
+              'वीज वापर:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
+            const Text(
+              'दिवे (संख्या आणि तास):',
+              style: TextStyle(fontSize: 14),
+            ),
             TextField(
-              controller: electricityController,
+              controller: bulbsController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: 'उदा., 200',
+                hintText: 'उदा., 5 दिवे, 4 तास',
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'टीव्ही (तास):',
+              style: TextStyle(fontSize: 14),
+            ),
+            TextField(
+              controller: tvController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'उदा., 3 तास',
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'एअर कंडिशनर (तास):',
+              style: TextStyle(fontSize: 14),
+            ),
+            TextField(
+              controller: acController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'उदा., 8 तास',
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'फ्रिज (तास):',
+              style: TextStyle(fontSize: 14),
+            ),
+            TextField(
+              controller: fridgeController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'उदा., 24 तास',
               ),
             ),
             const SizedBox(height: 20),
@@ -147,16 +199,29 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
               onPressed: () {
                 final double distance =
                     double.tryParse(distanceController.text) ?? 0.0;
-                final double electricity =
-                    double.tryParse(electricityController.text) ?? 0.0;
+                final int bulbs = int.tryParse(bulbsController.text) ?? 0;
+                final double tvHours =
+                    double.tryParse(tvController.text) ?? 0.0;
+                final double acHours =
+                    double.tryParse(acController.text) ?? 0.0;
+                final double fridgeHours =
+                    double.tryParse(fridgeController.text) ?? 0.0;
                 final double waste =
                     double.tryParse(wasteController.text) ?? 0.0;
                 final double water =
                     double.tryParse(waterController.text) ?? 0.0;
 
+                // Calculate electricity consumption in kWh
+                final double electricityFootprint = (bulbs *
+                        bulbPower *
+                        4 /
+                        1000) + // Assuming 4 hours per bulb
+                    (tvHours * tvPower / 1000) +
+                    (acHours * acPower / 1000) +
+                    (fridgeHours * fridgePower / 1000);
+
                 final double transportFootprint =
                     distance * transportEmissions[selectedTransport]!;
-                final double electricityFootprint = electricity * 0.5;
                 final double wasteFootprint = waste * 2.0;
                 final double dietFootprint = dietEmissions[selectedDiet]!;
                 final double waterFootprint = water * 0.01;
