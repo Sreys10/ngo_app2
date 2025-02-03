@@ -7,9 +7,82 @@ import 'dashboard.dart';
 import '../game/game_zone_page.dart';
 import '../survey/pre.dart'; // Import the Pre-test page
 import '../survey/post.dart'; // Import the Post-test page
+import 'dart:async';
 
-class EnvironmentPage extends StatelessWidget {
+class EnvironmentPage extends StatefulWidget {
   const EnvironmentPage({super.key});
+
+  @override
+  _EnvironmentPageState createState() => _EnvironmentPageState();
+}
+
+class _EnvironmentPageState extends State<EnvironmentPage> {
+  bool _animate = false;
+  bool _showHome = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _startAnimation();
+  }
+
+  void _startAnimation() {
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        _animate = true;
+      });
+
+      Future.delayed(const Duration(seconds: 1), () {
+        setState(() {
+          _showHome = true;
+        });
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          if (_showHome) _buildHomePage(),
+          AnimatedPositioned(
+            duration: const Duration(seconds: 1),
+            curve: Curves.easeInOut,
+            top: _animate
+                ? 10
+                : MediaQuery.of(context).size.height / 2 -
+                    80, // Centered for initial 160x160 size
+            left: _animate
+                ? 10
+                : MediaQuery.of(context).size.width / 2 -
+                    80, // Centered for initial 160x160 size
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 500),
+              opacity: _showHome ? 0.0 : 1.0,
+              child: AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                width: _animate ? 80 : 160,
+                height: _animate ? 80 : 160,
+                child: Image.asset(
+                  'assets/Arise_Logo.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHomePage() {
+    return const EnvironmentHomePage();
+  }
+}
+
+class EnvironmentHomePage extends StatelessWidget {
+  const EnvironmentHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

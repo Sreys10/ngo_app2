@@ -60,7 +60,6 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/background.jpg
     - assets/Arise_Logo.png
     - assets/climate_change.jpg
     - assets/water_conservation.jpg
