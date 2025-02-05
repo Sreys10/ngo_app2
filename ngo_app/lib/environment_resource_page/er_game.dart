@@ -56,8 +56,9 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
       // Water decreases based on trees and pollution
       int waterDecrease = baseWaterConsumption;
       waterDecrease += (treeCount ~/ 20); // More trees consume more water
-      if (pollutionLevel > 50)
+      if (pollutionLevel > 50) {
         waterDecrease += 1; // High pollution increases water loss
+      }
       waterLevel = (waterLevel - waterDecrease).clamp(0, 100);
 
       // Trees naturally decline and are affected by pollution
@@ -70,8 +71,9 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
       int pollutionIncrease = basePollutionIncrease;
       pollutionIncrease -=
           (treeCount ~/ 25); // Trees help reduce pollution increase
-      if (wildlifePopulation > 70)
+      if (wildlifePopulation > 70) {
         pollutionIncrease += 1; // Large wildlife population increases pollution
+      }
       pollutionLevel = (pollutionLevel + pollutionIncrease).clamp(0, 100);
 
       // Wildlife changes based on environment
@@ -174,12 +176,15 @@ class _EnvironmentalResourcesGameState extends State<EnvironmentalResourcesGame>
       _gameOver = true;
       String reason = "";
       if (waterLevel <= criticalThreshold) reason = "पाणी पातळी गंभीर स्थितीत!";
-      if (treeCount <= criticalThreshold)
+      if (treeCount <= criticalThreshold) {
         reason = "झाडांची संख्या गंभीर स्थितीत!";
-      if (wildlifePopulation <= criticalThreshold)
+      }
+      if (wildlifePopulation <= criticalThreshold) {
         reason = "वन्यजीव संख्या गंभीर स्थितीत!";
-      if (pollutionLevel >= 100 - criticalThreshold)
+      }
+      if (pollutionLevel >= 100 - criticalThreshold) {
         reason = "प्रदूषण गंभीर स्थितीत!";
+      }
 
       gameStatus = "खेळ संपला! कारण: $reason 🚨";
     }

@@ -1,5 +1,19 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const PostTestPage(),
+    );
+  }
+}
+
 class PostTestPage extends StatefulWidget {
   const PostTestPage({super.key});
 
@@ -9,6 +23,9 @@ class PostTestPage extends StatefulWidget {
 
 class _PostTestPageState extends State<PostTestPage> {
   List<String?> userAnswers = List.filled(10, null);
+  bool showAnswers = false;
+  final ScrollController _scrollController =
+      ScrollController(); // Add ScrollController
 
   final List<String> correctAnswers = [
     'c',
@@ -21,6 +38,19 @@ class _PostTestPageState extends State<PostTestPage> {
     'a',
     'b',
     'a'
+  ];
+
+  final List<String> explanations = [
+    'संसाधन पुनर्वापर आणि संरक्षण हे पर्यावरण संरक्षणासाठी महत्त्वाचे आहे.',
+    'सौर ऊर्जा ही एक नैतिक आणि प्रदूषणमुक्त ऊर्जा स्रोत आहे.',
+    'केवळ आवश्यकता असताना वीज उपकरणे वापरणे ऊर्जा वाचवते.',
+    'पाणी गळती रोखून पाणी वाया जाणे टाळता येते.',
+    'कचऱ्यापासून उपयोगी वस्त्रांचा पुनर्वापर नवीन वस्त्रांमध्ये केला जाऊ शकतो.',
+    'जुन्या कपड्यांचे आणि प्लॅस्टिकचे पुनर्वापर पर्यावरण रक्षणासाठी महत्त्वाचे आहे.',
+    'कचऱ्याचे व्यवस्थापन सुधारण्यासाठी जनजागृती आणि शिक्षण आवश्यक आहे.',
+    'सेंद्रिय कचरा नैतिक कंपोस्टमध्ये रूपांतरित केला जाऊ शकतो.',
+    'सॅनिटरी पॅड्सचा योग्य विल्हेवाट आवश्यक आहे.',
+    'झाडे लावणे आणि जनजागृती पर्यावरण संरक्षणासाठी महत्त्वपूर्ण उपक्रम आहेत.'
   ];
 
   void _checkAnswers() {
@@ -36,22 +66,104 @@ class _PostTestPageState extends State<PostTestPage> {
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         title: const Text(
-          'Result',
+          'परिणाम',
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),
           textAlign: TextAlign.center,
         ),
-        content: Text(
-          'You scored $score out of ${correctAnswers.length}',
-          style: const TextStyle(fontSize: 18),
-          textAlign: TextAlign.center,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'तुम्ही $score पैकी ${correctAnswers.length} गुण मिळवले.',
+              style: const TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green.shade700,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  showAnswers = true;
+                });
+                Navigator.pop(context);
+                _scrollController.animateTo(0,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut); // Scroll to top
+              },
+              child: const Text(
+                'उत्तर पहा',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: const Text(
-              'OK',
+              'बंद करा',
               style: TextStyle(fontSize: 16, color: Colors.green),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAnswerReview(int index) {
+    String userAnswer = userAnswers[index] ?? 'उत्तर दिलेले नाही';
+    String correctAnswer = correctAnswers[index];
+    bool isCorrect = userAnswer == correctAnswer;
+
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade100,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                isCorrect ? Icons.check_circle : Icons.cancel,
+                color: isCorrect ? Colors.green : Colors.red,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                'तुम्ही दिलेले उत्तर: $userAnswer',
+                style: TextStyle(
+                  color: isCorrect ? Colors.green : Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          if (!isCorrect) ...[
+            const SizedBox(height: 8),
+            Text(
+              'योग्य उत्तर: $correctAnswer',
+              style: const TextStyle(
+                color: Colors.green,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+          const SizedBox(height: 8),
+          Text(
+            'स्पष्टीकरण: ${explanations[index]}',
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.black87,
             ),
           ),
         ],
@@ -64,7 +176,7 @@ class _PostTestPageState extends State<PostTestPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Post-Test Survey',
+          'पोस्ट-टेस्ट सर्वे',
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
@@ -95,35 +207,70 @@ class _PostTestPageState extends State<PostTestPage> {
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
+                controller: _scrollController, // Attach ScrollController
                 padding: const EdgeInsets.all(8),
                 itemCount: correctAnswers.length,
                 itemBuilder: (context, index) {
-                  return _buildQuestion(
-                      index + 1, questions[index], options[index]);
+                  return Column(
+                    children: [
+                      _buildQuestion(
+                          index + 1, questions[index], options[index]),
+                      const SizedBox(height: 20),
+                      if (showAnswers) _buildAnswerReview(index),
+                    ],
+                  );
                 },
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green.shade700,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+            if (!showAnswers)
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green.shade700,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 8,
+                  shadowColor: Colors.greenAccent,
                 ),
-                elevation: 8,
-                shadowColor: Colors.greenAccent,
+                onPressed: _checkAnswers,
+                child: const Text(
+                  'सबमिट करा',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-              onPressed: _checkAnswers,
-              child: const Text(
-                'Submit',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+            const SizedBox(height: 10),
+            if (showAnswers)
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red.shade700,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 8,
+                  shadowColor: Colors.redAccent,
+                ),
+                onPressed: () {
+                  setState(() {
+                    showAnswers = false;
+                    userAnswers = List.filled(10, null);
+                  });
+                },
+                child: const Text(
+                  'पुन्हा प्रयत्न करा',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-            ),
           ],
         ),
       ),
@@ -133,8 +280,8 @@ class _PostTestPageState extends State<PostTestPage> {
   Widget _buildQuestion(
       int questionNumber, String question, List<String> options) {
     return Card(
-      elevation: 4,
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      elevation: 6,
+      margin: const EdgeInsets.symmetric(vertical: 12),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -144,7 +291,7 @@ class _PostTestPageState extends State<PostTestPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Q$questionNumber: $question',
+              'प्रश्न $questionNumber: $question',
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -156,130 +303,122 @@ class _PostTestPageState extends State<PostTestPage> {
               bool isSelected =
                   userAnswers[questionNumber - 1] == option.split(')')[0];
               return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    userAnswers[questionNumber - 1] = option.split(')')[0];
-                  });
-                },
+                onTap: showAnswers
+                    ? null
+                    : () {
+                        setState(() {
+                          userAnswers[questionNumber - 1] =
+                              option.split(')')[0];
+                        });
+                      },
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeInOut,
-                  margin: const EdgeInsets.symmetric(vertical: 4),
                   padding: const EdgeInsets.all(12),
+                  margin: const EdgeInsets.only(bottom: 8),
                   decoration: BoxDecoration(
-                    color: isSelected ? Colors.green.shade100 : Colors.white,
+                    color:
+                        isSelected ? Colors.green.shade100 : Colors.transparent,
                     border: Border.all(
                       color: isSelected
-                          ? Colors.green.shade700
-                          : Colors.grey.shade300,
-                      width: isSelected ? 2 : 1,
+                          ? Colors.green.shade600
+                          : Colors.grey.shade400,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
                     children: [
-                      Icon(
-                        isSelected
-                            ? Icons.radio_button_checked
-                            : Icons.radio_button_off,
-                        color: isSelected ? Colors.green.shade700 : Colors.grey,
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          option,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: isSelected
-                                ? Colors.green.shade700
-                                : Colors.black87,
-                          ),
+                      Text(
+                        option,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: isSelected ? Colors.green : Colors.black87,
                         ),
                       ),
                     ],
                   ),
                 ),
               );
-            }),
+            }).toList(),
           ],
         ),
       ),
     );
   }
+
+  final List<String> questions = [
+    'तुम्ही पर्यावरण वाचवण्यासाठी कोणते उपाय वापरू इच्छिता?',
+    'तुम्ही कोणत्या प्रकारे ऊर्जा वाचवू शकता?',
+    'तुम्ही घरातील ऊर्जा कार्यक्षमता कशी सुधारू शकता?',
+    'तुम्ही पाणी वाचवण्यासाठी काय करू इच्छिता?',
+    'तुम्ही कचरा कसा कमी करू शकता?',
+    'तुम्ही पुनर्वापर करण्यासाठी काय निवडू इच्छिता?',
+    'तुम्ही पर्यावरणासंबंधी जागरूकता कशी वाढवू शकता?',
+    'तुम्ही जैविक कचरा कसा व्यवस्थापित करू शकता?',
+    'तुम्ही सॅनिटरी पॅड्ससाठी कोणते उपाय करू इच्छिता?',
+    'तुम्ही पर्यावरण रक्षणासाठी कोणते उपक्रम सुरू करू इच्छिता?',
+  ];
+
+  final List<List<String>> options = [
+    [
+      'a) ऊर्जा वाचवणे',
+      'b) वृक्षारोपण करणे',
+      'c) पुनर्वापर आणि संरक्षण',
+      'd) वीज बचत'
+    ],
+    [
+      'a) सौर ऊर्जा वापरणे',
+      'b) गॅसवरील निर्बंध करणे',
+      'c) सायकल वापरणे',
+      'd) प्लॅस्टिकचे पुनर्वापर'
+    ],
+    [
+      'a) घराचे इन्सुलेशन सुधारणे',
+      'b) वीज उपकरणे बंद करणे',
+      'c) डक्टवर्क सुधारणे',
+      'd) वीज वापरणे'
+    ],
+    [
+      'a) टाकी दुरुस्त करणे',
+      'b) गळती थांबवणे',
+      'c) संकलन करणे',
+      'd) कमी वेळ वापरणे'
+    ],
+    [
+      'a) पुनर्नवीनीकरण',
+      'b) कचरा कमी करणे',
+      'c) कचऱ्याचे विल्हेवाट लावणे',
+      'd) कचरा गोळा करणे'
+    ],
+    [
+      'a) कागदाचा पुनर्वापर',
+      'b) प्लॅस्टिक फ्री जीवन',
+      'c) कमी वस्त्रांची खरेदी',
+      'd) जुन्या कपड्यांचा पुनर्वापर'
+    ],
+    [
+      'a) शाळेत जागरूकता चालवणे',
+      'b) सरकारी धोरण लागू करणे',
+      'c) ऑनलाइन शॉपिंग बंद करणे',
+      'd) जनजागृती साधणे'
+    ],
+    [
+      'a) हर्बल कंपोस्ट',
+      'b) वनस्पतींचा नाश',
+      'c) जैविक कचरा नष्ट करणे',
+      'd) वनस्पती पाणी देणे'
+    ],
+    [
+      'a) विशेष पॅड कचऱ्यात टाकणे',
+      'b) पुनर्वापर करणे',
+      'c) सॅनिटरी पॅड फुकट वितरित करणे',
+      'd) पॅड लांब ठेवणे'
+    ],
+    [
+      'a) झाडे लावणे',
+      'b) कचरा गोळा करणे',
+      'c) पर्यावरण संरक्षणासाठी समुदाय तयार करणे',
+      'd) कचऱ्याची विल्हेवाट लावणे'
+    ],
+  ];
 }
-
-final List<String> questions = [
-  'तुम्ही पर्यावरणीय स्त्रोत जपण्यासाठी कोणत्या पद्धती अमलात आणू शकता?',
-  'तुमचा कार्बन फूटप्रिंट कमी करण्यासाठी तुम्ही कोणते बदल करू शकता?',
-  'उर्जेची बचत करण्यासाठी तुमच्या घरामध्ये कोणते उपाय करता येतील?',
-  'पाण्याचा अपव्यय टाळण्यासाठी कोणते उपाय आहेत?',
-  'कचऱ्याचे योग्य व्यवस्थापन का महत्त्वाचे आहे?',
-  'तुम्ही अनावश्यक कपडे किंवा प्लास्टिक कसे पुनर्वापर करू शकता?',
-  'तुमच्या समाजामध्ये पुनर्वापर आणि कचरा व्यवस्थापन सुधारण्यासाठी तुम्ही काय कराल?',
-  'जैविक कचऱ्याचे खत कसे तयार करता येईल?',
-  'मुलींनी वापरलेल्या सॅनिटरी पॅड्सची विल्हेवाट कशी लावावी?',
-  'तुम्ही पर्यावरण संवर्धनासाठी आणखी कोणते उपक्रम राबवू शकता?',
-];
-
-final List<List<String>> options = [
-  [
-    'a) प्लास्टिक जास्त वापरणे',
-    'b) नैसर्गिक स्त्रोतांचा अपव्यय करणे',
-    'c) स्त्रोतांचे पुनर्वापर आणि जतन करणे',
-    'd) पाण्याचा अपव्यय करणे'
-  ],
-  [
-    'a) सौर उर्जेचा वापर करणे',
-    'b) वाहनांचा अपव्यय करणे',
-    'c) कोळशाचा जास्तीत जास्त वापर करणे',
-    'd) पाण्याचा अपव्यय वाढवणे'
-  ],
-  [
-    'a) दिवे आणि पंखे चालू ठेवणे',
-    'b) विजेची उपकरणे फक्त गरज असेल तेव्हाच वापरणे',
-    'c) विजेचा अनावश्यक वापर करणे',
-    'd) मोठ्या प्रमाणावर विजेचा अपव्यय करणे'
-  ],
-  [
-    'a) गळके नळ दुरुस्त करणे',
-    'b) पाण्याचा अनावश्यक वापर करणे',
-    'c) पाण्याचा अपव्यय करण्यासाठी मोठे टाक्या वापरणे',
-    'd) वाहत्या पाण्याला चालू ठेवणे'
-  ],
-  [
-    'a) कचऱ्यामुळे प्रदूषण कमी होते',
-    'b) कचऱ्यातील उपयोगी गोष्टींचा पुनर्वापर करता येतो',
-    'c) कचऱ्याचा ढीग तयार करण्यासाठी',
-    'd) पर्यावरणासाठी हानिकारक असते'
-  ],
-  [
-    'a) फेकून देऊन',
-    'b) गरजूंना देऊन किंवा नवीन वस्तू तयार करून',
-    'c) जाळून टाकून',
-    'd) कोणताही उपाय न करता'
-  ],
-  [
-    'a) जनजागृती करून आणि लोकांना शिक्षित करून',
-    'b) कचऱ्याचा ढीग तयार करण्यासाठी प्रोत्साहन देऊन',
-    'c) सर्व कचरा एकाच ठिकाणी टाकून',
-    'd) प्लास्टिकचा अपव्यय करून'
-  ],
-  [
-    'a) कचऱ्याला एका खड्ड्यात टाकून सडवणे',
-    'b) जैविक कचरा जाळून टाकणे',
-    'c) प्लास्टिक कचऱ्याचा वापर करून',
-    'd) कचऱ्याला कोणतेही व्यवस्थापन न करता टाकणे'
-  ],
-  [
-    'a) रस्त्यावर टाकून देऊन',
-    'b) योग्य प्रकारे संकलन व जळणाऱ्या कचऱ्यात वर्गीकरण करून',
-    'c) इतर कचऱ्यात मिसळून',
-    'd) पाण्यात टाकून'
-  ],
-  [
-    'a) झाडे लावणे आणि लोकांना प्रोत्साहन देणे',
-    'b) प्लास्टिक पिशव्यांचा अधिक वापर करणे',
-    'c) कचऱ्याचा वर्गीकरण टाळणे',
-    'd) पर्यावरणीय स्त्रोतांचा जास्तीत जास्त उपभोग करणे'
-  ]
-];
