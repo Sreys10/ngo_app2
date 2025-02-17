@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ENVIRONMENT/environment_page.dart'; // Import the EnvironmentPage
+import 'HOME/home.dart'; // Import the HomePage
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const EnvironmentPage(), // Directly set EnvironmentPage as the home
+      home: const HomePage(), // Set HomePage as the home screen
     );
   }
 }

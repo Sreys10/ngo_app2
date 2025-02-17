@@ -1,101 +1,28 @@
 import 'package:flutter/material.dart';
-import '../environment_resource_page/environmental_resources_page.dart';
-import '../management/management_page.dart';
-import '../recycle/recycling_page.dart';
-import '../waste_disposal/waste_disposal_page.dart';
+import './environment_resource_page/environmental_resources_page.dart';
+import './management/management_page.dart';
+import 'recycle/recycling_page.dart';
+import 'waste_disposal/waste_disposal_page.dart';
 import 'dashboard.dart';
-import '../game/game_zone_page.dart';
-import '../survey/pre.dart'; // Import the Pre-test page
-import '../survey/post.dart'; // Import the Post-test page
-import 'dart:async';
+import './game/game_zone_page.dart';
+import 'survey/pre.dart';
+import 'survey/post.dart';
 
-class EnvironmentPage extends StatefulWidget {
+class EnvironmentPage extends StatelessWidget {
   const EnvironmentPage({super.key});
-
-  @override
-  _EnvironmentPageState createState() => _EnvironmentPageState();
-}
-
-class _EnvironmentPageState extends State<EnvironmentPage> {
-  bool _animate = false;
-  bool _showHome = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _startAnimation();
-  }
-
-  void _startAnimation() {
-    Future.delayed(const Duration(seconds: 1), () {
-      setState(() {
-        _animate = true;
-      });
-
-      Future.delayed(const Duration(seconds: 1), () {
-        setState(() {
-          _showHome = true;
-        });
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          if (_showHome) _buildHomePage(),
-          AnimatedPositioned(
-            duration: const Duration(seconds: 1),
-            curve: Curves.easeInOut,
-            top: _animate
-                ? 10
-                : MediaQuery.of(context).size.height / 2 -
-                    80, // Centered for initial 160x160 size
-            left: _animate
-                ? 10
-                : MediaQuery.of(context).size.width / 2 -
-                    80, // Centered for initial 160x160 size
-            child: AnimatedOpacity(
-              duration: const Duration(milliseconds: 500),
-              opacity: _showHome ? 0.0 : 1.0,
-              child: AnimatedContainer(
-                duration: const Duration(seconds: 1),
-                width: _animate ? 80 : 160,
-                height: _animate ? 80 : 160,
-                child: Image.asset(
-                  'assets/Arise_Logo.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildHomePage() {
-    return const EnvironmentHomePage();
-  }
-}
-
-class EnvironmentHomePage extends StatelessWidget {
-  const EnvironmentHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('पर्यावरण'), // Environment Page in Marathi
+        title: const Text('पर्यावरण'),
         centerTitle: true,
         backgroundColor: Colors.green,
         elevation: 5,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
-            'assets/Arise_Logo.png', // Path to your logo image
+            'assets/ENVIRONMENT/Arise_Logo.png',
             width: 40,
             height: 40,
             fit: BoxFit.contain,
@@ -114,7 +41,7 @@ class EnvironmentHomePage extends StatelessWidget {
               backgroundColor: Colors.white,
               child: ClipOval(
                 child: Image.asset(
-                  'assets/pf.png',
+                  'assets/ENVIRONMENT/pf.png',
                   width: 40,
                   height: 40,
                   fit: BoxFit.cover,
@@ -131,42 +58,42 @@ class EnvironmentHomePage extends StatelessWidget {
           children: [
             _buildCustomButton(
               context,
-              'पर्यावरणीय संसाधने', // Environmental Resources in Marathi
+              'पर्यावरणीय संसाधने',
               Icons.nature_people,
               const EnvironmentalResourcesPage(),
             ),
             const SizedBox(height: 16),
             _buildCustomButton(
               context,
-              'व्यवस्थापन', // Management in Marathi
+              'व्यवस्थापन',
               Icons.settings,
               const ManagementPage(),
             ),
             const SizedBox(height: 16),
             _buildCustomButton(
               context,
-              'पुनर्चक्रण', // Recycling in Marathi
+              'पुनर्चक्रण',
               Icons.recycling,
               const RecyclingPage(),
             ),
             const SizedBox(height: 16),
             _buildCustomButton(
               context,
-              'कचरा विल्हेवाट', // Waste Disposal in Marathi
+              'कचरा विल्हेवाट',
               Icons.delete_forever,
               const WasteDisposalPage(),
             ),
             const SizedBox(height: 16),
             _buildCustomButton(
               context,
-              'गेम झोन', // Game Zone in Marathi
+              'गेम झोन',
               Icons.videogame_asset,
               const GameZonePage(),
             ),
             const SizedBox(height: 16),
             _buildCustomButton(
               context,
-              'सर्वेक्षण', // Survey in Marathi
+              'सर्वेक्षण',
               Icons.assignment,
               _buildSurveyOptions(context),
             ),
@@ -210,16 +137,16 @@ class EnvironmentHomePage extends StatelessWidget {
 
   Widget _buildSurveyOptions(BuildContext context) {
     return AlertDialog(
-      title: const Text('सर्वेक्षण निवडा'), // Choose Survey in Marathi
+      title: const Text('सर्वेक्षण निवडा'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
             leading:
                 const Icon(Icons.assignment_turned_in, color: Colors.green),
-            title: const Text('प्री-टेस्ट'), // Pre-test in Marathi
+            title: const Text('प्री-टेस्ट'),
             onTap: () {
-              Navigator.pop(context); // Close the dialog
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const PreTestPage()),
@@ -228,9 +155,9 @@ class EnvironmentHomePage extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.assignment_outlined, color: Colors.green),
-            title: const Text('पोस्ट-टेस्ट'), // Post-test in Marathi
+            title: const Text('पोस्ट-टेस्ट'),
             onTap: () {
-              Navigator.pop(context); // Close the dialog
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const PostTestPage()),
@@ -245,7 +172,7 @@ class EnvironmentHomePage extends StatelessWidget {
   Widget _buildGif() {
     return Center(
       child: Image.asset(
-        'assets/env.gif',
+        'assets/ENVIRONMENT/env.gif',
         height: 200,
         width: 200,
         fit: BoxFit.cover,

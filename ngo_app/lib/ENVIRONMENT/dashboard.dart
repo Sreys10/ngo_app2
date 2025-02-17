@@ -18,8 +18,8 @@ class DashboardPage extends StatelessWidget {
               // Profile Picture
               const CircleAvatar(
                 radius: 60,
-                backgroundImage:
-                    AssetImage('assets/pf.png'), // Add your image asset
+                backgroundImage: AssetImage(
+                    'assets/ENVIRONMENT/pf.png'), // Add your image asset
               ),
               const SizedBox(height: 20),
               // User Name

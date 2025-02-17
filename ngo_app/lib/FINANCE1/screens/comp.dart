@@ -1,0 +1,144 @@
+import 'package:flutter/material.dart';
+import 'selection_screen.dart';
+import 'pr.dart'; // Importing screens.dart to access PredictionScreen
+
+class CompPage extends StatelessWidget {
+  const CompPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          "Finance",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2.0,
+            fontSize: 24,
+            shadows: [
+              Shadow(
+                offset: Offset(1.0, 1.0),
+                blurRadius: 3.0,
+                color: Color.fromARGB(100, 0, 0, 0),
+              ),
+            ],
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF2196F3), // Blue
+              Color(0xFF673AB7), // Deep Purple
+              Color(0xFF3F51B5), // Indigo
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildButton(
+                    context,
+                    'Simulation',
+                    const Color(0xFF4CAF50),
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectionScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  _buildButton(
+                    context,
+                    'Budget',
+                    const Color(0xFFFF9800),
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const MainScreen(), // Replace with actual screen class
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButton(
+      BuildContext context, String label, Color color, VoidCallback onTap) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      width: double.infinity,
+      height: 120,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            color.withOpacity(0.8),
+            color,
+          ],
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: color.withOpacity(0.4),
+            blurRadius: 12,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20.0),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 2.0,
+                        color: Color.fromARGB(100, 0, 0, 0),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

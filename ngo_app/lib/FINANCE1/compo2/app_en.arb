@@ -1,0 +1,131 @@
+{
+  "@@locale": "en",
+  "appTitle": "BudgetWise",
+  "welcomeText": "Welcome to BudgetWise!",
+  "descriptionText": "Master the art of budgeting and make smart financial decisions.",
+  "startChallenge": "Start the Challenge",
+  "timer": "Timer: {remainingTime}",
+  "@timer": {
+    "placeholders": {
+      "remainingTime": {}
+    }
+  },
+  "categoryName": "{categoryName}",
+    "@categoryName": {
+    "placeholders": {
+      "categoryName": {}
+    }
+  },
+  "submitBudget": "Submit Budget",
+  "remainingBudgetLabel": "Remaining Budget: ₹{remainingBudget}",
+  "@remainingBudgetLabel": {
+    "placeholders": {
+      "remainingBudget": {}
+    }
+  },
+  "invalidAllocation": "Invalid allocation! Budget exceeded or negative input.",
+  "budgetExceeded": "Budget cannot exceed total budget.",
+  "wellDone": "Well Done! Coins Earned: {coins}",
+  "@wellDone": {
+    "placeholders": {
+      "coins": {}
+    }
+  },
+  "achievementUnlocked": "Achievement Unlocked!",
+  "keepImproving": "Keep Improving!",
+  "levelUp": "Level Up!",
+  "moneyMaster": "Money Master!",
+  "budgetingGuru": "Budgeting Guru!",
+  "ok": "OK",
+  "timesUp": "Time's Up!",
+  "timeExceeded": "You have exceeded the time limit for this scenario.",
+  "cn": "Continue",
+  "exit": "Exit",
+  "scenarioDetails": "Scenario Details",
+  "suggestedBudget": "Suggested Budget:",
+  "results": "Results",
+  "totalSpent": "Total Spent: ₹{allocatedBudget}",
+  "@totalSpent": {
+    "placeholders": {
+      "allocatedBudget": {}
+    }
+  },
+  "feedbackExcellent": "🎉 Excellent! Great job!",
+  "feedbackGood": "😊 Good effort! Keep improving!",
+  "feedbackTryBetter": "😟 Try better next time!",
+  "nextScenario": "Next Scenario",
+  "congratulations": "Congratulations",
+  "completionMessage": "You have completed all scenarios!🎉",
+  "totalScore": "Total Score: {score}",
+  "@totalScore": {
+    "placeholders": {
+      "score": {}
+    }
+  },
+  "totalCoins": "Total Coins: {coins}",
+  "@totalCoins": {
+    "placeholders": {
+      "coins": {}
+    }
+  },
+  "scenarioTitleLabel": "Scenario: {scenarioTitle}",
+  "@scenarioTitleLabel": {
+    "placeholders": {
+      "scenarioTitle": {}
+    }
+  },
+  "scenarioTitleLabel1":"Scenario: ",
+  "scenarioTitleLabel1":"Scenario: ",
+  "scenarioDescription": "{scenarioDescription}",
+  "@scenarioDescription": {
+    "placeholders": {
+      "scenarioDescription": {}
+    }
+  },
+  "restartGame": "Restart the Game",
+  "scenarioTitle1": "Summer Job Earnings",
+  "scenarioDescription1": "You earned ₹2000 from your summer job. Plan your budget for the month.",
+  "scenarioTitle2": "Weekend Trip",
+  "scenarioDescription2": "You want to go on a weekend trip with friends. Allocate your budget accordingly.",
+  "scenarioTitle3": "New Phone Savings",
+  "scenarioDescription3": "You're saving up for a new phone worth ₹5000. How much can you save this month?",
+  "scenarioTitle4": "Birthday Gift",
+  "scenarioDescription4": "You have ₹2000 to buy a gift for your friend's birthday.",
+  "scenarioTitle5": "School Supplies",
+  "scenarioDescription5": "You need to buy school supplies with ₹2500. Plan your purchases.",
+  "scenarioTitle6": "Concert Tickets",
+  "scenarioDescription6": "You want to buy concert tickets worth ₹1800. Plan your savings for this month.",
+  "scenarioBudgetMismatch": "Scenario {scenarioTitle} has a mismatched budget! Calculated total: ₹{totalBudget}",
+  "@scenarioBudgetMismatch": {
+    "placeholders": {
+      "scenarioTitle": {},
+      "totalBudget": {}
+    }
+  },
+  "errorTitle": "Budget Mismatch Error",
+  "okButton": "OK",
+  "categoryName": "{categoryName}",
+  "@categoryName": {
+    "placeholders": {
+      "categoryName": {}
+    }
+  },
+    "groceries": "Groceries",
+    "transportation": "Transportation",
+    "entertainment": "Entertainment",
+    "savings": "Savings",
+    "personalCare": "Personal Care",
+    "books": "Books",
+    "stationery": "Stationery",
+    "gift": "Gift",
+    "snacks": "Snacks",
+    "food": "Food",
+    "backpack": "Backpack",
+    "sports": "Sports",
+    "headphones": "Headphones",
+    "mouse": "Mouse",
+    "courseFee": "Course Fee",
+    "studyMaterials": "Study Materials",
+    "partyContribution": "Party Contribution"
+
+}

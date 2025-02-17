@@ -39,6 +39,10 @@ dependencies:
   firebase_auth: ^4.9.0
   audioplayers: ^5.0.1
   lottie: ^2.5.0
+  confetti: ^0.8.0
+  animate_do: ^3.3.7
+  fluttertoast: ^8.2.8
+  provider: ^6.1.2
 
 dependency_overrides:
   collection: ^1.18.0
@@ -67,49 +71,13 @@ flutter_icons:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/Arise_Logo.png
-    - assets/climate_change.jpg
-    - assets/water_conservation.jpg
-    - assets/waste_management.jpg
-    - assets/biodiversity.webp
-    - assets/community_action.jpg
-    - assets/ani1.gif
-    - assets/wrm2.gif
-    - assets/frm.jpg
-    - assets/aqm.gif
-    - assets/wm.gif
-    - assets/env.gif
-    - assets/pf.png
-    - assets/wm1.webp
-    - assets/diy1.jpg
-    - assets/diy2.jpg
-    - assets/diy3.webp
-    - assets/recycle.gif
-    - assets/ev.gif
-    - assets/rm.gif
-    - assets/wt.webp
-    - assets/boy.gif
-    - assets/sounds/wrong.mp3
-    - assets/sounds/correct.mp3
-    - assets/gif/lights.gif
-    - assets/gif/faucelet.gif
-    - assets/gif/comp.gif
-    - assets/gif/bottle.gif
-    - assets/gif/paper.gif
-    - assets/gif/leaves.gif
-    - assets/gif/shopping.gif
-    - assets/clothes.webp
-    - assets/gif/straw.gif
-    - assets/gif/print.gif
-    - assets/waste.jpeg
-    - assets/gif/tree.gif
-    - assets/plastic_bottle.jpg
-    - assets/gif/bird.gif
-    - assets/gif/forest_fire.gif
-    - assets/waste_electricity.jpeg
-    - assets/gif/factory.gif
-    - assets/gif/bee.gif
-    - assets/plastic_bag.jpg
+    - assets/ENVIRONMENT/
+    - assets/FINANCE/animations/banana.json
+    - assets/FINANCE/animations/
+    - assets/FINANCE/audio/
+    - assets/FINANCE/gifs/
+    - assets/FINANCE/images/
+    - assets/FINANCE/pr/
 
   uses-material-design: true
 
