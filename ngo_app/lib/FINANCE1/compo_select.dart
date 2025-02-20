@@ -1,6 +1,5 @@
 import 'compo2/try2.dart';
 import 'compo3/career_screen.dart';
-import 'screens/home_screen.dart';
 import 'screens/selection_screen.dart';
 import 'package:flutter/material.dart';
 

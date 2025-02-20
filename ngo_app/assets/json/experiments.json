@@ -1,0 +1,178 @@
+{
+  "experiments": [
+    {
+      "title": "Bicarb and Vinegar Volcano",
+      "imageUrl": "assets/experiments-image/Volcano.jpg",
+      "difficulty": "Easy",
+      "materials": [
+        "Baking soda (2 tablespoons)",
+        "Vinegar (1/2 cup)",
+        "(Optional) Food coloring"
+      ],
+      "steps": [
+        "In a container, add 2 tablespoons of baking soda.",
+        "Pour vinegar over the baking soda and watch it fizz!",
+        "Optionally, add food coloring for lava effects."
+      ],
+      "safetyTips": "Make Sure to See it from distance",
+      "funFact": "'Volcanoes' are created by an acid-base reaction between vinegar and baking soda!"
+    },
+    {
+      "title": "Dancing Raisins",
+      "imageUrl": "assets/experiments-image/Dancing-Raising-Experiment.jpg",
+      "difficulty": "Very Easy",
+      "materials": ["Clear glass", "Sparkling water or lemonade", "Raisins"],
+      "steps": [
+        "Fill a clear glass with sparkling water or lemonade.",
+        "Drop in a few raisins and watch them dance.",
+        "Observe how the bubbles attach to the raisins and lift them."
+      ],
+      "safetyTips": "No As Such",
+      "funFact": "The bubbles of carbon dioxide gas cause the raisins to rise and fall!"
+    },
+    {
+      "title": "Homemade Lava Lamp",
+      "imageUrl": "assets/experiments-image/Lava-Lamp.jpg",
+      "difficulty": "Medium",
+      "materials": [
+        "1 clear plastic bottle",
+        "Vegetable oil",
+        "Water",
+        "Food coloring",
+        "Alka-Seltzer tablets"
+      ],
+      "steps": [
+        "Fill a clear plastic bottle one-third full with water.",
+        "Add vegetable oil until it's nearly full, leaving some space at the top.",
+        "Add food coloring and then drop in Alka-Seltzer pieces to see bubbles rise."
+      ],
+      "safetyTips": "No As Such",
+      "funFact": "This experiment illustrates density differences between oil and water!"
+    },
+    {
+      "title": "Invisible Ink: A Magical Science Experiment for Kids",
+      "imageUrl": "assets/experiments-image/Invisible-Ink.jpg",
+      "difficulty": "Easy",
+      "materials": [
+        "Cotton swab",
+        "Plain white paper",
+        "Lemon juice",
+        "A few drops of water",
+        "A bowl or cup",
+        "A lamp or light bulb (as your heat source)"
+      ],
+      "steps": [
+        "Prepare Your Ink: Mix lemon juice with a few drops of water in a cup.",
+        "Write Your Message: Use the cotton swab dipped in the lemon juice to write or draw on the white paper.",
+        "Let It Dry: Allow the paper to dry, turning your message invisible.",
+        "Reveal the Secret: Hold the paper close to a lamp or light bulb, and watch as the heat uncovers your hidden message!"
+      ],
+      "safetyTips": "Do not drink the mixture.",
+      "funFact": "Lemon juice contains compounds that remain invisible until heated. When exposed to heat, these compounds break down, causing the carbon in the juice to oxidise and turn brown, revealing the message."
+    },
+    {
+      "title": "Self-Inflating Balloon",
+      "imageUrl": "assets/experiments-image/Self-Inflating-Baloon.jpg",
+      "difficulty": "Easy",
+      "materials": [
+        "1 empty plastic bottle",
+        "1 balloon",
+        "3 tablespoons of baking soda",
+        "1/3 cup of lemon juice"
+      ],
+      "steps": [
+        "Pour lemon juice into an empty plastic bottle until it's about one-third full.",
+        "Put baking soda into a balloon and stretch it over the mouth of the bottle without letting it fall in.",
+        "Tip the balloon to mix the baking soda with lemon juice and watch it inflate!"
+      ],
+      "safetyTips": "Do not let children ingest any materials used in this experiment.",
+      "funFact": "'Magic' happens when baking soda reacts with acid, producing carbon dioxide gas!"
+    },
+    {
+      "title": "Egg in a Jar",
+      "imageUrl": "assets/experiments-image/Crystals.jpg",
+      "difficulty": "Easy",
+      "materials": [
+        "1 peeled hard-boiled egg",
+        "1 glass jar with a narrow opening",
+        "1 candle or strip of paper",
+        "Matches or lighter"
+      ],
+      "steps": [
+        "Light a candle and place it inside a glass jar.",
+        "Carefully place a peeled hard-boiled egg on the mouth of the jar.",
+        "Watch as the egg gets pulled into the jar after the flame goes out."
+      ],
+      "safetyTips": "Ensure adult supervision when handling fire.",
+      "funFact": "This experiment demonstrates air pressure and density."
+    },
+    {
+      "title": "Jumping Leaves",
+      "imageUrl": "assets/experiments-image/Jumping-Leaves.jpg",
+      "difficulty": "Easy",
+      "materials": ["Tissue paper", "Balloon", "Scissors", "Sweater or hair"],
+      "steps": [
+        "Cut tissue paper into different leaf shapes.",
+        "Inflate a balloon and rub it against your hair or a sweater to create static electricity.",
+        "Hold the balloon above the tissue leaves and watch them jump up!"
+      ],
+      "safetyTips": "Ensure the area is clear of sharp objects when using scissors.",
+      "funFact": "Static electricity can attract small objects without direct contact!"
+    },
+    {
+      "title": "Homemade Butter",
+      "imageUrl": "assets/experiments-image/Homemade-Butter.jpg",
+      "difficulty": "Easy",
+      "materials": ["1 empty jam jar", "Double cream"],
+      "steps": [
+        "Fill an empty jam jar with double cream until it's half full.",
+        "Seal the jar tightly and shake it vigorously for about 10 minutes.",
+        "Open the jar to find butter formed, and enjoy it on toast!"
+      ],
+      "safetyTips": "Take care while shaking",
+      "funFact": "This experiment shows how shaking cream can turn it into butter through a process called emulsion!"
+    },
+    {
+      "title": "Rainbow Milk",
+      "imageUrl": "assets/experiments-image/Rainbow-Milk.jpg",
+      "difficulty": "Very Easy",
+      "materials": [
+        "Milk",
+        "Food coloring",
+        "Dish soap",
+        "Shallow dish",
+        "Cotton bud"
+      ],
+      "steps": [
+        "Pour milk into a shallow dish until it's about half full.",
+        "Add a few drops of different food coloring around the milk.",
+        "Dip a cotton bud coated in dish soap into the milk and watch the colors swirl!"
+      ],
+      "safetyTips": "Don not Consume the Mixture",
+      "funFact": "The soap breaks down the fat in the milk, creating beautiful swirling patterns!"
+    },
+    {
+      "title": "Grow Your Own Crystals",
+      "imageUrl": "assets/experiments-image/Crystals.jpg",
+      "difficulty": "Medium",
+      "materials": ["Table salt", "Warm water", "Glass", "String", "Pencil"],
+      "steps": [
+        "Fill a glass halfway with warm water.",
+        "Add several spoonfuls of table salt and stir until dissolved.",
+        "Tie one end of a string to a pencil and dip the other end into the saltwater, resting the pencil across the top of the glass. Leave it undisturbed to see crystals grow over time."
+      ],
+      "safetyTips": "Take Help of Elders while Boiling Water",
+      "funFact": "'Crystallization' is a process where dissolved substances form solid crystals as water evaporates!"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+

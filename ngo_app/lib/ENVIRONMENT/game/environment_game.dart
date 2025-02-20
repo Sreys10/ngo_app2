@@ -11,7 +11,9 @@ class EnvironmentGame extends StatefulWidget {
 class _EnvironmentGameState extends State<EnvironmentGame> {
   int _currentStep = 0;
   int _score = 0;
-  final AudioPlayer _audioPlayer = AudioPlayer();
+  late AudioPlayer _audioPlayer;
+  late List<Map<String, dynamic>>
+      _gameSteps; // Use a copy to preserve original data
 
   final List<Map<String, dynamic>> _steps = [
     {
@@ -39,7 +41,7 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
           "झाडे वाचवल्याने कार्बन डायऑक्साईड कमी होतो आणि आपल्याला श्वास घेण्यासाठी ऑक्सिजन मिळतो!",
     },
     {
-      "scene": "नदीत प्लास्टिकची बाटली तरंगत आहे.",
+      "scene": "नदीत प्लास्टिकची बाटली तरंगत आहे。",
       "options": ["बाटली काढा", "तिथेच सोडा"],
       "correctAnswer": 0,
       "image": "assets/ENVIRONMENT/plastic_bottle.jpg",
@@ -55,7 +57,7 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
           "संकटात असलेल्या प्राण्यांना मदत करणे जैवविविधतेचे संरक्षण करते आणि करुणा दर्शवते!",
     },
     {
-      "scene": "दूरवर जंगलात आग लागली आहे.",
+      "scene": "दूरवर जंगलात आग लागली आहे。",
       "options": ["त्वरित कळवा", "दुर्लक्ष करा"],
       "correctAnswer": 0,
       "image": "assets/ENVIRONMENT/gif/forest_fire.gif",
@@ -63,15 +65,15 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
           "जंगलातील आगीची माहिती देण्याने वन्यजीवांना वाचवता येते आणि पुढील नुकसान टाळता येते!",
     },
     {
-      "scene": "कोणीतरी वीज वाया घालवत आहे.",
+      "scene": "कोणीतरी वीज वाया घालवत आहे。",
       "options": ["ऊर्जा वाचवण्याचा सल्ला द्या", "दुर्लक्ष करा"],
       "correctAnswer": 0,
-      "image": "assets/ENVIRONEMENT/waste_electricity.jpeg",
+      "image": "assets/ENVIRONMENT/waste_electricity.jpeg", // Fixed typo
       "feedback":
           "वीज वाचवल्याने कार्बन उत्सर्जन कमी होते आणि हवामान बदलाशी लढण्यास मदत होते!",
     },
     {
-      "scene": "एक कारखाना हवा प्रदूषित करत आहे.",
+      "scene": "एक कारखाना हवा प्रदूषित करत आहे。",
       "options": ["अधिकाऱ्यांना कळवा", "दुर्लक्ष करा"],
       "correctAnswer": 0,
       "image": "assets/ENVIRONMENT/gif/factory.gif",
@@ -79,7 +81,7 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
           "प्रदूषणाची तक्रार केल्याने आपण श्वास घेत असलेल्या हवेचे आणि पर्यावरणाचे संरक्षण होते!",
     },
     {
-      "scene": "एक मधमाशी उडण्यासाठी धडपडत आहे.",
+      "scene": "एक मधमाशी उडण्यासाठी धडपडत आहे。",
       "options": ["मधमाशीला मदत करा", "दुर्लक्ष करा"],
       "correctAnswer": 0,
       "image": "assets/ENVIRONMENT/gif/bee.gif",
@@ -87,7 +89,7 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
           "मधमाश्या परागीकरण आणि परिसंस्थेच्या संतुलनासाठी आवश्यक आहेत!",
     },
     {
-      "scene": "झाडावर प्लास्टिकची पिशवी अडकली आहे.",
+      "scene": "झाडावर प्लास्टिकची पिशवी अडकली आहे。",
       "options": ["पिशवी काढा", "तिथेच सोडा"],
       "correctAnswer": 0,
       "image": "assets/ENVIRONMENT/plastic_bag.jpg",
@@ -96,8 +98,8 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
     },
   ];
 
-  void _shuffleOptions() {
-    for (var step in _steps) {
+  void _shuffleOptions(List<Map<String, dynamic>> steps) {
+    for (var step in steps) {
       List<String> options = List.from(step["options"]);
       int correctAnswer = step["correctAnswer"];
       options.shuffle();
@@ -109,26 +111,40 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
   @override
   void initState() {
     super.initState();
-    _shuffleOptions();
+    _audioPlayer = AudioPlayer();
+    _gameSteps = List.from(_steps); // Create a copy of the steps
+    _shuffleOptions(_gameSteps); // Shuffle the copy
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose(); // Clean up audio player resources
+    super.dispose();
   }
 
   void _handleOptionSelected(int selectedOption) async {
-    bool isCorrect = selectedOption == _steps[_currentStep]["correctAnswer"];
+    bool isCorrect =
+        selectedOption == _gameSteps[_currentStep]["correctAnswer"];
 
-    if (isCorrect) {
-      await _audioPlayer.play(AssetSource('sounds/correct.mp3'));
-    } else {
-      await _audioPlayer.play(AssetSource('sounds/wrong.mp3'));
+    try {
+      if (isCorrect) {
+        await _audioPlayer.play(AssetSource('sounds/correct.mp3'));
+      } else {
+        await _audioPlayer.play(AssetSource('sounds/wrong.mp3'));
+      }
+    } catch (e) {
+      print('Error playing sound: $e');
     }
 
     showDialog(
       context: context,
+      barrierDismissible: false, // Prevent dismissing dialog by tapping outside
       builder: (context) => AlertDialog(
         title: Text(isCorrect ? "बरोबर!" : "अरेरे!"),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(_steps[_currentStep]["feedback"]),
+            Text(_gameSteps[_currentStep]["feedback"]),
             const SizedBox(height: 10),
             Icon(
               isCorrect ? Icons.check_circle : Icons.cancel,
@@ -141,15 +157,16 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
           TextButton(
             onPressed: () {
               Navigator.pop(context);
-              if (_currentStep < _steps.length - 1) {
-                setState(() {
+              setState(() {
+                if (_currentStep < _gameSteps.length - 1) {
                   _currentStep++;
-                });
-              } else {
-                _showGameOverDialog();
-              }
+                } else {
+                  _showGameOverDialog();
+                }
+              });
             },
-            child: const Text("पुढे"),
+            child:
+                Text(_currentStep < _gameSteps.length - 1 ? "पुढे" : "समाप्त"),
           ),
         ],
       ),
@@ -165,6 +182,7 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
   void _showGameOverDialog() {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) => AlertDialog(
         title: const Text("खेळ संपला"),
         content: Text("तुमचे अंतिम गुण: $_score"),
@@ -175,10 +193,18 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
               setState(() {
                 _currentStep = 0;
                 _score = 0;
-                _shuffleOptions();
+                _gameSteps = List.from(_steps); // Reset with a fresh copy
+                _shuffleOptions(_gameSteps);
               });
             },
             child: const Text("पुन्हा खेळा"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.pop(context); // Exit the game
+            },
+            child: const Text("बाहेर पडा"),
           ),
         ],
       ),
@@ -207,14 +233,22 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
               child: Column(
                 children: [
                   Image.asset(
-                    _steps[_currentStep]["image"],
-                    height: 250, // Increased size
-                    width: 250, // Increased size
+                    _gameSteps[_currentStep]["image"],
+                    height: 250,
+                    width: 250,
                     fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        height: 250,
+                        width: 250,
+                        color: Colors.grey,
+                        child: const Center(child: Text('Image not found')),
+                      );
+                    },
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    _steps[_currentStep]["scene"],
+                    _gameSteps[_currentStep]["scene"],
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -229,8 +263,10 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
             Expanded(
               child: ListView(
                 shrinkWrap: true,
-                children: _steps[_currentStep]["options"].map<Widget>((option) {
-                  int index = _steps[_currentStep]["options"].indexOf(option);
+                children:
+                    _gameSteps[_currentStep]["options"].map<Widget>((option) {
+                  int index =
+                      _gameSteps[_currentStep]["options"].indexOf(option);
                   return Container(
                     margin: const EdgeInsets.symmetric(vertical: 8),
                     child: ElevatedButton(
@@ -270,7 +306,7 @@ class _EnvironmentGameState extends State<EnvironmentGame> {
                   ),
                   const SizedBox(height: 8),
                   LinearProgressIndicator(
-                    value: (_currentStep + 1) / _steps.length,
+                    value: (_currentStep + 1) / _gameSteps.length,
                     backgroundColor: Colors.grey[300],
                     valueColor:
                         const AlwaysStoppedAnimation<Color>(Colors.green),

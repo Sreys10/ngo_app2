@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ngo_app/P&D/personal_home_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../ENVIRONMENT/environment_page.dart';
-import '../FINANCE1/screens/comp.dart'; // Updated import
+import '../FINANCE1/screens/comp.dart';
+import '../SCIENCE/main.dart'; // This imports your Science main.dart
 import 'dart:math' as math;
 
 class HomePage extends StatefulWidget {
@@ -120,7 +122,6 @@ class _HomePageState extends State<HomePage>
           : null,
       body: Stack(
         children: [
-          // Animated background
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -130,7 +131,6 @@ class _HomePageState extends State<HomePage>
               ),
             ),
           ),
-          // Animated patterns
           if (_showHome)
             Positioned.fill(
               child: CustomPaint(
@@ -149,13 +149,15 @@ class _HomePageState extends State<HomePage>
                     mainAxisSpacing: 20.0,
                     children: [
                       _buildEnhancedButton(context, "Personal Development",
-                          Icons.person_outline, const Color(0xFF4CAF50)),
+                          Icons.person_outline, const Color(0xFF4CAF50),
+                          goToPersonalDevelopment: true),
                       _buildEnhancedButton(context, "Social",
                           Icons.people_outline, const Color(0xFF2196F3)),
                       _buildEnhancedButton(context, "Health and Hygiene",
                           Icons.favorite_border, const Color(0xFFE91E63)),
                       _buildEnhancedButton(context, "Science and Technology",
-                          Icons.lightbulb_outline, const Color(0xFF9C27B0)),
+                          Icons.lightbulb_outline, const Color(0xFF9C27B0),
+                          goToScience: true),
                       _buildEnhancedButton(context, "Environment",
                           Icons.nature_outlined, const Color(0xFF009688),
                           goToEnvironment: true),
@@ -198,7 +200,10 @@ class _HomePageState extends State<HomePage>
 
   Widget _buildEnhancedButton(
       BuildContext context, String title, IconData icon, Color color,
-      {bool goToEnvironment = false, bool goToFinance = false}) {
+      {bool goToEnvironment = false,
+      bool goToFinance = false,
+      bool goToPersonalDevelopment = false,
+      bool goToScience = false}) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
@@ -231,9 +236,19 @@ class _HomePageState extends State<HomePage>
               );
             } else if (goToFinance) {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => CompPage())); // Updated navigation
+                context,
+                MaterialPageRoute(builder: (context) => CompPage()),
+              );
+            } else if (goToPersonalDevelopment) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomePage1()),
+              );
+            } else if (goToScience) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AvaliScienceApp()),
+              );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -282,7 +297,6 @@ class _HomePageState extends State<HomePage>
   }
 }
 
-// Custom painter for background patterns
 class BackgroundPatternPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -292,7 +306,6 @@ class BackgroundPatternPainter extends CustomPainter {
 
     final path = Path();
 
-    // Create some random geometric patterns
     for (var i = 0; i < 5; i++) {
       final random = math.Random();
       final x = random.nextDouble() * size.width;

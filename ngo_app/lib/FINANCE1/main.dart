@@ -1,8 +1,4 @@
-import 'compo2/try2.dart';
-import 'compo_select.dart';
-import 'screens/selection_screen.dart';
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
 import 'screens/comp.dart';
 
 void main() {

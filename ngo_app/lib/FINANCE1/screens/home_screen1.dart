@@ -3,8 +3,6 @@ import 'product_screen1.dart';
 import 'profile_screen1.dart';
 import 'package:flutter/material.dart';
 import '../models/product1.dart';
-import 'product_screen.dart';
-import 'profile_screen.dart';
 import '../widgets/shop_item.dart';
 
 class HomeScreen1 extends StatefulWidget {

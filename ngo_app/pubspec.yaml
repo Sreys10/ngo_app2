@@ -43,6 +43,10 @@ dependencies:
   animate_do: ^3.3.7
   fluttertoast: ^8.2.8
   provider: ^6.1.2
+  video_player: ^2.2.19
+  shared_preferences: ^2.0.6
+  font_awesome_flutter: ^10.1.0
+  model_viewer_plus: ^1.9.1
 
 dependency_overrides:
   collection: ^1.18.0
@@ -71,13 +75,55 @@ flutter_icons:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
+    - assets/ENVIRONMENT/gif/faucelet.gif
     - assets/ENVIRONMENT/
+    - assets/ENVIRONMENT/gif/lights.gif
+    - assets/ENVIRONMENT/gif/faucelet.gif
+    - assets/ENVIRONMENT/gif/comp.gif
+    - assets/ENVIRONMENT/gif/bottle.gif
+    - assets/ENVIRONMENT/gif/paper.gif
+    - assets/ENVIRONMENT/gif/leaves.gif
+    - assets/ENVIRONMENT/gif/shopping.gif
+    - assets/ENVIRONMENT/clothes.webp
+    - assets/ENVIRONMENT/gif/straw.gif
+    - assets/ENVIRONMENT/gif/print.gif
+    - assets/ENVIRONMENT/waste.jpeg
+    - assets/ENVIRONMENT/gif/tree.gif
+    - assets/ENVIRONMENT/plastic_bottle.jpg
+    - assets/ENVIRONMENT/gif/bird.gif
+    - assets/ENVIRONMENT/gif/forest_fire.gif
+    - assets/ENVIRONMENT/waste_electricity.jpeg
+    - assets/ENVIRONMENT/gif/factory.gif
+    - assets/ENVIRONMENT/gif/bee.gif
+    - assets/ENVIRONMENT/plastic_bag.jpg
+    - assets/sounds/correct.mp3
+    - assets/sounds/wrong.mp3
     - assets/FINANCE/animations/banana.json
     - assets/FINANCE/animations/
     - assets/FINANCE/audio/
     - assets/FINANCE/gifs/
     - assets/FINANCE/images/
     - assets/FINANCE/pr/
+    - assets/PD/
+    - assets/PD/animations/
+    - assets/PD/emojis/
+    - assets/PD/faces/
+    - assets/PD/scenarios/
+    - assets/PD/videos/
+    - assets/PD/videos_my_learning/
+    - assets/PD/images/
+    - assets/PD/videos_rights_and_responsibilites/marathi_video.mp4
+    - assets/PD/videos_rights_and_responsibilites/english_video.mp4
+    - assets/PD/mcq/
+    - assets/json/experiments.json
+    - assets/json/marathi-experiments.json
+    - assets/json/news.json
+    - assets/json/marathi-news.json
+    - assets/json/science-story.json
+    - assets/json/marathi-science-story.json
+    - assets/experiments-image/
+    - assets/news-image/
+    - assets/science-story-image//
 
   uses-material-design: true
 

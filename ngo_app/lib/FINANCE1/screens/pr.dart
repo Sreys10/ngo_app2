@@ -227,7 +227,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
     ),
   ];
 
-  Stopwatch _stopwatch = Stopwatch(); // Create a stopwatch
+  final Stopwatch _stopwatch = Stopwatch(); // Create a stopwatch
   int totalElapsedTime = 0;
 
   @override

@@ -1,0 +1,60 @@
+{
+  "articles": [
+    {
+      "title": "Why Do Leaves Change Color in Fall?",
+      "imageUrl": "assets/news-image/Leaf-Change-Color.jpg",
+      "shortDescription": "Learn why leaves turn red, orange, and yellow in the fall season.",
+      "category": "Environment",
+      "content": "When autumn comes, trees start preparing for winter. During this time, the green pigment in leaves, called chlorophyll, breaks down. This happens because the trees stop making food using sunlight. As the green fades away, we see the other colors like red, orange, and yellow that were hiding underneath all along. Isn’t it cool how nature changes with the seasons?"
+    },
+    {
+      "title": "AI Robot Breakthrough",
+      "imageUrl": "assets/news-image/AI-Robot-Breakthrough.jpg",
+      "shortDescription": "A new AI robot can understand emotions and respond intelligently.",
+      "category": "Technology",
+      "content": "Researchers have unveiled an AI robot capable of detecting human emotions. This breakthrough is expected to revolutionize AI interactions..."
+    },
+    {
+      "title": "How Animals Survive in Cold Weather",
+      "imageUrl": "assets/news-image/Animal-in-Cold-Weather.jpg",
+      "shortDescription": "Discover how animals like polar bears and penguins stay warm in freezing temperatures.",
+      "category": "Animals",
+      "content": "Animals living in cold places like the Arctic have special features to survive. Polar bears have thick fur and a layer of fat to stay warm. Penguins huddle together to share body heat, and some animals like arctic foxes change their fur color to white in winter to hide in the snow. These adaptations help them live in freezing conditions."
+    },
+    {
+      "title": "A Robot That Can Help Clean the Ocean!",
+      "imageUrl": "assets/news-image/Robot-to-Clean-Ocean.jpeg",
+      "shortDescription": "A new robot helps pick up plastic waste from the ocean.",
+      "category": "Technology",
+      "content": "Scientists have created a special robot called 'Waste Shark' to help clean the ocean. It moves on water like a tiny boat and collects plastic trash floating on the surface. The robot is powered by batteries and can hold up to 500 kilograms of waste at a time. This invention is important because plastic pollution harms sea animals and our planet."
+    },
+    {
+      "title": "The Amazing World of Bioluminescent Animals",
+      "imageUrl": "assets/news-image/Bioluminiscent-Animal.jpg",
+      "shortDescription": "Some animals glow in the dark! Find out how and why.",
+      "category": "Nature",
+      "content": "Did you know that some animals can make their own light? This is called bioluminescence. Fireflies use it to attract mates, while deep-sea fish like the anglerfish use it to lure prey. The glow is made by special chemicals in their bodies. This natural light show helps them survive in unique ways!"
+    },
+    {
+      "title": "NASA Discovers New Planet",
+      "imageUrl": "assets/news-image/Nasa-New-Planet.jpg",
+      "shortDescription": "NASA has discovered a new planet that might support life.",
+      "category": "Space",
+      "content": "NASA has recently discovered a new exoplanet that lies in the habitable zone. Scientists believe it could have conditions to support life..."
+    },
+    {
+      "title": "How Mars Rovers Explore the Red Planet",
+      "imageUrl": "assets/news-image/Mars-Rover.jpg",
+      "shortDescription": "Learn about the robots sent to Mars to explore its surface.",
+      "category": "Space",
+      "content": "Mars rovers are robots sent to the planet Mars to study its surface and find signs of life. NASA's Perseverance rover is one of them. It has cameras, a drill, and even a tiny helicopter named Ingenuity. The rover collects rocks and soil samples and sends pictures back to Earth. These missions help scientists learn if Mars could support life in the future."
+    },
+    {
+      "title": "Protecting Our Oceans",
+      "imageUrl": "assets/news-image/Save-Ocean.jpg",
+      "shortDescription": "Efforts to clean up plastic waste in oceans have increased dramatically.",
+      "category": "Environment",
+      "content": "Global initiatives to clean up plastic waste from oceans are gaining traction. Over 10 million tons of plastic are removed each year..."
+    }
+  ]
+}
