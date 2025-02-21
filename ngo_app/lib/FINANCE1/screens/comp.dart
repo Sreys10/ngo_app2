@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'selection_screen.dart';
-import 'pr.dart'; // Importing screens.dart to access PredictionScreen
+import 'pr.dart'; // Importing PredictionScreen
+import 'pre.dart'; // Importing PreTestScreen
+import 'post.dart'; // Importing PostTestScreen
 
 class CompPage extends StatelessWidget {
   const CompPage({super.key});
@@ -12,7 +14,7 @@ class CompPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          "Finance",
+          "वित्त",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             letterSpacing: 2.0,
@@ -50,7 +52,7 @@ class CompPage extends StatelessWidget {
                 children: [
                   _buildButton(
                     context,
-                    'Simulation',
+                    'सिम्युलेशन',
                     const Color(0xFF4CAF50),
                     () {
                       Navigator.push(
@@ -64,14 +66,41 @@ class CompPage extends StatelessWidget {
                   const SizedBox(height: 30),
                   _buildButton(
                     context,
-                    'Budget',
+                    'अंदाजपत्रक',
                     const Color(0xFFFF9800),
                     () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              const MainScreen(), // Replace with actual screen class
+                          builder: (context) => const MainScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  _buildButton(
+                    context,
+                    'पूर्व चाचणी',
+                    const Color(0xFF9C27B0), // Purple for Pre-Test
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PreTestScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  _buildButton(
+                    context,
+                    'उत्तर चाचणी',
+                    const Color(0xFFFF5722), // Deep Orange for Post-Test
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PostTestScreen(),
                         ),
                       );
                     },

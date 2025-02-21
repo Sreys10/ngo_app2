@@ -47,6 +47,8 @@ dependencies:
   shared_preferences: ^2.0.6
   font_awesome_flutter: ^10.1.0
   model_viewer_plus: ^1.9.1
+  percent_indicator: ^4.2.2
+  google_fonts: ^3.0.1
 
 dependency_overrides:
   collection: ^1.18.0
