@@ -97,11 +97,11 @@ class HormonalChangesPage extends StatelessWidget {
               _buildExpandableTopic(
                 'Brain - The Hormonal Command Center',
                 'The hypothalamus and pituitary gland in the brain regulate the release of hormones. In both males and females, these hormones control growth, metabolism, and reproduction.\n\n'
-                        '1. **Puberty and Adolescence**\n' +
-                    '**Hormones involved:** Estrogen, Testosterone, Growth Hormone, Cortisol\n' +
-                    '**Effects:** Increased dopamine activity, leading to heightened emotions and risk-taking behavior. Strengthening of neural pathways, influencing personality and decision-making. Increased sensitivity to stress due to fluctuating cortisol levels.\n\n' +
-                    '2. **Menstrual Cycle (in Women)**\n' +
-                    '**Hormones involved:** Estrogen, Progesterone\n' +
+                        '1. **Puberty and Adolescence**\n'
+                        '**Hormones involved:** Estrogen, Testosterone, Growth Hormone, Cortisol\n'
+                        '**Effects:** Increased dopamine activity, leading to heightened emotions and risk-taking behavior. Strengthening of neural pathways, influencing personality and decision-making. Increased sensitivity to stress due to fluctuating cortisol levels.\n\n'
+                        '2. **Menstrual Cycle (in Women)**\n'
+                        '**Hormones involved:** Estrogen, Progesterone\n' +
                     '**Effects:** Estrogen boosts serotonin, improving mood and cognitive function. Progesterone has calming effects but may also contribute to PMS symptoms like irritability and mood swings.\n\n' +
                     '3. **Pregnancy and Postpartum**\n' +
                     '**Hormones involved:** Oxytocin, Prolactin, Estrogen, Progesterone\n' +

@@ -1,8 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import url_launcher
+import 'package:video_player/video_player.dart';
 
-class DIYVideosPage extends StatelessWidget {
+class DIYVideosPage extends StatefulWidget {
   const DIYVideosPage({super.key});
+
+  @override
+  _DIYVideosPageState createState() => _DIYVideosPageState();
+}
+
+class _DIYVideosPageState extends State<DIYVideosPage> {
+  late VideoPlayerController _controller1;
+  late VideoPlayerController _controller2;
+  late VideoPlayerController _controller3;
+  late VideoPlayerController _controller4;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller1 = VideoPlayerController.asset(
+        'assets/ENVIRONMENT/videos/unused_clothes.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+      });
+    _controller2 = VideoPlayerController.asset(
+        'assets/ENVIRONMENT/videos/unused_plastics.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+      });
+    _controller3 = VideoPlayerController.asset(
+        'assets/ENVIRONMENT/videos/old_glass_jars.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+      });
+    _controller4 = VideoPlayerController.asset(
+        'assets/ENVIRONMENT/videos/cardboard_boxes.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller1.dispose();
+    _controller2.dispose();
+    _controller3.dispose();
+    _controller4.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,30 +62,14 @@ class DIYVideosPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSuggestionCard(
-                context,
-                'Unused Clothes',
-                'What can you do with old clothes?',
-                'https://youtu.be/yLZgrSpCAVs?si=nNorQLuMemIah2mK',
-              ),
-              _buildSuggestionCard(
-                context,
-                'Unused Plastics',
-                'Creative ways to reuse plastic bottles',
-                'https://youtu.be/Sr6DgQ18drA?si=MAqN5Wb9h5p0weO8',
-              ),
-              _buildSuggestionCard(
-                context,
-                'Old Glass Jars',
-                'Transform jars into beautiful organizers',
-                'https://youtu.be/i1kwUR3nhIk?si=S0lqdEUXUG4bAxfA',
-              ),
-              _buildSuggestionCard(
-                context,
-                'Cardboard Boxes',
-                'DIY projects using cardboard',
-                'https://youtu.be/_-TmHqU9aTc?si=WUFtbz_s9wkdfOob',
-              ),
+              _buildVideoCard(context, 'Unused Clothes',
+                  'What can you do with old clothes?', _controller1),
+              _buildVideoCard(context, 'Unused Plastics',
+                  'Creative ways to reuse plastic bottles', _controller2),
+              _buildVideoCard(context, 'Old Glass Jars',
+                  'Transform jars into beautiful organizers', _controller3),
+              _buildVideoCard(context, 'Cardboard Boxes',
+                  'DIY projects using cardboard', _controller4),
             ],
           ),
         ),
@@ -49,11 +77,11 @@ class DIYVideosPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSuggestionCard(
+  Widget _buildVideoCard(
     BuildContext context,
     String title,
     String description,
-    String ytLink,
+    VideoPlayerController controller,
   ) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -61,22 +89,54 @@ class DIYVideosPage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: ListTile(
-        leading: const Icon(Icons.video_library, color: Colors.green),
-        title: Text(title),
-        subtitle: Text(description),
-        onTap: () async {
-          // Open the YouTube link using url_launcher
-          if (await canLaunch(ytLink)) {
-            await launch(ytLink);
-          } else {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Could not launch $ytLink'),
-              ),
-            );
-          }
-        },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium), // Updated to headlineMedium
+                const SizedBox(height: 8),
+                Text(description,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium), // Updated to titleMedium
+              ],
+            ),
+          ),
+          if (controller.value.isInitialized)
+            AspectRatio(
+              aspectRatio: controller.value.aspectRatio,
+              child: VideoPlayer(controller),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(controller.value.isPlaying
+                      ? Icons.pause
+                      : Icons.play_arrow),
+                  onPressed: () {
+                    setState(() {
+                      if (controller.value.isPlaying) {
+                        controller.pause();
+                      } else {
+                        controller.play();
+                      }
+                    });
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -80,6 +80,7 @@ flutter:
   assets:
     - assets/ENVIRONMENT/gif/faucelet.gif
     - assets/ENVIRONMENT/
+    - assets/ENVIRONMENT/videos/
     - assets/ENVIRONMENT/gif/lights.gif
     - assets/ENVIRONMENT/gif/faucelet.gif
     - assets/ENVIRONMENT/gif/comp.gif
@@ -128,6 +129,7 @@ flutter:
     - assets/news-image/
     - assets/science-story-image//
     - assets/HEALTH/
+    - assets/SOCIAL/
 
   uses-material-design: true
 

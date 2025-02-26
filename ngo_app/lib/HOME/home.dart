@@ -3,9 +3,10 @@ import 'package:ngo_app/P&D/personal_home_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../ENVIRONMENT/environment_page.dart';
 import '../FINANCE1/screens/comp.dart';
-import '../SCIENCE/main.dart'; // This imports your Science main.dart
-// Added import for Health main.dart
-import '../HEALTH/screens/front_page.dart'; // Import the file containing FrontPage class
+import '../SCIENCE/main.dart';
+import '../HEALTH/screens/front_page.dart';
+// Import includes SocialHomePage
+import '../SOCIAL/social_home.dart'; // Import the SocialHomePage class
 import 'dart:math' as math;
 
 class HomePage extends StatefulWidget {
@@ -154,10 +155,11 @@ class _HomePageState extends State<HomePage>
                           Icons.person_outline, const Color(0xFF4CAF50),
                           goToPersonalDevelopment: true),
                       _buildEnhancedButton(context, "Social",
-                          Icons.people_outline, const Color(0xFF2196F3)),
+                          Icons.people_outline, const Color(0xFF2196F3),
+                          goToSocial: true),
                       _buildEnhancedButton(context, "Health and Hygiene",
                           Icons.favorite_border, const Color(0xFFE91E63),
-                          goToHealth: true), // Updated this button
+                          goToHealth: true),
                       _buildEnhancedButton(context, "Science and Technology",
                           Icons.lightbulb_outline, const Color(0xFF9C27B0),
                           goToScience: true),
@@ -207,7 +209,8 @@ class _HomePageState extends State<HomePage>
       bool goToFinance = false,
       bool goToPersonalDevelopment = false,
       bool goToScience = false,
-      bool goToHealth = false}) {
+      bool goToHealth = false,
+      bool goToSocial = false}) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
@@ -256,9 +259,12 @@ class _HomePageState extends State<HomePage>
             } else if (goToHealth) {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        FrontPage()), // Replace with actual widget name
+                MaterialPageRoute(builder: (context) => FrontPage()),
+              );
+            } else if (goToSocial) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SocialHomePage()),
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
