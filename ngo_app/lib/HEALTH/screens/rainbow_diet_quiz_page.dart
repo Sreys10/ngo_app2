@@ -10,7 +10,7 @@ class RainbowDietQuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rainbow Diet Quiz',
+      title: 'इंद्रधनुष्य आहार प्रश्नमंजुषा',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
@@ -27,7 +27,7 @@ class CategorySelectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select a Color Category'),
+        title: const Text('रंग श्रेणी निवडा'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,12 +46,13 @@ class CategorySelectionPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RainbowDietQuizPage(color: Colors.red),
+                    builder: (context) =>
+                        RainbowDietQuizPage(color: Colors.red),
                   ),
                 );
               },
               child: const Text(
-                'Red',
+                'लाल',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
@@ -68,12 +69,13 @@ class CategorySelectionPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RainbowDietQuizPage(color: Colors.orange),
+                    builder: (context) =>
+                        RainbowDietQuizPage(color: Colors.orange),
                   ),
                 );
               },
               child: const Text(
-                'Orange',
+                'नारंगी',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
@@ -90,12 +92,13 @@ class CategorySelectionPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RainbowDietQuizPage(color: Colors.yellow),
+                    builder: (context) =>
+                        RainbowDietQuizPage(color: Colors.yellow),
                   ),
                 );
               },
               child: const Text(
-                'Yellow',
+                'पिवळा',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
@@ -112,12 +115,13 @@ class CategorySelectionPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RainbowDietQuizPage(color: Colors.green),
+                    builder: (context) =>
+                        RainbowDietQuizPage(color: Colors.green),
                   ),
                 );
               },
               child: const Text(
-                'Green',
+                'हिरवा',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
@@ -134,12 +138,13 @@ class CategorySelectionPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RainbowDietQuizPage(color: Colors.blue),
+                    builder: (context) =>
+                        RainbowDietQuizPage(color: Colors.blue),
                   ),
                 );
               },
               child: const Text(
-                'Blue',
+                'निळा',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
@@ -169,162 +174,228 @@ class _RainbowDietQuizPageState extends State<RainbowDietQuizPage> {
   final Map<Color, List<Map<String, dynamic>>> _quizData = {
     Colors.red: [
       {
-        'question': 'Which nutrient is abundant in red fruits and vegetables?',
-        'options': ['Vitamin C', 'Beta-Carotene', 'Potassium', 'Iron'],
-        'answer': 'Vitamin C',
-        'explanation': 'Red fruits like oranges and strawberries are rich in Vitamin C, which helps boost immunity.'
+        'question': 'लाल फळे आणि भाज्यांमध्ये कोणते पोषक तत्त्व मुबलक आहे?',
+        'options': ['व्हिटॅमिन C', 'बीटा-कॅरोटीन', 'पोटॅशियम', 'लोह'],
+        'answer': 'व्हिटॅमिन C',
+        'explanation':
+            'संत्र्यासारखी लाल फळे व्हिटॅमिन C ने समृद्ध असतात, जे रोगप्रतिकारक शक्ती वाढवण्यास मदत करते.'
       },
       {
-        'question': 'What is the main benefit of red bell peppers?',
-        'options': ['Rich in Iron', 'High in Vitamin C', 'Good for digestion', 'Rich in protein'],
-        'answer': 'High in Vitamin C',
-        'explanation': 'Red bell peppers are high in Vitamin C, which helps in boosting the immune system.'
+        'question': 'लाल शिमला मिरचीचा मुख्य फायदा काय आहे?',
+        'options': [
+          'लोहाने समृद्ध',
+          'व्हिटॅमिन C ने जास्त',
+          'पचनासाठी चांगले',
+          'प्रथिनांनी समृद्ध'
+        ],
+        'answer': 'व्हिटॅमिन C ने जास्त',
+        'explanation':
+            'लाल शिमला मिरची व्हिटॅमिन C ने जास्त असते, जे रोगप्रतिकारक शक्ती वाढवण्यात मदत करते.'
       },
       {
-        'question': 'Which red fruit helps in heart health?',
-        'options': ['Apple', 'Pomegranate', 'Strawberry', 'Tomato'],
-        'answer': 'Strawberry',
-        'explanation': 'Strawberries contain antioxidants that help in reducing the risk of heart diseases.'
+        'question': 'कोणते लाल फळ हृदयाच्या आरोग्यासाठी मदत करते?',
+        'options': ['सफरचंद', 'डाळिंब', 'स्ट्रॉबेरी', 'टोमॅटो'],
+        'answer': 'स्ट्रॉबेरी',
+        'explanation':
+            'स्ट्रॉबेरीमध्ये अँटिऑक्सिडंट्स असतात जे हृदयरोगांचा धोका कमी करण्यास मदत करतात.'
       },
       {
-        'question': 'Which red vegetable is great for vision?',
-        'options': ['Tomato', 'Carrot', 'Spinach', 'Cucumber'],
-        'answer': 'Tomato',
-        'explanation': 'Tomatoes are rich in lycopene, which helps in maintaining good vision and eye health.'
+        'question': 'कोणती लाल भाजी दृष्टीसाठी उत्तम आहे?',
+        'options': ['टोमॅटो', 'गाजर', 'पालक', 'काकडी'],
+        'answer': 'टोमॅटो',
+        'explanation':
+            'टोमॅटोमध्ये लायकोपीन मुबलक असते, जे चांगली दृष्टी आणि डोळ्यांचे आरोग्य राखण्यास मदत करते.'
       },
       {
-        'question': 'What is a common red-colored food with high fiber?',
-        'options': ['Red Bell Pepper', 'Cherries', 'Beetroot', 'Strawberries'],
-        'answer': 'Beetroot',
-        'explanation': 'Beetroot is rich in fiber and helps in digestion and heart health.'
+        'question': 'जास्त फायबर असलेले सामान्य लाल रंगाचे अन्न कोणते आहे?',
+        'options': ['लाल शिमला मिरची', 'चेरी', 'बीट', 'स्ट्रॉबेरी'],
+        'answer': 'बीट',
+        'explanation':
+            'बीट फायबरने समृद्ध आहे आणि पचन आणि हृदयाच्या आरोग्यास मदत करते.'
       },
     ],
     Colors.orange: [
       {
-        'question': 'Orange vegetables are rich in which nutrient?',
-        'options': ['Vitamin A', 'Calcium', 'Protein', 'Zinc'],
-        'answer': 'Vitamin A',
-        'explanation': 'Orange vegetables like carrots are high in Vitamin A, essential for good vision.'
+        'question': 'नारंगी भाज्या कोणत्या पोषक तत्त्वाने समृद्ध आहेत?',
+        'options': ['व्हिटॅमिन A', 'कॅल्शियम', 'प्रथिने', 'झिंक'],
+        'answer': 'व्हिटॅमिन A',
+        'explanation':
+            'गाजरासारख्या नारंगी भाज्या व्हिटॅमिन A ने जास्त असतात, जे चांगल्या दृष्टीसाठी आवश्यक आहे.'
       },
       {
-        'question': 'What does Vitamin C in oranges help with?',
-        'options': ['Bone health', 'Immune support', 'Skin regeneration', 'Heart health'],
-        'answer': 'Immune support',
-        'explanation': 'Vitamin C in oranges helps boost the immune system.'
+        'question': 'संत्र्यांमधील व्हिटॅमिन C कशास मदत करते?',
+        'options': [
+          'हाडांचे आरोग्य',
+          'रोगप्रतिकारक समर्थन',
+          'त्वचेची पुनर्जनन',
+          'हृदयाचे आरोग्य'
+        ],
+        'answer': 'रोगप्रतिकारक समर्थन',
+        'explanation':
+            'संत्र्यांमधील व्हिटॅमिन C रोगप्रतिकारक शक्ती वाढवण्यास मदत करते.'
       },
       {
-        'question': 'Which orange fruit helps in reducing skin wrinkles?',
-        'options': ['Orange', 'Mango', 'Papaya', 'Peach'],
-        'answer': 'Orange',
-        'explanation': 'Oranges are rich in Vitamin C, which helps improve skin texture and reduces wrinkles.'
+        'question': 'कोणते नारंगी फळ त्वचेच्या सुरकुत्या कमी करण्यास मदत करते?',
+        'options': ['संत्रा', 'आंबा', 'पपई', 'पिच'],
+        'answer': 'संत्रा',
+        'explanation':
+            'संत्रे व्हिटॅमिन C ने समृद्ध आहेत, जे त्वचेची रचना सुधारते आणि सुरकुत्या कमी करते.'
       },
       {
-        'question': 'Which orange vegetable is high in beta-carotene?',
-        'options': ['Pumpkin', 'Carrot', 'Sweet potato', 'Butternut squash'],
-        'answer': 'Carrot',
-        'explanation': 'Carrots are rich in beta-carotene, which the body converts into Vitamin A for good vision.'
+        'question': 'कोणती नारंगी भाजी बीटा-कॅरोटीनने जास्त आहे?',
+        'options': ['कद्दू', 'गाजर', 'रताळे', 'बटरनट स्क्वॅश'],
+        'answer': 'गाजर',
+        'explanation':
+            'गाजर बीटा-कॅरोटीनने समृद्ध आहे, जे शरीर व्हिटॅमिन A मध्ये रूपांतरित करते, जे चांगल्या दृष्टीसाठी आहे.'
       },
       {
-        'question': 'What is the benefit of eating an orange each day?',
-        'options': ['Improves digestion', 'Boosts immunity', 'Reduces risk of cancer', 'Enhances memory'],
-        'answer': 'Boosts immunity',
-        'explanation': 'Oranges are packed with Vitamin C that helps boost the body’s immune system.'
+        'question': 'दररोज संत्रे खाण्याचा सर्वोत्तम फायदा काय आहे?',
+        'options': [
+          'पचन सुधारते',
+          'रोगप्रतिकारक शक्ती वाढवते',
+          'कर्करोगाचा धोका कमी करते',
+          'स्मरणशक्ती वाढवते'
+        ],
+        'answer': 'रोगप्रतिकारक शक्ती वाढवते',
+        'explanation':
+            'संत्रे व्हिटॅमिन C ने भरलेले आहेत जे शरीराची रोगप्रतिकारक शक्ती वाढवण्यास मदत करते.'
       },
     ],
     Colors.yellow: [
       {
-        'question': 'Which vitamin is commonly found in yellow fruits?',
-        'options': ['Vitamin B', 'Vitamin C', 'Vitamin D', 'Vitamin E'],
-        'answer': 'Vitamin C',
-        'explanation': 'Yellow fruits like bananas are rich in Vitamin C, which helps the body absorb iron.'
+        'question': 'पिवळ्या फळांमध्ये कोणते व्हिटॅमिन सामान्यतः आढळते?',
+        'options': ['व्हिटॅमिन B', 'व्हिटॅमिन C', 'व्हिटॅमिन D', 'व्हिटॅमिन E'],
+        'answer': 'व्हिटॅमिन C',
+        'explanation':
+            'केळ्यासारखी पिवळी फळे व्हिटॅमिन C ने समृद्ध आहेत, जे शरीराला लोह शोषण्यास मदत करते.'
       },
       {
-        'question': 'Which yellow fruit is a great source of potassium?',
-        'options': ['Banana', 'Mango', 'Pineapple', 'Papaya'],
-        'answer': 'Banana',
-        'explanation': 'Bananas are rich in potassium, which helps maintain proper muscle function.'
+        'question': 'कोणते पिवळे फळ पोटॅशियमचा उत्तम स्रोत आहे?',
+        'options': ['केळं', 'आंबा', 'अननस', 'पपई'],
+        'answer': 'केळं',
+        'explanation':
+            'केळे पोटॅशियमने समृद्ध आहेत, जे स्नायूंच्या योग्य कार्यासाठी मदत करते.'
       },
       {
-        'question': 'What does the yellow color in fruits and vegetables indicate?',
-        'options': ['High in antioxidants', 'High in calcium', 'Rich in vitamin C', 'Rich in potassium'],
-        'answer': 'High in antioxidants',
-        'explanation': 'Yellow fruits and vegetables are often high in antioxidants, helping protect cells from damage.'
+        'question': 'फळे आणि भाज्यांमधील पिवळा रंग काय दर्शवतो?',
+        'options': [
+          'अँटिऑक्सिडंट्समध्ये जास्त',
+          'कॅल्शियमने जास्त',
+          'व्हिटॅमिन C ने समृद्ध',
+          'पोटॅशियमने समृद्ध'
+        ],
+        'answer': 'अँटिऑक्सिडंट्समध्ये जास्त',
+        'explanation':
+            'पिवळी फळे आणि भाज्या बहुतेकदा अँटिऑक्सिडंट्समध्ये जास्त असतात, जे पेशींना नुकसानापासून संरक्षण करतात.'
       },
       {
-        'question': 'Which yellow vegetable is rich in Vitamin A?',
-        'options': ['Corn', 'Yellow bell pepper', 'Squash', 'Cabbage'],
-        'answer': 'Yellow bell pepper',
-        'explanation': 'Yellow bell peppers are rich in Vitamin A, essential for eye health and immune function.'
+        'question': 'कोणती पिवळी भाजी व्हिटॅमिन A ने समृद्ध आहे?',
+        'options': ['मका', 'पिवळी शिमला मिरची', 'स्क्वॅश', 'कोबी'],
+        'answer': 'पिवळी शिमला मिरची',
+        'explanation':
+            'पिवळी शिमला मिरची व्हिटॅमिन A ने समृद्ध आहे, जी डोळ्यांच्या आरोग्यासाठी आणि रोगप्रतिकारक कार्यासाठी आवश्यक आहे.'
       },
       {
-        'question': 'What is the best benefit of consuming yellow peppers?',
-        'options': ['Rich in fiber', 'Rich in Vitamin C', 'Good for skin health', 'Rich in protein'],
-        'answer': 'Rich in Vitamin C',
-        'explanation': 'Yellow peppers are high in Vitamin C, which helps boost immunity and promote healthy skin.'
+        'question': 'पिवळ्या मिरच्यांचा खाण्याचा सर्वोत्तम फायदा काय आहे?',
+        'options': [
+          'फायबरने समृद्ध',
+          'व्हिटॅमिन C ने समृद्ध',
+          'त्वचेच्या आरोग्यासाठी चांगले',
+          'प्रथिनांनी समृद्ध'
+        ],
+        'answer': 'व्हिटॅमिन C ने समृद्ध',
+        'explanation':
+            'पिवळ्या मिरच्या व्हिटॅमिन C ने जास्त असतात, जे रोगप्रतिकारक शक्ती वाढवते आणि निरोगी त्वचा वाढवते.'
       },
     ],
     Colors.green: [
       {
-        'question': 'Which vegetable is green and rich in iron?',
-        'options': ['Spinach', 'Lettuce', 'Broccoli', 'Cucumber'],
-        'answer': 'Spinach',
-        'explanation': 'Spinach is rich in iron, which is essential for the production of red blood cells.'
+        'question': 'कोणती हिरवी भाजी लोहाने समृद्ध आहे?',
+        'options': ['पालक', 'लेट्यूस', 'ब्रॉकोली', 'काकडी'],
+        'answer': 'पालक',
+        'explanation':
+            'पालक लोहाने समृद्ध आहे, जे लाल रक्तपेशींच्या निर्मितीसाठी आवश्यक आहे.'
       },
       {
-        'question': 'Which green fruit is high in Vitamin K?',
-        'options': ['Avocado', 'Kiwi', 'Green apple', 'Cucumber'],
-        'answer': 'Avocado',
-        'explanation': 'Avocados are high in Vitamin K, which supports bone health and blood clotting.'
+        'question': 'कोणते हिरवे फळ व्हिटॅमिन K ने जास्त आहे?',
+        'options': ['अ‍ॅव्होकॅडो', 'किवी', 'हिरवे सफरचंद', 'काकडी'],
+        'answer': 'अ‍ॅव्होकॅडो',
+        'explanation':
+            'अ‍ॅव्होकॅडो व्हिटॅमिन K ने जास्त असते, जे हाडांच्या आरोग्यास आणि रक्त गोठण्यास समर्थन करते.'
       },
       {
-        'question': 'What does eating green vegetables help with?',
-        'options': ['Skin health', 'Bone health', 'Heart health', 'Brain function'],
-        'answer': 'Heart health',
-        'explanation': 'Green vegetables like spinach and kale are good for heart health due to their high fiber content.'
+        'question': 'हिरव्या भाज्या खाणे कशास मदत करते?',
+        'options': [
+          'त्वचेचे आरोग्य',
+          'हाडांचे आरोग्य',
+          'हृदयाचे आरोग्य',
+          'मेंदूची कार्यक्षमता'
+        ],
+        'answer': 'हृदयाचे आरोग्य',
+        'explanation':
+            'पालक आणि केलसारख्या हिरव्या भाज्या त्यांच्या जास्त फायबरमुळे हृदयाच्या आरोग्यासाठी चांगल्या असतात.'
       },
       {
-        'question': 'Which vegetable is great for improving digestion?',
-        'options': ['Cucumber', 'Broccoli', 'Kale', 'Spinach'],
-        'answer': 'Cucumber',
-        'explanation': 'Cucumbers are great for digestion due to their high water content and fiber.'
+        'question': 'कोणती भाजी पचन सुधारण्यासाठी उत्तम आहे?',
+        'options': ['काकडी', 'ब्रॉकोली', 'केल', 'पालक'],
+        'answer': 'काकडी',
+        'explanation':
+            'काकडी त्यांच्या जास्त पाणी आणि फायबरमुळे पचनासाठी उत्तम आहे.'
       },
       {
-        'question': 'What nutrient in green vegetables helps maintain eye health?',
-        'options': ['Vitamin A', 'Vitamin B', 'Vitamin C', 'Vitamin D'],
-        'answer': 'Vitamin A',
-        'explanation': 'Green vegetables like kale and spinach are rich in Vitamin A, important for maintaining good vision.'
+        'question':
+            'हिरव्या भाज्यांमधील कोणते पोषक तत्त्व डोळ्यांचे आरोग्य राखण्यास मदत करते?',
+        'options': ['व्हिटॅमिन A', 'व्हिटॅमिन B', 'व्हिटॅमिन C', 'व्हिटॅमिन D'],
+        'answer': 'व्हिटॅमिन A',
+        'explanation':
+            'केल आणि पालकासारख्या हिरव्या भाज्या व्हिटॅमिन A ने समृद्ध आहेत, जे चांगली दृष्टी राखण्यासाठी महत्त्वाचे आहे.'
       },
     ],
     Colors.blue: [
       {
-        'question': 'Which blue food is good for heart health?',
-        'options': ['Blueberry', 'Eggplant', 'Plum', 'Blue potato'],
-        'answer': 'Blueberry',
-        'explanation': 'Blueberries are rich in antioxidants and are good for heart health.'
+        'question': 'कोणते निळे अन्न हृदयाच्या आरोग्यासाठी चांगले आहे?',
+        'options': ['ब्लूबेरी', 'वांगी', 'प्लम', 'निळे बटाटे'],
+        'answer': 'ब्लूबेरी',
+        'explanation':
+            'ब्लूबेरी अँटिऑक्सिडंट्सने समृद्ध आहेत आणि हृदयाच्या आरोग्यासाठी चांगले आहेत.'
       },
       {
-        'question': 'Which nutrient is abundant in blueberries?',
-        'options': ['Vitamin C', 'Vitamin A', 'Antioxidants', 'Vitamin E'],
-        'answer': 'Antioxidants',
-        'explanation': 'Blueberries are packed with antioxidants, which help reduce inflammation and improve overall health.'
+        'question': 'ब्लूबेरीमध्ये कोणते पोषक तत्त्व मुबलक आहे?',
+        'options': [
+          'व्हिटॅमिन C',
+          'व्हिटॅमिन A',
+          'अँटिऑक्सिडंट्स',
+          'व्हिटॅमिन E'
+        ],
+        'answer': 'अँटिऑक्सिडंट्स',
+        'explanation':
+            'ब्लूबेरी अँटिऑक्सिडंट्सने भरलेले आहेत, जे सूज कमी करतात आणि एकंदरीत आरोग्य सुधारतात.'
       },
       {
-        'question': 'What is the main benefit of eating blue foods?',
-        'options': ['Good for vision', 'Rich in iron', 'Supports immune health', 'Reduces inflammation'],
-        'answer': 'Reduces inflammation',
-        'explanation': 'Blue foods like blueberries contain antioxidants that help reduce inflammation in the body.'
+        'question': 'निळ्या अन्नाचा खाण्याचा मुख्य फायदा काय आहे?',
+        'options': [
+          'दृष्टीसाठी चांगले',
+          'लोहाने समृद्ध',
+          'रोगप्रतिकारक आरोग्यास समर्थन',
+          'सूज कमी करते'
+        ],
+        'answer': 'सूज कमी करते',
+        'explanation':
+            'ब्लूबेरीसारखे निळे अन्न अँटिऑक्सिडंट्स असतात जे शरीरातील सूज कमी करण्यास मदत करतात.'
       },
       {
-        'question': 'Which blue fruit is good for memory improvement?',
-        'options': ['Blueberry', 'Grapes', 'Plum', 'Pear'],
-        'answer': 'Blueberry',
-        'explanation': 'Blueberries are known to improve memory and cognitive function.'
+        'question': 'कोणते निळे फळ स्मरणशक्ती सुधारण्यासाठी चांगले आहे?',
+        'options': ['ब्लूबेरी', 'द्राक्षे', 'प्लम', 'पिअर'],
+        'answer': 'ब्लूबेरी',
+        'explanation':
+            'ब्लूबेरी स्मरणशक्ती आणि संज्ञानात्मक कार्य सुधारण्यासाठी ओळखले जाते.'
       },
       {
-        'question': 'Which blue vegetable is rich in Vitamin C?',
-        'options': ['Blue cabbage', 'Purple cauliflower', 'Blue potato', 'Eggplant'],
-        'answer': 'Purple cauliflower',
-        'explanation': 'Purple cauliflower is rich in Vitamin C, which helps support the immune system.'
+        'question': 'कोणती निळी भाजी व्हिटॅमिन C ने समृद्ध आहे?',
+        'options': ['निळी कोबी', 'जांभळी फूलकोबी', 'निळे बटाटे', 'वांगी'],
+        'answer': 'जांभळी फूलकोबी',
+        'explanation':
+            'जांभळी फूलकोबी व्हिटॅमिन C ने समृद्ध आहे, जे रोगप्रतिकारक शक्तीला समर्थन देते.'
       },
     ],
   };
@@ -345,9 +416,9 @@ class _RainbowDietQuizPageState extends State<RainbowDietQuizPage> {
     setState(() {
       if (selectedOption == correctAnswer) {
         _score++;
-        _feedback = 'Correct!';
+        _feedback = 'बरोबर!';
       } else {
-        _feedback = 'Wrong!';
+        _feedback = 'चूक!';
         _correctAnswer = correctAnswer;
       }
       _feedbackExplanation = explanation;
@@ -368,14 +439,14 @@ class _RainbowDietQuizPageState extends State<RainbowDietQuizPage> {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: const Text('Quiz Completed'),
-                  content: Text('Your final score is $_score'),
+                  title: const Text('प्रश्नमंजुषा पूर्ण झाली'),
+                  content: Text('तुमचा अंतिम स्कोअर $_score आहे'),
                   actions: <Widget>[
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: const Text('OK'),
+                      child: const Text('ठीक आहे'),
                     ),
                   ],
                 );
@@ -385,7 +456,8 @@ class _RainbowDietQuizPageState extends State<RainbowDietQuizPage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => RainbowDietQuizPage(color: _getNextColor(widget.color)),
+                builder: (context) =>
+                    RainbowDietQuizPage(color: _getNextColor(widget.color)),
               ),
             );
           }
@@ -399,7 +471,7 @@ class _RainbowDietQuizPageState extends State<RainbowDietQuizPage> {
     if (currentColor == Colors.orange) return Colors.yellow;
     if (currentColor == Colors.yellow) return Colors.green;
     if (currentColor == Colors.green) return Colors.blue;
-    return Colors.red;  // Default fallback
+    return Colors.red; // Default fallback
   }
 
   @override
@@ -407,7 +479,7 @@ class _RainbowDietQuizPageState extends State<RainbowDietQuizPage> {
     final question = _selectedColorQuestions[_currentQuestionIndex];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Rainbow Diet Quiz'),
+        title: const Text('इंद्रधनुष्य आहार प्रश्नमंजुषा'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -421,29 +493,31 @@ class _RainbowDietQuizPageState extends State<RainbowDietQuizPage> {
             const SizedBox(height: 20),
             ...question['options']
                 .map<Widget>((option) => Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: widget.color,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                onPressed: () => _checkAnswer(option),
-                child: Text(
-                  option,
-                  style: const TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              ),
-            ))
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: widget.color,
+                          minimumSize: const Size(double.infinity, 50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        onPressed: () => _checkAnswer(option),
+                        child: Text(
+                          option,
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                      ),
+                    ))
                 .toList(),
             if (_showFeedback)
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   '$_feedback $_correctAnswer',
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
             if (_showFeedback && _feedbackExplanation.isNotEmpty)

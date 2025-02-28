@@ -11,17 +11,17 @@ class SocialHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '🌟 Social 🌟',
+          '🌟 सामाजिक 🌟',
           style: TextStyle(
-            fontSize: 28, // Bigger Font Size
+            fontSize: 28, // मोठा फॉन्ट आकार
             fontWeight: FontWeight.bold,
-            letterSpacing: 2, // Adds space between letters
+            letterSpacing: 2, // अक्षरांमधील अंतर
             color: Colors.white,
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.deepPurpleAccent, // Vibrant Color Bar
-        elevation: 10, // Adds shadow for 3D effect
+        backgroundColor: Colors.deepPurpleAccent, // जीवंत रंगाची पट्टी
+        elevation: 10, // 3D प्रभावासाठी सावली
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -35,7 +35,7 @@ class SocialHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButton(
-                text: 'Story Time',
+                text: 'कथा वेळ',
                 color: Colors.deepPurpleAccent,
                 onPressed: () {
                   Navigator.push(context,
@@ -44,7 +44,7 @@ class SocialHomePage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               CustomButton(
-                text: 'Family Quiz',
+                text: 'कौटुंबिक प्रश्नमंजुषा',
                 color: Colors.teal,
                 onPressed: () {
                   Navigator.push(
@@ -55,7 +55,7 @@ class SocialHomePage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               CustomButton(
-                text: 'My Society Activity',
+                text: 'माझी सोसायटी उपक्रम',
                 color: Colors.orangeAccent,
                 onPressed: () {
                   Navigator.push(

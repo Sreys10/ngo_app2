@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage>
               ),
               centerTitle: true,
               title: const Text(
-                "AVALI APP",
+                "अवाली ॲप",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   letterSpacing: 2.0,
@@ -151,23 +151,23 @@ class _HomePageState extends State<HomePage>
                     crossAxisSpacing: 20.0,
                     mainAxisSpacing: 20.0,
                     children: [
-                      _buildEnhancedButton(context, "Personal Development",
+                      _buildEnhancedButton(context, "वैयक्तिक विकास",
                           Icons.person_outline, const Color(0xFF4CAF50),
                           goToPersonalDevelopment: true),
-                      _buildEnhancedButton(context, "Social",
+                      _buildEnhancedButton(context, "सामाजिक",
                           Icons.people_outline, const Color(0xFF2196F3),
                           goToSocial: true),
-                      _buildEnhancedButton(context, "Health and Hygiene",
+                      _buildEnhancedButton(context, "आरोग्य आणि स्वच्छता",
                           Icons.favorite_border, const Color(0xFFE91E63),
                           goToHealth: true),
-                      _buildEnhancedButton(context, "Science and Technology",
+                      _buildEnhancedButton(context, "विज्ञान आणि तंत्रज्ञान",
                           Icons.lightbulb_outline, const Color(0xFF9C27B0),
                           goToScience: true),
-                      _buildEnhancedButton(context, "Environment",
+                      _buildEnhancedButton(context, "पर्यावरण",
                           Icons.nature_outlined, const Color(0xFF009688),
                           goToEnvironment: true),
-                      _buildEnhancedButton(context, "Finance",
-                          Icons.attach_money, const Color(0xFFFF9800),
+                      _buildEnhancedButton(context, "वित्त", Icons.attach_money,
+                          const Color(0xFFFF9800),
                           goToFinance: true),
                     ],
                   ),
@@ -269,7 +269,7 @@ class _HomePageState extends State<HomePage>
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text("$title button pressed"),
+                  content: Text("$title बटण दाबले"),
                   behavior: SnackBarBehavior.floating,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),

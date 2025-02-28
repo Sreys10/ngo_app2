@@ -14,7 +14,7 @@ class FamilyBudgetGameApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "BudgetWise",
+      title: "बजेटवाइज",
       theme: ThemeData(
         primaryColor: const Color(0xFF3498DB),
         colorScheme: ColorScheme.fromSwatch().copyWith(
@@ -49,7 +49,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("BudgetWise"),
+        title: const Text("बजेटवाइज"),
       ),
       body: Center(
         child: Padding(
@@ -58,7 +58,7 @@ class MainScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Welcome to BudgetWise!",
+                "बजेटवाइजमध्ये आपले स्वागत आहे!",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class MainScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                "Plan your budget wisely and achieve your financial goals.",
+                "आपले बजेट हुशारीने नियोजित करा आणि आपली आर्थिक उद्दिष्टे साध्य करा.",
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -89,7 +89,7 @@ class MainScreen extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
                   textStyle: const TextStyle(fontSize: 18),
                 ),
-                child: const Text("Start Challenge"),
+                child: const Text("आव्हान सुरू करा"),
               ),
             ],
           ),
@@ -145,84 +145,66 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
   int _remainingScenarioTime = 50; // Initial time for each scenario
   Map<String, double> categories = {};
   final Map<String, String> categoryImages = {
-    "Groceries": "assets/FINANCE/pr/groccery.gif",
-    "Transportation": "assets/FINANCE/pr/transportation.gif",
-    "Entertainment": "assets/FINANCE/pr/entertainment.gif",
-    "Savings": "assets/FINANCE/pr/savings.gif",
-    "Toys": "assets/FINANCE/pr/t1.gif",
-    "Books": "assets/FINANCE/pr/books.gif",
-    "Stationery": "assets/FINANCE/pr/stationary.gif",
-    "Gift": "assets/FINANCE/pr/gift.gif",
-    "Snacks": "assets/FINANCE/pr/snacks.gif",
-    "Food": "assets/FINANCE/pr/food.gif",
-    "Backpack": "assets/FINANCE/pr/backpack.gif",
-    "Sports": "assets/FINANCE/pr/sport.gif",
-    "Headphones": "assets/FINANCE/pr/headphone.gif",
-    "Mouse": "assets/FINANCE/pr/mouse.gif",
-    "Course Fee": "assets/FINANCE/pr/study_materials.gif",
-    "Party Contribution": "assets/FINANCE/pr/party.gif",
+    "किराणा": "assets/FINANCE/pr/groccery.gif",
+    "वाहतूक": "assets/FINANCE/pr/transportation.gif",
+    "मनोरंजन": "assets/FINANCE/pr/entertainment.gif",
+    "बचत": "assets/FINANCE/pr/savings.gif",
+    "खेळणी": "assets/FINANCE/pr/t1.gif",
+    "पुस्तके": "assets/FINANCE/pr/books.gif",
+    "लेखनसामग्री": "assets/FINANCE/pr/stationary.gif",
+    "भेट": "assets/FINANCE/pr/gift.gif",
+    "नाश्ता": "assets/FINANCE/pr/snacks.gif",
+    "अन्न": "assets/FINANCE/pr/food.gif",
+    "बॅकपॅक": "assets/FINANCE/pr/backpack.gif",
+    "खेळ": "assets/FINANCE/pr/sport.gif",
+    "हेडफोन": "assets/FINANCE/pr/headphone.gif",
+    "माउस": "assets/FINANCE/pr/mouse.gif",
+    "अभ्यास शुल्क": "assets/FINANCE/pr/study_materials.gif",
+    "पार्टी योगदान": "assets/FINANCE/pr/party.gif",
   };
   Map<int, List<String>> scenarioAchievements = {};
 
   final List<Scenario> scenarios = [
     Scenario(
-      "Summer Job Earnings",
-      "You earned ₹2000 from your summer job. Plan your budget for the month.",
+      "उन्हाळी नोकरीची कमाई",
+      "आपण आपल्या उन्हाळी नोकरीतून ₹2000 कमावले. या महिन्यासाठी आपले बजेट नियोजित करा.",
       "assets/FINANCE/pr/summerjob.gif",
-      {
-        "Groceries": 300,
-        "Transportation": 200,
-        "Entertainment": 400,
-        "Savings": 500,
-        "Toys": 200
-      },
+      {"किराणा": 300, "वाहतूक": 200, "मनोरंजन": 400, "बचत": 500, "खेळणी": 200},
       0,
     ),
     Scenario(
-      "Weekend Trip",
-      "You want to go on a weekend trip with friends. Allocate your budget accordingly.",
+      "शुक्रवारी सहल",
+      "आपण मित्रांसोबत शुक्रवारी सहलीला जाऊ इच्छिता. त्यानुसार आपले बजेट नियोजित करा.",
       "assets/FINANCE/pr/trip.gif",
-      {
-        "Groceries": 200,
-        "Transportation": 500,
-        "Entertainment": 700,
-        "Savings": 100,
-        "Toys": 100
-      },
+      {"किराणा": 200, "वाहतूक": 500, "मनोरंजन": 700, "बचत": 100, "खेळणी": 100},
       1,
     ),
     Scenario(
-      "New Phone Savings",
-      "You're saving up for a new phone worth ₹5000. How much can you save this month?",
+      "नवीन फोनसाठी बचत",
+      "आपण ₹5000 किंमतीचा नवीन फोनसाठी बचत करत आहात. या महिन्यात आपण किती बचत करू शकता?",
       "assets/FINANCE/pr/phone.gif",
-      {
-        "Groceries": 300,
-        "Transportation": 100,
-        "Entertainment": 200,
-        "Savings": 1000,
-        "Toys": 100
-      },
+      {"किराणा": 300, "वाहतूक": 100, "मनोरंजन": 200, "बचत": 1000, "खेळणी": 100},
       2,
     ),
     Scenario(
-      "Birthday Gift",
-      "You have ₹2000 to buy a gift for your friend's birthday.",
+      "वाढदिवसाची भेट",
+      "आपल्याकडे आपल्या मित्राच्या वाढदिवसासाठी भेट खरेदी करण्यासाठी ₹2000 आहेत.",
       "assets/FINANCE/pr/gift.gif",
-      {"Gift": 700, "Snacks": 100},
+      {"भेट": 700, "नाश्ता": 100},
       1,
     ),
     Scenario(
-      "School Supplies",
-      "You need to buy school supplies with ₹2500. Plan your purchases.",
+      "शालेय साहित्य",
+      "आपल्याला ₹2500 सह शालेय साहित्य खरेदी करायचे आहे. आपली खरेदी नियोजित करा.",
       "assets/FINANCE/pr/school.gif",
-      {"Books": 400, "Stationery": 300, "Backpack": 300},
+      {"पुस्तके": 400, "लेखनसामग्री": 300, "बॅकपॅक": 300},
       2,
     ),
     Scenario(
-      "Concert Tickets",
-      "You want to buy concert tickets worth ₹1800. Plan your savings for this month.",
+      "कॉन्सर्ट तिकिटे",
+      "आपण ₹1800 किंमतीची कॉन्सर्ट तिकिटे खरेदी करू इच्छिता. या महिन्यासाठी आपली बचत नियोजित करा.",
       "assets/FINANCE/pr/ticket.gif",
-      {"Savings": 1000, "Entertainment": 800},
+      {"बचत": 1000, "मनोरंजन": 800},
       3,
     ),
   ];
@@ -244,7 +226,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
     for (var i = 0; i < scenarios.length; i++) {
       double totalBudget = scenarios[i].getTotalBudget(); // Calculate total
       if (!scenarios[i].validateBudget(totalBudget)) {
-        print("Scenario ${scenarios[i].title} has a budget mismatch.");
+        print("प्रकरण ${scenarios[i].title} मध्ये बजेटची चूक आहे.");
       }
     }
   }
@@ -278,7 +260,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text("Invalid allocation. Please adjust your budget."),
+            content: Text("अवैध वाटप. कृपया आपले बजेट समायोजित करा."),
           ),
         );
       }
@@ -289,7 +271,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
     if (allocatedBudget > totalBudget) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("You have exceeded your budget. Please adjust."),
+          content: Text("आपण आपले बजेट ओलांडले आहे. कृपया समायोजित करा."),
         ),
       );
       return;
@@ -344,18 +326,18 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
 
     if (result > 20 &&
         result < 30 &&
-        !currentScenarioAchievements.contains("Level Up!")) {
-      await _showAchievementPopup(context, "Level Up!", result);
-      _addAchievement("Level Up!", currentScenarioAchievements);
+        !currentScenarioAchievements.contains("स्तर वाढ!")) {
+      await _showAchievementPopup(context, "स्तर वाढ!", result);
+      _addAchievement("स्तर वाढ!", currentScenarioAchievements);
     } else if (result >= 30 &&
         result < 40 &&
-        !currentScenarioAchievements.contains("Money Master!")) {
-      await _showAchievementPopup(context, "Money Master!", result);
-      _addAchievement("Money Master!", currentScenarioAchievements);
+        !currentScenarioAchievements.contains("पैसा मास्टर!")) {
+      await _showAchievementPopup(context, "पैसा मास्टर!", result);
+      _addAchievement("पैसा मास्टर!", currentScenarioAchievements);
     } else if (result >= 40 &&
-        !currentScenarioAchievements.contains("Budgeting Guru!")) {
-      await _showAchievementPopup(context, "Budgeting Guru!", result);
-      _addAchievement("Budgeting Guru!", currentScenarioAchievements);
+        !currentScenarioAchievements.contains("बजेटिंग गुरु!")) {
+      await _showAchievementPopup(context, "बजेटिंग गुरु!", result);
+      _addAchievement("बजेटिंग गुरु!", currentScenarioAchievements);
     }
 
     if (currentScenarioIndex == scenarios.length - 1) {
@@ -365,7 +347,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
         const SnackBar(
           backgroundColor: Color.fromARGB(255, 4, 203, 10),
           content: Text(
-            "Well done! You earned some coins.",
+            "छान केले! आपण काही नाणी कमावली.",
             style: TextStyle(color: Color.fromARGB(255, 218, 224, 218)),
           ),
         ),
@@ -393,7 +375,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("Achievement Unlocked!"),
+          title: const Text("यश अनलॉक झाले!"),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -423,7 +405,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text("Continue"),
+              child: const Text("पुढे जा"),
             ),
           ],
         );
@@ -438,7 +420,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
       onWillPop: () async => true, // Allow back navigation
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Scenario"),
+          title: const Text("प्रकरण"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -446,7 +428,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                "Time Remaining: ${getFormattedTime()}",
+                "उरलेला वेळ: ${getFormattedTime()}",
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
@@ -528,7 +510,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
                   child: Column(
                     children: [
                       Text(
-                        "Remaining Budget: ₹${remainingBudget.toStringAsFixed(2)}",
+                        "उरलेले बजेट: ₹${remainingBudget.toStringAsFixed(2)}",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -550,7 +532,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
               ElevatedButton(
                 onPressed:
                     allocatedBudget <= totalBudget ? _navigateToResult : null,
-                child: const Text("Submit Budget"),
+                child: const Text("बजेट सादर करा"),
               ),
               ConfettiWidget(
                 confettiController: _controller,
@@ -576,7 +558,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
         final dialogHeight = screenSize.height * 0.8;
 
         return AlertDialog(
-          title: const Text("Scenario Details"),
+          title: const Text("प्रकरणाचे तपशील"),
           content: SizedBox(
             width: dialogWidth,
             height: dialogHeight,
@@ -603,7 +585,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
                   ),
                   const SizedBox(height: 16),
                   const Text(
-                    "Suggested Budget",
+                    "सुचवलेले बजेट",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
@@ -639,7 +621,7 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Continue"),
+              child: const Text("पुढे जा"),
             ),
           ],
         );
@@ -673,8 +655,8 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
         context: context,
         barrierDismissible: false,
         builder: (context) => AlertDialog(
-          title: const Text("Time's Up!"),
-          content: const Text("You took too long to complete the scenario."),
+          title: const Text("वेळ संपली!"),
+          content: const Text("आपण प्रकरण पूर्ण करण्यास खूप वेळ घेतला."),
           actions: [
             TextButton(
               onPressed: () {
@@ -682,14 +664,14 @@ class _ScenarioScreenState extends State<ScenarioScreen> {
                 _goToNextScenario(true); // Indicate it's from timeout
                 isTimerPopupShown = false;
               },
-              child: const Text("Continue"),
+              child: const Text("पुढे जा"),
             ),
             TextButton(
               onPressed: () {
                 Navigator.popUntil(context, ModalRoute.withName('/'));
                 isTimerPopupShown = false;
               },
-              child: const Text("Exit"),
+              child: const Text("बाहेर पडा"),
             ),
           ],
         ),
@@ -760,14 +742,14 @@ class ResultScreen extends StatelessWidget {
     });
 
     String feedbackMessage = scenarioScore >= 40
-        ? "Excellent! You're a budgeting pro!"
+        ? "उत्कृष्ट! आपण बजेटिंग प्रो आहात!"
         : (scenarioScore >= 20
-            ? "Good effort! Keep improving."
-            : "Try better next time!");
+            ? "चांगला प्रयत्न! सुधारणा करत राहा."
+            : "पुढच्या वेळी चांगले प्रयत्न करा!");
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Results"),
+        title: const Text("निकाल"),
         backgroundColor: const Color(0xFF3498DB),
       ),
       body: Padding(
@@ -776,7 +758,7 @@ class ResultScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "Scenario ${currentScenarioIndex + 1}: ${scenario.title}",
+              "प्रकरण ${currentScenarioIndex + 1}: ${scenario.title}",
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -830,11 +812,11 @@ class ResultScreen extends StatelessWidget {
               color: remainingBudget >= 0 ? Colors.green : Colors.red,
             ),
             Text(
-              "Total Spent: ₹${allocatedBudget.toStringAsFixed(2)}",
+              "एकूण खर्च: ₹${allocatedBudget.toStringAsFixed(2)}",
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
-              "Remaining Budget: ₹${remainingBudget.toStringAsFixed(2)}",
+              "उरलेले बजेट: ₹${remainingBudget.toStringAsFixed(2)}",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: remainingBudget >= 0 ? Colors.green : Colors.red,
@@ -873,7 +855,7 @@ class ResultScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                child: const Text("Next Scenario"),
+                child: const Text("पुढील प्रकरण"),
               ),
             ),
           ],
@@ -924,7 +906,7 @@ class CompletionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Congratulations!"),
+        title: const Text("अभिनंदन!"),
         backgroundColor: const Color(0xFF76D7C4),
       ),
       body: Center(
@@ -936,7 +918,7 @@ class CompletionScreen extends StatelessWidget {
               FadeInDown(
                 duration: const Duration(milliseconds: 1000),
                 child: const Text(
-                  "You've completed all scenarios!",
+                  "आपण सर्व प्रकरणे पूर्ण केली!",
                   style: TextStyle(fontSize: 20, color: Color(0xFF3498DB)),
                 ),
               ),
@@ -944,7 +926,7 @@ class CompletionScreen extends StatelessWidget {
               ElasticIn(
                 duration: const Duration(milliseconds: 1500),
                 child: Text(
-                  "Total Score: ₹$score",
+                  "एकूण गुण: ₹$score",
                   style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -957,7 +939,7 @@ class CompletionScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Total Coins: ₹$coins",
+                    "एकूण नाणी: ₹$coins",
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -988,7 +970,7 @@ class CompletionScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text("Restart Game"),
+                child: const Text("खेळ पुन्हा सुरू करा"),
               ),
             ],
           ),

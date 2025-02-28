@@ -15,7 +15,7 @@ class AvaliScienceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Avali Science and Tech',
+      title: 'अवली विज्ञान आणि तंत्रज्ञान',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Color(0xFFF0F8FF),
       appBar: AppBar(
         title: Text(
-          'Avali Science and Tech',
+          'अवली विज्ञान आणि तंत्रज्ञान',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Discover the World of Science!',
+                'विज्ञानाच्या विश्वाचा शोध घ्या!',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.w900,
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisSpacing: 16,
                 children: [
                   SectionCard(
-                    title: 'Science Stories',
+                    title: 'विज्ञान कथा',
                     icon: Icons.book_rounded,
                     color: Colors.blueAccent,
                     onTap: () {
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   SectionCard(
-                    title: 'Experiments',
+                    title: 'प्रयोग',
                     icon: Icons.science_rounded,
                     color: Colors.orangeAccent,
                     onTap: () {
@@ -101,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   SectionCard(
-                    title: 'Science News',
+                    title: 'विज्ञान बातम्या',
                     icon: Icons.newspaper_rounded,
                     color: Colors.purpleAccent,
                     onTap: () {
@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   SectionCard(
-                    title: 'Quiz',
+                    title: 'प्रश्नमंजुषा',
                     icon: Icons.quiz_rounded,
                     color: Colors.redAccent,
                     onTap: () {
@@ -126,11 +126,10 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   SectionCard(
-                    title: 'Career Roadmap',
+                    title: 'करिअर मार्गदर्शन',
                     icon: Icons.work_outline_rounded,
                     color: Colors.teal,
                     onTap: () {
-                      // Navigate to Career Roadmap screen (to be implemented)
                       Navigator.push(
                         context,
                         MaterialPageRoute(

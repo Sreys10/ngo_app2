@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'anatomy_game.dart';
 import 'rainbow_diet_quiz_page.dart';
-import 'hormonal_changes_page.dart'; // Import the Hormonal Changes Page
-import 'pre_test.dart'; // Import the PreTest Screen
-import 'pro_test.dart'; // Import the ProTest Screen
+import 'hormonal_changes_page.dart'; // हार्मोनल बदल पृष्ठ आयात करा
+import 'pre_test.dart'; // प्री टेस्ट स्क्रीन आयात करा
+import 'pro_test.dart'; // प्रो टेस्ट स्क्रीन आयात करा
 
 class FrontPage extends StatelessWidget {
   const FrontPage({super.key});
@@ -14,41 +14,41 @@ class FrontPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'HEALTH AND HYGIENE',
+          'आरोग्य आणि स्वच्छता',
           style: GoogleFonts.poppins(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.teal[700], // Rich teal color
+        backgroundColor: Colors.teal[700], // समृद्ध निळ्या हिरव्या रंग
         elevation: 8,
         actions: [
           IconButton(
             icon: const Icon(Icons.info_outline),
             onPressed: () {
-              // Add info screen if needed
+              // आवश्यक असल्यास माहिती स्क्रीन जोडा
             },
           ),
         ],
       ),
       body: Stack(
         children: [
-          // Background Image
+          // पार्श्वभूमी प्रतिमा
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image:
-                    AssetImage('assets/HEALTH/hh.webp'), // Use the WebP image
+                    AssetImage('assets/HEALTH/hh.webp'), // WebP प्रतिमा वापरा
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Foreground Content
+          // अग्रभाग सामग्री
           AnimatedContainer(
             duration: const Duration(seconds: 1),
-            color: Colors.black
-                .withOpacity(0.6), // Add slight overlay for better readability
+            color:
+                Colors.black.withOpacity(0.6), // वाचनीयतेसाठी हलके आच्छादन जोडा
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -57,7 +57,7 @@ class FrontPage extends StatelessWidget {
                 children: <Widget>[
                   _buildCustomButton(
                     context,
-                    'Body Part Labeling Game',
+                    'शरीर भाग लेबलिंग खेळ',
                     () {
                       Navigator.push(
                         context,
@@ -71,7 +71,7 @@ class FrontPage extends StatelessWidget {
                   const SizedBox(height: 25),
                   _buildCustomButton(
                     context,
-                    'Rainbow Diet Quiz Game',
+                    'इंद्रधनुष्य आहार प्रश्नमंजुषा खेळ',
                     () {
                       _showColorSelectionDialog(context);
                     },
@@ -80,7 +80,7 @@ class FrontPage extends StatelessWidget {
                   const SizedBox(height: 25),
                   _buildCustomButton(
                     context,
-                    'Body Hormonal Changes',
+                    'शरीर हार्मोनल बदल',
                     () {
                       Navigator.push(
                         context,
@@ -94,7 +94,7 @@ class FrontPage extends StatelessWidget {
                   const SizedBox(height: 25),
                   _buildCustomButton(
                     context,
-                    'Pros and Cons of the Games',
+                    'खेळांचे फायदे आणि तोटे',
                     () {
                       _showProsAndConsDialog(context);
                     },
@@ -103,7 +103,7 @@ class FrontPage extends StatelessWidget {
                   const SizedBox(height: 25),
                   _buildCustomButton(
                     context,
-                    'Pre Test',
+                    'प्री टेस्ट',
                     () {
                       Navigator.push(
                         context,
@@ -117,7 +117,7 @@ class FrontPage extends StatelessWidget {
                   const SizedBox(height: 25),
                   _buildCustomButton(
                     context,
-                    'ProTest',
+                    'प्रो टेस्ट',
                     () {
                       Navigator.push(
                         context,
@@ -143,17 +143,17 @@ class FrontPage extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Choose a Color',
+            'रंग निवडा',
             style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
           ),
           content: SingleChildScrollView(
             child: Column(
               children: [
-                _colorButton(context, Colors.red, 'Red'),
-                _colorButton(context, Colors.orange, 'Orange'),
-                _colorButton(context, Colors.yellow, 'Yellow'),
-                _colorButton(context, Colors.green, 'Green'),
-                _colorButton(context, Colors.blue, 'Blue'),
+                _colorButton(context, Colors.red, 'लाल'),
+                _colorButton(context, Colors.orange, 'नारंगी'),
+                _colorButton(context, Colors.yellow, 'पिवळा'),
+                _colorButton(context, Colors.green, 'हिरवा'),
+                _colorButton(context, Colors.blue, 'निळा'),
               ],
             ),
           ),
@@ -171,7 +171,7 @@ class FrontPage extends StatelessWidget {
           minimumSize: const Size(double.infinity, 50),
         ),
         onPressed: () {
-          Navigator.pop(context); // Close the dialog
+          Navigator.pop(context); // संवाद बंद करा
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -235,14 +235,15 @@ class FrontPage extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Pros and Cons',
+            'फायदे आणि तोटे',
             style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
           ),
           content: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Pros and cons of different features will go here.'),
+                const Text(
+                    'वेगवेगळ्या वैशिष्ट्यांचे फायदे आणि तोटे इथे येतील.'),
               ],
             ),
           ),
@@ -251,7 +252,7 @@ class FrontPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Close'),
+              child: const Text('बंद करा'),
             ),
           ],
         );
