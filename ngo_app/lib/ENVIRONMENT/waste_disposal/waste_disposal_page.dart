@@ -82,21 +82,6 @@ class WasteDisposalPage extends StatelessWidget {
                 SizedBox(height: height * 0.02),
                 _buildActionCard(
                   context,
-                  icon: Icons.gamepad,
-                  title: 'AR कचरा व्यवस्थापन गेम खेळा',
-                  description:
-                      'वास्तविकता आधारित इंटरएक्टिव गेमद्वारे कचरा वर्गीकरण शिकणे.',
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                          content: Text('AR गेम लवकरच उपलब्ध होईल!')),
-                    );
-                  },
-                  buttonText: 'गेम सुरू करा',
-                ),
-                SizedBox(height: height * 0.02),
-                _buildActionCard(
-                  context,
                   icon: Icons.school,
                   title: 'ऑनलाइन कार्यशाळा अटेंड करा',
                   description:

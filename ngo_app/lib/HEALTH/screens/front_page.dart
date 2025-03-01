@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'anatomy_game.dart';
 import 'rainbow_diet_quiz_page.dart';
-import 'hormonal_changes_page.dart'; // हार्मोनल बदल पृष्ठ आयात करा
-import 'pre_test.dart'; // प्री टेस्ट स्क्रीन आयात करा
-import 'pro_test.dart'; // प्रो टेस्ट स्क्रीन आयात करा
+import 'hormonal_changes_page.dart';
+import 'pre_test.dart';
+import 'pro_test.dart';
 
 class FrontPage extends StatelessWidget {
   const FrontPage({super.key});
@@ -21,7 +21,7 @@ class FrontPage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.teal[700], // समृद्ध निळ्या हिरव्या रंग
+        backgroundColor: Colors.teal[700],
         elevation: 8,
         actions: [
           IconButton(
@@ -34,21 +34,17 @@ class FrontPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // पार्श्वभूमी प्रतिमा
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image:
-                    AssetImage('assets/HEALTH/hh.webp'), // WebP प्रतिमा वापरा
+                image: AssetImage('assets/HEALTH/hh.webp'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // अग्रभाग सामग्री
           AnimatedContainer(
             duration: const Duration(seconds: 1),
-            color:
-                Colors.black.withOpacity(0.6), // वाचनीयतेसाठी हलके आच्छादन जोडा
+            color: Colors.black.withOpacity(0.6),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -90,15 +86,6 @@ class FrontPage extends StatelessWidget {
                       );
                     },
                     Colors.blueAccent,
-                  ),
-                  const SizedBox(height: 25),
-                  _buildCustomButton(
-                    context,
-                    'खेळांचे फायदे आणि तोटे',
-                    () {
-                      _showProsAndConsDialog(context);
-                    },
-                    Colors.purpleAccent,
                   ),
                   const SizedBox(height: 25),
                   _buildCustomButton(
@@ -171,7 +158,7 @@ class FrontPage extends StatelessWidget {
           minimumSize: const Size(double.infinity, 50),
         ),
         onPressed: () {
-          Navigator.pop(context); // संवाद बंद करा
+          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -226,37 +213,6 @@ class FrontPage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  void _showProsAndConsDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(
-            'फायदे आणि तोटे',
-            style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
-          ),
-          content: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                    'वेगवेगळ्या वैशिष्ट्यांचे फायदे आणि तोटे इथे येतील.'),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('बंद करा'),
-            ),
-          ],
-        );
-      },
     );
   }
 }

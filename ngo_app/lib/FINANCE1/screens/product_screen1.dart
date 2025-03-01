@@ -43,7 +43,7 @@ class _ProductScreenState1 extends State<ProductScreen1>
       Product1(
         name: 'मोबाईल',
         price: 30,
-        imageAsset: 'assets/FINANCE/images/p1_suit.png',
+        imageAsset: 'assets/FINANCE/images/mobile.png',
         url: '', // No URL for Toy Shop products
       ),
       Product1(

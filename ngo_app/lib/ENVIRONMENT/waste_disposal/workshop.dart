@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import the url_launcher package
+import 'video_player_screen.dart'; // Import the video player screen
 
 class WorkshopPage extends StatelessWidget {
   const WorkshopPage({super.key});
-
-  // Function to launch a URL
-  Future<void> _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +42,8 @@ class WorkshopPage extends StatelessWidget {
                   context,
                   icon: Icons.compost,
                   title: '1. Composting at Home',
-                  description:
-                      'Learn how to turn kitchen waste into nutrient-rich compost.',
-                  url: 'https://youtu.be/iukbMVXIYKA?si=9ns6E0QdB2OuNZO_',
+                  description: 'Learn how to turn kitchen waste into compost.',
+                  videoPath: 'assets/ENVIRONMENT/videos/composting.mp4',
                   buttonText: 'Watch Composting Workshop',
                 ),
                 SizedBox(height: height * 0.02),
@@ -62,8 +52,8 @@ class WorkshopPage extends StatelessWidget {
                   icon: Icons.electrical_services,
                   title: '2. E-Waste Management',
                   description:
-                      'Understand the importance of recycling electronic waste.',
-                  url: 'https://youtu.be/MQLadfsvfLo?si=lb0yGy8_oYrjvAXf',
+                      'Understand the importance of recycling e-waste.',
+                  videoPath: 'assets/ENVIRONMENT/videos/e_waste.mp4',
                   buttonText: 'Watch E-Waste Workshop',
                 ),
                 SizedBox(height: height * 0.02),
@@ -71,19 +61,17 @@ class WorkshopPage extends StatelessWidget {
                   context,
                   icon: Icons.delete,
                   title: '3. Wet & Dry Waste Segregation',
-                  description:
-                      'Learn how to properly segregate wet and dry waste.',
-                  url: 'https://youtu.be/A8udcpxDLtc?si=tpz05tNwBj3JCIvI',
-                  buttonText: 'Watch Wet & Dry Waste Workshop',
+                  description: 'Learn proper waste segregation techniques.',
+                  videoPath: 'assets/ENVIRONMENT/videos/waste_segregation.mp4',
+                  buttonText: 'Watch Waste Segregation Workshop',
                 ),
                 SizedBox(height: height * 0.02),
                 _buildWorkshopCard(
                   context,
                   icon: Icons.female,
                   title: '4. Sanitary Pad Disposal (For Girl Child)',
-                  description:
-                      'Safe and eco-friendly disposal methods for sanitary pads.',
-                  url: 'https://youtu.be/ShcRkeSv8w4?si=YahDqGra1o_ji1Px',
+                  description: 'Safe and eco-friendly disposal methods.',
+                  videoPath: 'assets/ENVIRONMNENT/videos/sanitary_pad.mp4',
                   buttonText: 'Watch Sanitary Pad Disposal Workshop',
                 ),
               ],
@@ -94,13 +82,12 @@ class WorkshopPage extends StatelessWidget {
     );
   }
 
-  // Helper function to build a workshop card
   Widget _buildWorkshopCard(
     BuildContext context, {
     required IconData icon,
     required String title,
     required String description,
-    required String url,
+    required String videoPath,
     required String buttonText,
   }) {
     double width = MediaQuery.of(context).size.width;
@@ -141,7 +128,13 @@ class WorkshopPage extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  _launchURL(url);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          VideoPlayerScreen(videoPath: videoPath),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'organize_challenge_page.dart';
 
 class CarbonFootprintPage extends StatefulWidget {
   const CarbonFootprintPage({super.key});
@@ -269,27 +268,6 @@ class _CarbonFootprintPageState extends State<CarbonFootprintPage> {
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const OrganizeChallengePage(),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 16,
-                ),
-              ),
-              child: const Text(
-                'आव्हान आयोजित करा',
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
           ],
         ),
       ),

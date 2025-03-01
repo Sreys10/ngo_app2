@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage>
               ),
               centerTitle: true,
               title: const Text(
-                "अवाली ॲप",
+                "अवली ॲप",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   letterSpacing: 2.0,
